@@ -12,8 +12,6 @@ enum TipoClasse {EXECUTIVA, NEGOCIO, TURISTICA}
 
 enum Genero {MASCULINO, FEMININO}
 
-enum Idade {18, 22}
-
 -------------------------------------------------------------------------------------------------
 class Voo
 	attributes
@@ -210,7 +208,6 @@ end --Aeroporto
 class Terminal < Aeroporto
 	attributes 
 		nomeTerminal: String
-		designTerminal: String
 		
 	operations
 		inicializa(nomeTerminal: String)
