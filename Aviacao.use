@@ -208,6 +208,7 @@ end --Aeroporto
 class Terminal < Aeroporto
 	attributes 
 		nomeTerminal: String
+		designTerminal: String
 		
 	operations
 		inicializa(nomeTerminal: String)
