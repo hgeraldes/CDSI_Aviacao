@@ -1,0 +1,101 @@
+reset
+
+!new CalendarDate('data1')
+!data1.init(25, 4, 2019)
+
+!new CalendarDate('data2')
+!data2.init(14, 5, 2019)
+
+!new CalendarDate('dataCartao')
+!dataCartao.init(23, 12, 2019)
+
+!new Pais('PT')
+!PT.lingua := 'Português'
+!PT.moeda_oficial := 'Euro'
+!PT.nome := 'Portugal'
+!PT.delta_GMT := 0
+
+!new Cidade('Lisboa')
+!Lisboa.nome := 'Lisboa'
+!insert (PT,Lisboa) into Pais_Cidade
+
+!new Aeroporto('LIS')
+!LIS.nome := 'Portela'
+!LIS_Lisboa := new Proximidade('LIS_Lisboa') between (LIS,Lisboa)
+!LIS_Lisboa.distancia := 2
+
+!new Pais('USA')
+!USA.lingua := 'Inglês'
+!USA.moeda_oficial := 'Dólar'
+!USA.nome := 'EUA'
+!USA.delta_GMT := -5
+
+!new Cidade('NewYork')
+!NewYork.nome := 'Nova Iorque'
+!insert (USA,NewYork) into Pais_Cidade
+
+!new Aeroporto('JFK')
+!JFK.nome := 'John F. Kennedy'
+!JFK_NewYork := new Proximidade('JFK_NewYork') between (JFK,NewYork)
+!JFK_NewYork.distancia := 12
+
+!new Instant('partida')
+!partida.init(8, 15, 0)
+
+!new Instant('chegada')
+!chegada.init(13, 45, 0)
+
+!new Voo('TP127')
+!TP127.inicializa('TAP 127', partida, chegada, 5000, LIS, JFK)
+
+
+!r1 := new Realizacao between (TP127,data1)
+!r2 := new Realizacao between (TP127,data2)
+	
+!new Individual('Joao')
+!Joao.morada := 'Rua Larga, 23'
+!Joao.nome := 'João Paulo Marques Gomes'
+!Joao.genero:= Genero::MASCULINO
+!Joao.n_passaporte := 343455443
+!Joao.telefone_movel := 912345678
+!Joao.email := 'jgomesgmail.com'
+!insert (PT,Joao) into Pais_Individual
+
+!new Individual('Marisa')
+!Marisa.nome := 'Marisa Monteiro Alves Gomes'
+!Marisa.genero:= Genero::FEMININO
+!Marisa.morada := 'Rua Larga, 23, Queluz'
+!Marisa.n_contribuinte := 160626774
+!Marisa.n_passaporte := 343455444
+!Marisa.telefone_movel := 912232423
+!Marisa.email := 'mgomesyahoo.com'
+!insert (PT,Marisa) into Pais_Individual
+
+!new Bilhete('bilheteA')
+!bilheteA.primeiro_nome := 'João'
+!bilheteA.ultimo_nome := 'Gomes'
+!bilheteA.lugar := 10
+
+!new Bilhete('bilheteB')
+!bilheteB.primeiro_nome := 'Marisa'
+!bilheteB.ultimo_nome := 'Gomes'
+!bilheteB.lugar := 11
+
+
+!insert (r1,bilheteA) into Realizacao_Bilhete
+!insert (r1,bilheteB) into Realizacao_Bilhete
+
+!new Classe('Classe1')
+!new Classe('Classe2')
+!new Classe('Classe3')
+!Classe1.tipo := TipoClasse::TURISTICA
+!Classe2.tipo := TipoClasse::NEGOCIO
+!Classe3.tipo := TipoClasse::EXECUTIVA
+!insert (Classe1,bilheteA) into Classe_Bilhete
+!insert (Classe3,bilheteB) into Classe_Bilhete
+
+!new Empresa('ecosoft')
+!ecosoft.morada := 'Rua Castilho 23, 3º´, Lisboa'
+!ecosoft.nome := 'Ecosoft Lda'
+!ecosoft.website := 'http://www.ecosoft.pt'
+

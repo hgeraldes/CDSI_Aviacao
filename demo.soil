@@ -1,0 +1,68 @@
+
+reset
+
+-----------------------------------------------
+-- CENÁRIO DE GESTÃO COMERCIAL
+-----------------------------------------------
+
+-- Este cenário ocorre em três datas
+
+!new CalendarDate('hoje')
+!new CalendarDate('amanha')
+!new CalendarDate('depois')
+
+!hoje.init(30,4,2019)
+!amanha.init(1,5,2019)
+!depois.init(2,5,2019)
+
+-----------------------------------------------------------------------
+-- O voo TAP007 terá uma realização no dia de hoje, usando o avião "Amália", um Boeing 787
+
+!new Aviao('a')
+!a.inicializa('Amalia', 'Boeing 787')
+
+!new Voo('v1')
+!v1.numero := 'TAP007'
+
+!r1:= v1.criarRealizacao(hoje, a)
+--!v1.apagarRealizacao(hoje)
+-----------------------------------------------------------------------
+-- Foi feita uma reserva de três bilhetes em classe turistica para três investigadores do ISCTE para a realização de hoje do voo TAP007
+
+!new Empresa('ISCTE')
+!ISCTE.inicializa(1234, 'ISCTE-IUL', 501510184, 'Av. das Forcas Armadas, Lx')
+
+!reservaISCTE:= ISCTE.efetuarReserva(oclUndefined(CartaoCredito))
+
+!new Classe('classeTuristica')
+!classeTuristica.tipo:= TipoClasse::TURISTICA
+
+!reservaISCTE.emitirBilhete(r1, 'Rui', 'Dias', classeTuristica, 54)
+!reservaISCTE.emitirBilhete(r1, 'Rita', 'Peixoto', classeTuristica, 55)
+!reservaISCTE.emitirBilhete(r1, 'Joao', 'Virtudes', classeTuristica, 56)
+
+-----------------------------------------------------------------------
+-- O voo TAP007 terá uma nova realização no dia de amanhã, usando o avião "Eusébio", um Airbus A320
+
+!new Aviao('b')
+!b.inicializa('Eusebio', 'Airbus A320')
+
+!r2:= v1.criarRealizacao(amanha, b)
+
+-----------------------------------------------------------------------
+-- A realização de hoje do voo TAP007 teve de ser cancelada porque o "Amália" teve uma avaria.
+-- Os bilhetes desta realização são transferidos para a nova realização do voo TAP007 a decorrer amanhã.
+
+!v1.cancelarRealizacao(hoje, r2)
+
+-----------------------------------------------------------------------
+-- Amanhã é dia 1 de Maio e os controlodores de tráfego aéreo convocam uma greve de surpresa, pelo que a realização desse dia foi cancelada também.
+-- Entretanto a avaria do "Amália" foi consertada e os bilhetes são transferidos para uma nova realização do TAP007 a decorrer depois de amanhã.
+
+!v1.cancelarRealizacao2(amanha, depois, a)
+
+-----------------------------------------------------------------------
+-- Foi anunciado um atentado bombista na cidade de destino do voo TAP007. Como a reserva ainda estava pendente de pagamento,
+-- o ISCTE mandou cancelar a reserva para não pôr em risco a vida dos seus investigadores.
+
+!ISCTE.desistirReserva(reservaISCTE, hoje)
