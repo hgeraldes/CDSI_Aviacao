@@ -12,6 +12,8 @@ enum TipoClasse {EXECUTIVA, NEGOCIO, TURISTICA}
 
 enum Genero {MASCULINO, FEMININO}
 
+enum Idade {18, 22}
+
 -------------------------------------------------------------------------------------------------
 class Voo
 	attributes
