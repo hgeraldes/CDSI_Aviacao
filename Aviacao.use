@@ -3,15 +3,29 @@
 model Aviacao
 
 --------------------------------------------------------------
--- Domain types
+-- Initial Domain types
 --------------------------------------------------------------
-
 enum EstadoPagamento {PENDENTE, EFETUADO}
 
 enum TipoClasse {EXECUTIVA, NEGOCIO, TURISTICA}
 
 enum Genero {MASCULINO, FEMININO}
 
+--------------------------------------------------------------
+-- BEGIN Custom Domain types
+--------------------------------------------------------------
+enum EstadoPista {ABERTA, FECHADA}
+
+enum EstadoTerminal {ABERTO, ENCERRADO}
+
+enum EstadoPorta {ABERTA, FECHADA}
+
+--------------------------------------------------------------
+-- END Custom Domain types
+--------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------
+--	Initial classes
 -------------------------------------------------------------------------------------------------
 class Voo
 	attributes
@@ -203,19 +217,6 @@ class Aeroporto
 				not r1.realiza_se.hora_chegada.isEqual(r2.realiza_se.hora_chegada))
 
 end --Aeroporto
-
--------------------------------------------------------------------------------------------------	
-class Terminal < Aeroporto
-	attributes 
-		nomeTerminal: String
-		
-	operations
-		inicializa(nomeTerminal: String)
-			begin
-				self.nomeTerminal:= nomeTerminal;
-			end
-		
-end --Terminal
 
 -------------------------------------------------------------------------------------------------	
 class Cidade
@@ -655,14 +656,45 @@ associationclass Proximidade
 
 end --Proximidade
 
---------------------------------------------------------------
--- Associations
---------------------------------------------------------------
-composition Aeroporto_Terminal between 
-	Aeroporto [1]
-	Terminal [*] role terminais
-end
 
+-------------------------------------------------------------------------------------------------
+-- BEGIN New custom classes
+-------------------------------------------------------------------------------------------------	
+class Pista < Aeroporto
+	attributes 
+		nomePista: String
+		estado: EstadoPista
+		
+	operations
+		inicializa(nomePista: String, estado: EstadoPista)
+			begin
+				self.nomePista:= nomePista;
+				self.estado:= estado;
+			end
+		
+end --Pista
+-------------------------------------------------------------------------------------------------	
+class Terminal < Aeroporto
+	attributes 
+		nomeTerminal: String
+		estado: EstadoTerminal
+		
+	operations
+		inicializa(nomeTerminal: String, estado: EstadoTerminal)
+			begin
+				self.nomeTerminal:= nomeTerminal;
+				self.estado:= estado;
+			end
+		
+end --Terminal
+
+-------------------------------------------------------------------------------------------------
+-- END New custom classes
+-------------------------------------------------------------------------------------------------	
+
+--------------------------------------------------------------
+-- Initial Associations
+--------------------------------------------------------------
 association Aeroporto_VoosPartida between 
 	Aeroporto [1] role partida
 	Voo [*] role voos_partida ordered
@@ -717,6 +749,23 @@ association Aviao_Realizacao between
 	Aviao [1]
 	Realizacao [*] role realizacoes ordered
 end
+
+--------------------------------------------------------------
+-- BEGIN New custom Associations
+--------------------------------------------------------------
+composition Aeroporto_Pista between 
+	Aeroporto [1] role pista
+	Pista [1..*] role pistas
+end
+
+composition Aeroporto_Terminal between 
+	Aeroporto [1] role terminal
+	Terminal [1..*] role terminais
+end
+
+--------------------------------------------------------------
+-- END New custom Associations
+--------------------------------------------------------------
 
 
 --------------------------------------------------------------
