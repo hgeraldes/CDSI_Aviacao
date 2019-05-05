@@ -688,6 +688,15 @@ class Terminal < Aeroporto
 		
 end --Terminal
 
+class Porta < Terminal
+	attributes 
+		nomePorta: String
+		estadoPorta: EstadoPorta
+		
+
+		
+end --Porta
+
 -------------------------------------------------------------------------------------------------
 -- END New custom classes
 -------------------------------------------------------------------------------------------------	
@@ -761,6 +770,11 @@ end
 composition Aeroporto_Terminal between 
 	Aeroporto [1] role terminal
 	Terminal [1..*] role terminais
+end
+
+composition Terminal_Porta between 
+	Terminal [1] role porta
+	Porta [1..*] role portas
 end
 
 --------------------------------------------------------------
