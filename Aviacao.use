@@ -697,6 +697,34 @@ class Porta < Terminal
 		
 end --Porta
 
+class Consumivel
+	attributes 
+		codigoConsumivel: String
+		nomeConsumivel: String
+
+		end --Consumivel
+
+class Peca
+	attributes 
+		codigoPeca: String
+		nomePeca: String
+		
+end --Peca
+
+class Motor
+	attributes 
+		codigoMotor: String
+		nomeMotor: String
+		
+end --Motor
+
+class ProgramaRevisao
+	attributes 
+		numeroRevisao: Integer
+		
+end --ProgramaRevisao
+
+
 -------------------------------------------------------------------------------------------------
 -- END New custom classes
 -------------------------------------------------------------------------------------------------	
