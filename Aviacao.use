@@ -673,6 +673,7 @@ class Pista < Aeroporto
 			end
 		
 end --Pista
+
 -------------------------------------------------------------------------------------------------	
 class Terminal < Aeroporto
 	attributes 
@@ -688,6 +689,7 @@ class Terminal < Aeroporto
 		
 end --Terminal
 
+-------------------------------------------------------------------------------------------------	
 class Porta < Terminal
 	attributes 
 		nomePorta: String
@@ -709,6 +711,18 @@ class Peca
 		codigoPeca: String
 		nomePeca: String
 		
+-------------------------------------------------------------------------------------------------	
+class Manga < Porta
+	attributes 
+		existe: Boolean
+end --Manga
+
+-------------------------------------------------------------------------------------------------	
+class Autocarro < Porta
+	attributes 
+		n_autocarro: Integer
+end --Manga
+
 end --Peca
 
 class Motor
