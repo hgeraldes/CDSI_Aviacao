@@ -741,6 +741,35 @@ class ProgramaRevisao
 		
 end --ProgramaRevisao
 
+-------------------------------------------------------------------------------------------------
+class Tripulacao
+	attributes
+		numeroAssistentesBordo: Integer
+		
+end --Tripulacao
+
+-------------------------------------------------------------------------------------------------
+class Catering
+	attributes
+		nomeEmpresa: String
+		
+end --Catering
+
+-------------------------------------------------------------------------------------------------
+class Limpeza
+	attributes
+		nomeEmpresa: String
+		
+end --Limpeza		
+
+-------------------------------------------------------------------------------------------------
+class EquipaOperacional
+	attributes
+		tripulacao: Tripulacao
+		catering: Catering
+		limpeza: Limpeza
+		
+end --EquipaOperacional		
 
 -------------------------------------------------------------------------------------------------
 -- END New custom classes
