@@ -812,17 +812,17 @@ class EquipaOperacional
 				insert (self, origem) into Voo_EquipaOperacional;
 			end
 			
-		alterarNumeroAssistentesBordo(novoNumero: Integer)
+		setNumeroAssistentesBordo(novoNumero: Integer)
 			begin
 				self.tripulacao.numeroAssistentesBordo:= novoNumero;
 			end
 			
-		alterarEmpresaCatering(novaEmpresa: String)
+		setEmpresaCatering(novaEmpresa: String)
 			begin
 				self.catering.nomeEmpresa:= novaEmpresa;
 			end
 		
-		alterarEmpresaLimpeza(novaEmpresa: String)
+		setEmpresaLimpeza(novaEmpresa: String)
 			begin
 				self.limpeza.nomeEmpresa:= novaEmpresa;
 			end
