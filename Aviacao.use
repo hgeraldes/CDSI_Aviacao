@@ -833,6 +833,11 @@ association Aviao_Realizacao between
 	Realizacao [*] role realizacoes ordered
 end
 
+association Voo_EquipaOperacional between
+	EquipaOperacional [1]
+	Voo [*]
+end	
+
 --------------------------------------------------------------
 -- BEGIN New custom Associations
 --------------------------------------------------------------
