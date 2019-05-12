@@ -20,6 +20,10 @@ enum EstadoTerminal {ABERTO, ENCERRADO}
 
 enum EstadoPorta {ABERTA, FECHADA}
 
+enum EstadoRevisao {PROGRAMADO, CONFIRMADO, EXECUCAO, CONCLUIDO}
+
+enum TipoRecursoManutencao {TECNICO, MOTOR, PECA, CONSUMIVEL}
+
 --------------------------------------------------------------
 -- END Custom Domain types
 --------------------------------------------------------------
@@ -743,30 +747,32 @@ end --PainelInfoPorta
 
 -------------------------------------------------------------------------------------------------	
 class Consumivel
+class ProgramaRevisao
 	attributes 
-		codigoConsumivel: String
-		nomeConsumivel: String
+		numero: Integer
+		data: CalendarDate
+		hora: Instant
+		execucao: EstadoRevisao init = EstadoRevisao::PROGRAMADO
+		
+end --ProgramaRevisao
 end --Consumivel
 
 -------------------------------------------------------------------------------------------------	
-class Peca
-	attributes 
-		codigoPeca: String
-		nomePeca: String
-end --Peca
+class LinhaPR
+	attributes
+		numero: Integer
+		quantidade: Integer
+end --LinhaPR
 
 -------------------------------------------------------------------------------------------------	
-class Motor
+class RecursoManutencao
 	attributes 
-		codigoMotor: String
-		nomeMotor: String
-end --Motor
-
--------------------------------------------------------------------------------------------------	
-class ProgramaRevisao
-	attributes 
-		numeroRevisao: Integer
-end --ProgramaRevisao
+		tipo: TipoRecursoManutencao
+		codigo: String
+		nome: String
+		unidade: String
+		custoUnitario: Real
+end --RecursoManutencao
 
 -------------------------------------------------------------------------------------------------
 class Tripulacao
@@ -896,6 +902,21 @@ end
 association Porta_PainelInfoPorta between 
 	Porta [1]
 	PainelInfoPorta [*] role infoPorta
+end
+
+composition Programa_Linha between 
+	ProgramaRevisao [1] role programa
+	LinhaPR [*] role linhas
+end
+
+association Linha_Recurso between 
+	RecursoManutencao [1] role recurso
+	LinhaPR [*] role linha
+end
+
+association Programa_Aviao between 
+	Aviao [1] role aviao
+	ProgramaRevisao [*] role programa
 end
 
 --------------------------------------------------------------
