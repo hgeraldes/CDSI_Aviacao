@@ -671,7 +671,6 @@ class Pista
 				self.nomePista:= nomePista;
 				self.estado:= estado;
 			end
-		
 end --Pista
 
 -------------------------------------------------------------------------------------------------	
@@ -686,7 +685,6 @@ class Terminal
 				self.nomeTerminal:= nomeTerminal;
 				self.estado:= estado;
 			end
-		
 end --Terminal
 
 -------------------------------------------------------------------------------------------------	
@@ -694,9 +692,6 @@ class Porta
 	attributes 
 		nomePorta: String
 		estadoPorta: EstadoPorta
-		
-
-		
 end --Porta
 
 -------------------------------------------------------------------------------------------------	
@@ -712,12 +707,29 @@ class Autocarro
 end --Autocarro
 
 -------------------------------------------------------------------------------------------------	
+class Seguranca
+	attributes 
+		grupo: String
+end --Seguranca
+
+-------------------------------------------------------------------------------------------------	
+class Bombeiros
+	attributes 
+		grupo: Integer
+end --Bombeiros
+
+-------------------------------------------------------------------------------------------------	
+abstract class Sinalizacao
+	attributes 
+		painelInfo: String
+end --Sinalizacao
+
+-------------------------------------------------------------------------------------------------	
 class Consumivel
 	attributes 
 		codigoConsumivel: String
 		nomeConsumivel: String
-
-		end --Consumivel
+end --Consumivel
 
 -------------------------------------------------------------------------------------------------	
 class Peca
@@ -731,14 +743,12 @@ class Motor
 	attributes 
 		codigoMotor: String
 		nomeMotor: String
-		
 end --Motor
 
 -------------------------------------------------------------------------------------------------	
 class ProgramaRevisao
 	attributes 
 		numeroRevisao: Integer
-		
 end --ProgramaRevisao
 
 -------------------------------------------------------------------------------------------------
