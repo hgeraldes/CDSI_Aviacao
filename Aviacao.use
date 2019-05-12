@@ -844,8 +844,8 @@ association Aviao_Realizacao between
 end
 
 association Voo_EquipaOperacional between
-	EquipaOperacional [1] ocorre_com
-	Voo [*] realiza_se
+	EquipaOperacional [1] role ocorre_com
+	Voo [*] role realiza_se
 end	
 
 --------------------------------------------------------------
