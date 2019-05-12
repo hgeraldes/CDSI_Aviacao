@@ -660,7 +660,7 @@ end --Proximidade
 -------------------------------------------------------------------------------------------------
 -- BEGIN New custom classes
 -------------------------------------------------------------------------------------------------	
-class Pista < Aeroporto
+class Pista
 	attributes 
 		nomePista: String
 		estado: EstadoPista
@@ -675,7 +675,7 @@ class Pista < Aeroporto
 end --Pista
 
 -------------------------------------------------------------------------------------------------	
-class Terminal < Aeroporto
+class Terminal
 	attributes 
 		nomeTerminal: String
 		estado: EstadoTerminal
@@ -690,7 +690,7 @@ class Terminal < Aeroporto
 end --Terminal
 
 -------------------------------------------------------------------------------------------------	
-class Porta < Terminal
+class Porta
 	attributes 
 		nomePorta: String
 		estadoPorta: EstadoPorta
@@ -808,12 +808,12 @@ end
 -- BEGIN New custom Associations
 --------------------------------------------------------------
 composition Aeroporto_Pista between 
-	Aeroporto [1] role pista
+	Aeroporto [1] role aeroportoPistas
 	Pista [1..*] role pistas
 end
 
 composition Aeroporto_Terminal between 
-	Aeroporto [1] role terminal
+	Aeroporto [1] role aeroportoTerminais
 	Terminal [1..*] role terminais
 end
 
