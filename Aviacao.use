@@ -860,11 +860,6 @@ association Aviao_Realizacao between
 	Realizacao [*] role realizacoes ordered
 end
 
-association Voo_EquipaOperacional between
-	EquipaOperacional [1] role ocorre_com
-	Voo [*] role realiza_se
-end	
-
 --------------------------------------------------------------
 -- BEGIN New custom Associations
 --------------------------------------------------------------
@@ -881,6 +876,26 @@ end
 composition Terminal_Porta between 
 	Terminal [1] role porta
 	Porta [1..*] role portas
+end
+
+association Voo_EquipaOperacional between
+	EquipaOperacional [1] role ocorre_com
+	Voo [*] role realiza_se
+end	
+
+association Pista_PainelInfoPista between 
+	Pista [1]
+	PainelInfoPista [*] role infoPista
+end
+
+association Terminal_InfoTerminal between 
+	Terminal [1]
+	PainelInfoTerminal [*] role infoTerminal
+end
+
+association Porta_PainelInfoPorta between 
+	Porta [1]
+	PainelInfoPorta [*] role infoPorta
 end
 
 --------------------------------------------------------------
