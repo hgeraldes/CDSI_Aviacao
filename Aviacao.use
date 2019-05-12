@@ -746,7 +746,6 @@ class PainelInfoPorta < Sinalizacao
 end --PainelInfoPorta
 
 -------------------------------------------------------------------------------------------------	
-class Consumivel
 class ProgramaRevisao
 	attributes 
 		numero: Integer
@@ -755,7 +754,6 @@ class ProgramaRevisao
 		execucao: EstadoRevisao init = EstadoRevisao::PROGRAMADO
 		
 end --ProgramaRevisao
-end --Consumivel
 
 -------------------------------------------------------------------------------------------------	
 class LinhaPR
