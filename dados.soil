@@ -99,3 +99,18 @@ reset
 !ecosoft.nome := 'Ecosoft Lda'
 !ecosoft.website := 'http://www.ecosoft.pt'
 
+!new Tripulacao('Tap')
+!Tap.numeroAssistentesBordo := 3
+
+!new Catering('Gertal')
+!Gertal.nomeEmpresa := 'Gertal'
+
+!new Limpeza('Eulen')
+!Eulen.nomeEmpresa := 'Eulen'
+
+!new EquipaOperacional('TurnoDois')
+!TurnoDois.tripulacao := Tap
+!TurnoDois.catering := Gertal
+!TurnoDois.limpeza := Eulen
+
+
