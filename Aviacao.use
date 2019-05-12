@@ -727,13 +727,19 @@ end --Sinalizacao
 class PainelInfoTerminal < Sinalizacao 
 	attributes
 		painelInfo: EstadoTerminal
-end --Empresa
+end --PainelInfoTerminal
 
 -------------------------------------------------------------------------------------------------	
-class PainelInfoPasta < Sinalizacao 
+class PainelInfoPista < Sinalizacao 
 	attributes
 		painelInfo: EstadoPista
-end --Empresa
+end --PainelInfoPista
+
+-------------------------------------------------------------------------------------------------	
+class PainelInfoPorta < Sinalizacao 
+	attributes
+		painelInfo: EstadoPorta
+end --PainelInfoPorta
 
 -------------------------------------------------------------------------------------------------	
 class Consumivel
