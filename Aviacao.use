@@ -699,6 +699,19 @@ class Porta < Terminal
 		
 end --Porta
 
+-------------------------------------------------------------------------------------------------	
+class Manga
+	attributes 
+		existe: Boolean
+end --Manga
+
+-------------------------------------------------------------------------------------------------	
+class Autocarro
+	attributes 
+		n_autocarro: Integer
+end --Autocarro
+
+-------------------------------------------------------------------------------------------------	
 class Consumivel
 	attributes 
 		codigoConsumivel: String
@@ -706,25 +719,14 @@ class Consumivel
 
 		end --Consumivel
 
+-------------------------------------------------------------------------------------------------	
 class Peca
 	attributes 
 		codigoPeca: String
 		nomePeca: String
-		
--------------------------------------------------------------------------------------------------	
-class Manga < Porta
-	attributes 
-		existe: Boolean
-end --Manga
-
--------------------------------------------------------------------------------------------------	
-class Autocarro < Porta
-	attributes 
-		n_autocarro: Integer
-end --Manga
-
 end --Peca
 
+-------------------------------------------------------------------------------------------------	
 class Motor
 	attributes 
 		codigoMotor: String
@@ -732,6 +734,7 @@ class Motor
 		
 end --Motor
 
+-------------------------------------------------------------------------------------------------	
 class ProgramaRevisao
 	attributes 
 		numeroRevisao: Integer
