@@ -14,7 +14,7 @@ enum Genero {MASCULINO, FEMININO}
 --------------------------------------------------------------
 -- BEGIN Custom Domain types
 --------------------------------------------------------------
-enum EstadoPista {ABERTA, FECHADA}
+enum EstadoPista {ABERTA, FECHADA, ATERRAGEM, DESCOLAGEM}
 
 enum EstadoTerminal {ABERTO, ENCERRADO}
 
