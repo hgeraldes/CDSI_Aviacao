@@ -800,6 +800,18 @@ class EquipaOperacional
 		catering: Catering
 		limpeza: Limpeza
 		
+		operations
+		/************************************************************
+		* 
+		*************************************************************/
+		inicializa(tripulacao: Tripulacao, catering: Catering, limpeza: Limpeza, origem: Voo)
+			begin
+				self.tripulacao:= tripulacao;
+				self.catering:= catering;
+				self.limpeza:= limpeza;
+				insert (self, origem) into Voo_EquipaOperacional;
+			end
+		
 end --EquipaOperacional		
 
 -------------------------------------------------------------------------------------------------

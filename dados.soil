@@ -112,5 +112,6 @@ reset
 !TurnoDois.tripulacao := Tap
 !TurnoDois.catering := Gertal
 !TurnoDois.limpeza := Eulen
+!TurnoDois.inicializa(Tap, Gertal, Eulen, TP127)
 
 
