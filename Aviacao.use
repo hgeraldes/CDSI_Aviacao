@@ -720,9 +720,20 @@ end --Bombeiros
 
 -------------------------------------------------------------------------------------------------	
 abstract class Sinalizacao
-	attributes 
-		painelInfo: String
+
 end --Sinalizacao
+
+-------------------------------------------------------------------------------------------------	
+class PainelInfoTerminal < Sinalizacao 
+	attributes
+		painelInfo: EstadoTerminal
+end --Empresa
+
+-------------------------------------------------------------------------------------------------	
+class PainelInfoPasta < Sinalizacao 
+	attributes
+		painelInfo: EstadoPista
+end --Empresa
 
 -------------------------------------------------------------------------------------------------	
 class Consumivel
