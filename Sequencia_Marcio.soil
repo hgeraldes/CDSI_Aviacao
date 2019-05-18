@@ -1,0 +1,50 @@
+!new Tripulacao('T')
+!T.init(3)
+
+!new Catering('C')
+!C.init('Gertal')
+
+!new Limpeza('L')
+!L.init('Eulen')
+
+!new Instant('partida')
+!partida.init(8, 15, 0)
+
+!new Instant('chegada')
+!chegada.init(13, 45, 0)
+
+!new Pais('PT')
+!PT.lingua := 'Português'
+!PT.moeda_oficial := 'Euro'
+!PT.nome := 'Portugal'
+!PT.delta_GMT := 0
+
+!new Pais('USA')
+!USA.lingua := 'Inglês'
+!USA.moeda_oficial := 'Dólar'
+!USA.nome := 'EUA'
+!USA.delta_GMT := -5
+
+!new Cidade('Lisboa')
+!Lisboa.nome := 'Lisboa'
+!insert (PT,Lisboa) into Pais_Cidade
+
+!new Cidade('NewYork')
+!NewYork.nome := 'Nova Iorque'
+!insert (USA,NewYork) into Pais_Cidade
+
+!new Aeroporto('LIS')
+!LIS.nome := 'Portela'
+!LIS_Lisboa := new Proximidade('LIS_Lisboa') between (LIS,Lisboa)
+!LIS_Lisboa.distancia := 2
+
+!new Aeroporto('JFK')
+!JFK.nome := 'John F. Kennedy'
+!JFK_NewYork := new Proximidade('JFK_NewYork') between (JFK,NewYork)
+!JFK_NewYork.distancia := 12
+
+!new Voo('TP127')
+!TP127.inicializa('TAP 127', partida, chegada, 5000, LIS, JFK)
+
+!new EquipaOperacional('EA')
+!EA.inicializa(T,C,L,TP127)

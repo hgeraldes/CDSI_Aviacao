@@ -777,6 +777,12 @@ class Tripulacao
 	attributes
 		numeroAssistentesBordo: Integer
 		
+	operations
+		init(numeroAssistentesBordo: Integer)
+			begin
+				self.numeroAssistentesBordo:= numeroAssistentesBordo;
+			end
+		
 end --Tripulacao
 
 -------------------------------------------------------------------------------------------------
@@ -784,12 +790,24 @@ class Catering
 	attributes
 		nomeEmpresa: String
 		
+	operations
+		init(nomeEmpresa: String)
+			begin
+				self.nomeEmpresa:= nomeEmpresa;
+			end
+		
 end --Catering
 
 -------------------------------------------------------------------------------------------------
 class Limpeza
 	attributes
 		nomeEmpresa: String
+		
+	operations
+		init(nomeEmpresa: String)
+			begin
+				self.nomeEmpresa:= nomeEmpresa;
+			end
 		
 end --Limpeza		
 
@@ -804,7 +822,7 @@ class EquipaOperacional
 		/************************************************************
 		* 
 		*************************************************************/
-		inicializa(tripulacao: Tripulacao, catering: Catering, limpeza: Limpeza, origem: Voo)
+		init(tripulacao: Tripulacao, catering: Catering, limpeza: Limpeza, origem: Voo)
 			begin
 				self.tripulacao:= tripulacao;
 				self.catering:= catering;
