@@ -48,3 +48,7 @@
 
 !new EquipaOperacional('EA')
 !EA.inicializa(T,C,L,TP127)
+
+!EA.setNumeroAssistentesBordo(5)
+!EA.setEmpresaCatering('SinalMais')
+!EA.setEmpresaLimpeza('MissMaid')
