@@ -47,7 +47,7 @@
 !TP127.inicializa('TAP 127', partida, chegada, 5000, LIS, JFK)
 
 !new EquipaOperacional('EA')
-!EA.inicializa(T,C,L,TP127)
+!EA.init(T,C,L,TP127)
 
 !EA.setNumeroAssistentesBordo(5)
 !EA.setEmpresaCatering('SinalMais')
