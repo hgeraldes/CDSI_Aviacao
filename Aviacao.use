@@ -855,19 +855,19 @@ class EquipaOperacional
 			
 			VAZIA	[tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
-			SEM_TRIPULACAO	  [tripulacao.numeroAssistentesBordo = 0 and <> catering.nomeEmpresa = 'Nenhuma' and <> limpeza.nomeEmpresa = 'Nenhuma']
+			SEM_TRIPULACAO	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa <> 'Nenhuma' and  limpeza.nomeEmpresa <> 'Nenhuma']
 
-			SEM_CATERING	[tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa = 'Nenhuma' and <> limpeza.nomeEmpresa = 'Nenhuma']
+			SEM_CATERING	[tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa = 'Nenhuma' and  limpeza.nomeEmpresa <> 'Nenhuma']
 			
-			SEM_LIMPEZA	  [tripulacao.numeroAssistentesBordo > 0 and <> catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
+			SEM_LIMPEZA	  [tripulacao.numeroAssistentesBordo > 0 and  catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
-			SEM_TRIPULACAO_CATERING	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa = 'Nenhuma' and <> limpeza.nomeEmpresa = 'Nenhuma']
+			SEM_TRIPULACAO_CATERING	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa <> 'Nenhuma']
 			
-			SEM_TRIPULACAO_LIMPEZA	  [tripulacao.numeroAssistentesBordo = 0 and <> catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
+			SEM_TRIPULACAO_LIMPEZA	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
 			SEM_CATERING_LIMPEZA	[tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
-			CONSTRUIDA	  [tripulacao.numeroAssistentesBordo > 0 and <> catering.nomeEmpresa = 'Nenhuma' and <> limpeza.nomeEmpresa = 'Nenhuma'] 
+			CONSTRUIDA	  [tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa <> 'Nenhuma'] 
 			
 	   transitions
 	   
