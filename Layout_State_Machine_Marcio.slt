@@ -35,11 +35,20 @@
         </node>
         <hidden>false</hidden>
     </node>
-    <node id="CONSTRUIDA" sizeCalculated="true" type="StateNode">
-        <name>CONSTRUIDA</name>
+    <node id="SEM_CATERING" sizeCalculated="true" type="StateNode">
+        <name>SEM_CATERING</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>855.1533384582317</x>
-            <y>354.4525231841302</y>
+            <x>824.1129235533975</x>
+            <y>234.0</y>
+        </strategy>
+        <showInvariant>true</showInvariant>
+        <hidden>false</hidden>
+    </node>
+    <node id="SEM_TRIPULACAO" sizeCalculated="true" type="StateNode">
+        <name>SEM_TRIPULACAO</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>807.8791518992648</x>
+            <y>16.1640625</y>
         </strategy>
         <showInvariant>true</showInvariant>
         <hidden>false</hidden>
@@ -47,8 +56,17 @@
     <node id="SEM_TRIPULACAO_LIMPEZA" sizeCalculated="true" type="StateNode">
         <name>SEM_TRIPULACAO_LIMPEZA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>204.0</x>
-            <y>135.1509668287116</y>
+            <x>252.0</x>
+            <y>141.1509668287116</y>
+        </strategy>
+        <showInvariant>true</showInvariant>
+        <hidden>false</hidden>
+    </node>
+    <node id="SEM_LIMPEZA" sizeCalculated="true" type="StateNode">
+        <name>SEM_LIMPEZA</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>838.3785348926149</x>
+            <y>122.03356593222838</y>
         </strategy>
         <showInvariant>true</showInvariant>
         <hidden>false</hidden>
@@ -56,8 +74,17 @@
     <node id="SEM_TRIPULACAO_CATERING" sizeCalculated="true" type="StateNode">
         <name>SEM_TRIPULACAO_CATERING</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>194.6161428132591</x>
-            <y>45.74484611675791</y>
+            <x>240.6161428132591</x>
+            <y>18.744846116757913</y>
+        </strategy>
+        <showInvariant>true</showInvariant>
+        <hidden>false</hidden>
+    </node>
+    <node id="SEM_CATERING_LIMPEZA" sizeCalculated="true" type="StateNode">
+        <name>SEM_CATERING_LIMPEZA</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>260.287872993557</x>
+            <y>245.07861323426664</y>
         </strategy>
         <showInvariant>true</showInvariant>
         <hidden>false</hidden>
@@ -71,38 +98,11 @@
         <showInvariant>true</showInvariant>
         <hidden>false</hidden>
     </node>
-    <node id="SEM_TRIPULACAO" sizeCalculated="true" type="StateNode">
-        <name>SEM_TRIPULACAO</name>
+    <node id="CONSTRUIDA" sizeCalculated="true" type="StateNode">
+        <name>CONSTRUIDA</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>712.8791518992648</x>
-            <y>46.1640625</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="SEM_LIMPEZA" sizeCalculated="true" type="StateNode">
-        <name>SEM_LIMPEZA</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>741.3785348926149</x>
-            <y>138.03356593222838</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="SEM_CATERING" sizeCalculated="true" type="StateNode">
-        <name>SEM_CATERING</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>729.1129235533975</x>
-            <y>228.0</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="SEM_CATERING_LIMPEZA" sizeCalculated="true" type="StateNode">
-        <name>SEM_CATERING_LIMPEZA</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>222.28787299355702</x>
-            <y>225.07861323426664</y>
+            <x>855.1533384582317</x>
+            <y>354.4525231841302</y>
         </strategy>
         <showInvariant>true</showInvariant>
         <hidden>false</hidden>
@@ -156,6 +156,71 @@
                         <related length="2">
                             <related0>transition::CONSTRUCAO::VAZIA::::WayPoint::0</related0>
                             <related1>transition::CONSTRUCAO::VAZIA::::WayPoint::1</related1>
+                        </related>
+                    </strategy>
+                    <hidden>false</hidden>
+                </edgeproperty>
+            </Transition>
+        </Transitions>
+    </edge>
+    <edge type="Transition">
+        <source>VAZIA</source>
+        <target>SEM_TRIPULACAO_CATERING</target>
+        <name>setEmpresaLimpeza(novaEmpresa : String)/</name>
+        <waypoints>
+            <edgeproperty
+                id="transition::VAZIA::SEM_TRIPULACAO_CATERING::::WayPoint::0"
+                sizeCalculated="true" type="WayPoint" userDefined="true" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
+                    <userOffsetX>132.0</userOffsetX>
+                    <userOffsetY>3.135742103288564</userOffsetY>
+                    <basisDeltaX>ABSOLUTE</basisDeltaX>
+                    <deltaX>0.0</deltaX>
+                    <maxDeltaX>1.7976931348623157E308</maxDeltaX>
+                    <basisDeltaY>ABSOLUTE</basisDeltaY>
+                    <deltaY>0.0</deltaY>
+                    <maxDeltaY>1.7976931348623157E308</maxDeltaY>
+                    <corner>NORTH_WEST</corner>
+                    <relativeNodeId>VAZIA</relativeNodeId>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="transition::VAZIA::SEM_TRIPULACAO_CATERING::::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <Transitions>
+            <Transition>
+                <trigger>setEmpresaLimpeza(novaEmpresa : String)</trigger>
+                <guard/>
+                <post/>
+                <edgeproperty
+                    id="setEmpresaLimpeza(novaEmpresa : String)/"
+                    sizeCalculated="true" type="TransitionLabel"
+                    userDefined="true" visible="true">
+                    <name>setEmpresaLimpeza(novaEmpresa : String)/</name>
+                    <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                        <userOffsetX>61.0</userOffsetX>
+                        <userOffsetY>5.0</userOffsetY>
+                        <offsetX>0.0</offsetX>
+                        <offsetY>10.0</offsetY>
+                        <related length="2">
+                            <related0>transition::VAZIA::SEM_TRIPULACAO_CATERING::::WayPoint::0</related0>
+                            <related1>transition::VAZIA::SEM_TRIPULACAO_CATERING::::WayPoint::1</related1>
                         </related>
                     </strategy>
                     <hidden>false</hidden>

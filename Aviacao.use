@@ -872,6 +872,9 @@ class EquipaOperacional
 	   transitions
 	   
 			CONSTRUCAO -> VAZIA	   { create }
+			VAZIA -> SEM_TRIPULACAO_CATERING { setEmpresaLimpeza() }
+			VAZIA -> SEM_TRIPULACAO_LIMPEZA { setEmpresaCatering() }
+			VAZIA -> SEM_CATERING_LIMPEZA { setNumeroAssistentesBordo() }
 			
 	 end -- of psm Usage
 	 
