@@ -851,27 +851,27 @@ class EquipaOperacional
 	 
 	   states
 	   
-			CONSTRUÇÃO:initial
+			CONSTRUCAO:initial
 			
 			VAZIA	[tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
-			SEM_TRIPULAÇÃO	  [tripulacao.numeroAssistentesBordo = 0 and not catering.nomeEmpresa = 'Nenhuma' and not limpeza.nomeEmpresa = 'Nenhuma']
+			SEM_TRIPULACAO	  [tripulacao.numeroAssistentesBordo = 0 and not catering.nomeEmpresa = 'Nenhuma' and not limpeza.nomeEmpresa = 'Nenhuma']
 
 			SEM_CATERING	[tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa = 'Nenhuma' and not limpeza.nomeEmpresa = 'Nenhuma']
 			
 			SEM_LIMPEZA	  [tripulacao.numeroAssistentesBordo > 0 and not catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
-			SEM_TRIPULAÇÃO_CATERING	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa = 'Nenhuma' and not limpeza.nomeEmpresa = 'Nenhuma']
+			SEM_TRIPULACAO_CATERING	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa = 'Nenhuma' and not limpeza.nomeEmpresa = 'Nenhuma']
 			
-			SEM_TRIPULAÇÃO_LIMPEZA	  [tripulacao.numeroAssistentesBordo = 0 and not catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
+			SEM_TRIPULACAO_LIMPEZA	  [tripulacao.numeroAssistentesBordo = 0 and not catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
 			SEM_CATERING_LIMPEZA	[tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
-			CONSTRUÍDA	  [tripulacao.numeroAssistentesBordo > 0 and not catering.nomeEmpresa = 'Nenhuma' and not limpeza.nomeEmpresa = 'Nenhuma'] 
+			CONSTRUIDA	  [tripulacao.numeroAssistentesBordo > 0 and not catering.nomeEmpresa = 'Nenhuma' and not limpeza.nomeEmpresa = 'Nenhuma'] 
 			
 	   transitions
 	   
-			CONSTRUÇÃO -> VAZIA	   { create }
+			CONSTRUCAO -> VAZIA	   { create }
 			
 	 end -- of psm Usage
 	 
