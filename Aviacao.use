@@ -775,7 +775,7 @@ end --RecursoManutencao
 -------------------------------------------------------------------------------------------------
 class Tripulacao
 	attributes
-		numeroAssistentesBordo: Integer
+		numeroAssistentesBordo: Integer init = 0
 		
 	operations
 		init(numeroAssistentesBordo: Integer)
@@ -788,7 +788,7 @@ end --Tripulacao
 -------------------------------------------------------------------------------------------------
 class Catering
 	attributes
-		nomeEmpresa: String
+		nomeEmpresa: String init = 'Nenhuma'
 		
 	operations
 		init(nomeEmpresa: String)
@@ -801,7 +801,7 @@ end --Catering
 -------------------------------------------------------------------------------------------------
 class Limpeza
 	attributes
-		nomeEmpresa: String
+		nomeEmpresa: String init = 'Nenhuma'
 		
 	operations
 		init(nomeEmpresa: String)
@@ -845,7 +845,7 @@ class EquipaOperacional
 				self.limpeza.nomeEmpresa:= novaEmpresa;
 			end
 			
-	statemachines
+	/*statemachines
 	
 	 psm Usage
 	 
@@ -867,16 +867,16 @@ class EquipaOperacional
 			
 			SEM_CATERING_LIMPEZA	[tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
 			
-			CONSTRUIDA	  [tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa <> 'Nenhuma'] 
+			EM_ATUACAO	  [tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa <> 'Nenhuma'] 
 			
 	   transitions
 	   
-			CONSTRUCAO -> VAZIA	   { create }
+			CONSTRUCAO -> VAZIA  { create }
 			VAZIA -> SEM_TRIPULACAO_CATERING { setEmpresaLimpeza() }
 			VAZIA -> SEM_TRIPULACAO_LIMPEZA { setEmpresaCatering() }
 			VAZIA -> SEM_CATERING_LIMPEZA { setNumeroAssistentesBordo() }
 			
-	 end -- of psm Usage
+	 end -- of psm Usage*/
 	 
 end -- of class EquipaOperacional		
 
