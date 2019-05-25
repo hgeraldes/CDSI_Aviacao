@@ -167,15 +167,18 @@ class Voo
 		hora_partida: Instant
 		hora_chegada: Instant
 		milhas: Integer
-
+		--HG - Este voo tem um determinado terminal determinado
+		terminal: Terminal
+		
 	operations
 		-- Inicialização de um voo
-		inicializa(numero: String, hora_partida: Instant, hora_chegada: Instant, milhas: Integer, origem: Aeroporto, destino: Aeroporto)
+		inicializa(numero: String, hora_partida: Instant, hora_chegada: Instant, milhas: Integer, origem: Aeroporto, destino: Aeroporto, terminal: Terminal)
 			begin
 				self.numero:= numero;
 				self.hora_partida:= hora_partida;
 				self.hora_chegada:= hora_chegada;
 				self.milhas:= milhas;
+				self.terminal:= terminal;
 				insert (origem, self) into Aeroporto_VoosPartida;
 				insert (destino, self) into Aeroporto_VoosChegada
 			end
@@ -871,24 +874,19 @@ class Bombeiros
 end --Bombeiros
 
 -------------------------------------------------------------------------------------------------	
-abstract class Sinalizacao
-
-end --Sinalizacao
-
--------------------------------------------------------------------------------------------------	
-class PainelInfoTerminal < Sinalizacao 
+class PainelInfoTerminal
 	attributes
 		painelInfo: EstadoTerminal
 end --PainelInfoTerminal
 
 -------------------------------------------------------------------------------------------------	
-class PainelInfoPista < Sinalizacao 
+class PainelInfoPista
 	attributes
 		painelInfo: EstadoPista
 end --PainelInfoPista
 
 -------------------------------------------------------------------------------------------------	
-class PainelInfoPorta < Sinalizacao 
+class PainelInfoPorta
 	attributes
 		painelInfo: EstadoPorta
 end --PainelInfoPorta
@@ -1100,6 +1098,11 @@ end
 --------------------------------------------------------------
 -- BEGIN New custom Associations
 --------------------------------------------------------------
+association Voo_Terminal between 
+	Terminal [1]
+	Voo [*] role voosTerminal
+end
+
 composition Aeroporto_Pista between 
 	Aeroporto [1] role aeroportoPistas
 	Pista [1..*] role pistas
