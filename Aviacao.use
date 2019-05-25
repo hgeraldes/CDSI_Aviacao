@@ -150,9 +150,9 @@ enum EstadoTerminal {ABERTO, ENCERRADO}
 
 enum EstadoPorta {ABERTA, FECHADA}
 
-enum EstadoRevisao {PROGRAMADO, CONFIRMADO, EXECUCAO, CONCLUIDO}
+enum EstadoRevisao {NAOPROGRAMADO, PROGRAMADO, EXECUCAO,CONCLUIDO, CANCELADO}
 
-enum TipoRecursoManutencao {TECNICO, MOTOR, PECA, CONSUMIVEL}
+enum TipoRM {TECNICO, MOTOR, PECA, CONSUMIVEL}
 
 --------------------------------------------------------------
 -- END Custom Domain types
@@ -907,16 +907,16 @@ end --ProgramaRevisao
 class LinhaPR
 	attributes
 		numero: Integer
-		quantidade: Integer
+		quantidade: Real
 end --LinhaPR
 
 -------------------------------------------------------------------------------------------------	
 class RecursoManutencao
 	attributes 
-		tipo: TipoRecursoManutencao
+		tipo: TipoRM
 		codigo: String
 		nome: String
-		unidade: String
+		unidadeMedida: String
 		custoUnitario: Real
 end --RecursoManutencao
 
@@ -1135,19 +1135,19 @@ association Porta_PainelInfoPorta between
 	PainelInfoPorta [*] role infoPorta
 end
 
-composition Programa_Linha between 
+composition PR_LinhaPR between 
 	ProgramaRevisao [1] role programa
-	LinhaPR [*] role linhas
+	LinhaPR [*] role linhas_revisao
 end
 
-association Linha_Recurso between 
+association LinhaPR_RM between 
 	RecursoManutencao [1] role recurso
-	LinhaPR [*] role linha
+	LinhaPR [*] role linhas_rev
 end
 
-association Programa_Aviao between 
-	Aviao [1] role aviao
-	ProgramaRevisao [*] role programa
+association PR_Aviao between 
+	Aviao [1] role aviao_rever
+	ProgramaRevisao [*] role programas
 end
 
 association Porta_Manga between 
