@@ -1,10 +1,140 @@
 --------------------------------------------------------------
-
 model Aviacao
+--------------------------------------------------------------
+
+class Main
+	attributes
+		hoje: CalendarDate
+		amanha: CalendarDate
+		depois: CalendarDate
+		instant: Instant
+		a: Aviao
+		b: Aviao
+		v1: Voo
+		r1: Realizacao
+		r2: Realizacao
+		ISCTE: Empresa
+		classeTuristica: Classe
+		reservaISCTE: Reserva
+
+	operations
+	
+		main()
+			begin
+				self.instant:= new Instant();
+				
+				self.teleprompter('-----------------------------------------------\n'
+								+ '-- CENARIO DE GESTAO COMERCIAL\n'
+								+ '-----------------------------------------------');
+				
+				self.teleprompter('Este cenario ocorre em tres datas.');
+				self.scene1();				
+				
+				self.teleprompter('O voo TAP007 tera uma realizacao no dia de hoje,\n'
+								+ 'usando o avião "Amalia", um Boeing 787.');
+				self.scene2();
+
+				self.teleprompter('Foi feita uma reserva de tres bilhetes em classe turistica \n'
+								+ 'para tres investigadores do ISCTE para a realizacao de hoje do voo TAP007.');
+				self.scene3();
+				
+				self.teleprompter('O voo TAP007 tera uma nova realizacao no dia de amanha,\n'
+								+ 'usando o aviao "Eusebio", um Airbus A320.');
+				self.scene4();
+				
+				self.teleprompter('A realizacao de hoje do voo TAP007 teve de ser cancelada porque o "Amalia" teve uma avaria.\n'
+								+ 'Os bilhetes desta realizacao sao transferidos para a nova realizacao do voo TAP007 a decorrer amanha.');
+				self.scene5();
+				
+				self.teleprompter('Telejornal abre com uma noticia surpresa:\n'
+								+ 'os controladores de trafego aereo convocam uma greve para amanha,\n'
+								+ 'pelo que a realizacao desse dia foi cancelada tambem.\n'
+								+ 'Entretanto a avaria do "Amalia" foi consertada e os bilhetes sao transferidos\n'
+								+ 'para uma nova realizacao do TAP007 a decorrer depois de amanha.');
+				self.scene6();
+				
+				self.teleprompter('Outra noticia inesperada:\n'
+								+ 'acaba de ocorrer um terrivel atentado bombista na cidade de destino do voo TAP007.\n'
+								+ 'Como a reserva ainda estava pendente de pagamento, o ISCTE mandou cancelar a reserva\n'
+								+ 'para nao por em risco a vida dos seus investigadores.');
+				self.scene7();
+			end
+			
+		teleprompter(message: String)
+			begin
+				for i in OrderedSet{1..30} do
+					WriteLine('')
+				end;
+				WriteLine('*****************************************************************');
+				WriteLine(message);
+				WriteLine('*****************************************************************');
+				WriteLine('\n\n\n' + 'Carregue em <Enter> para executar esta cena ...');
+				ReadLine()
+			end
+			
+		scene1()
+			begin
+				self.hoje := new CalendarDate();
+				self.amanha := new CalendarDate();
+				self.depois := new CalendarDate();
+				self.hoje.init(3,5,2019);
+				self.amanha.init(4,5,2019);
+				self.depois.init(5,5,2019);
+			end
+
+		scene2()
+			begin
+				self.a := new Aviao();
+				self.a.inicializa('Amalia', 'Boeing 787');
+				self.v1 := new Voo();
+				self.v1.numero := 'TAP007';
+				self.r1:= self.v1.criarRealizacao(self.hoje, self.a)
+			end
+			
+		scene3()
+			begin
+				self.ISCTE := new Empresa();
+				self.ISCTE.inicializa(1234, 'ISCTE-IUL', 501510184, 'Av. das Forcas Armadas, Lx');
+
+				--!reservaISCTE:= ISCTE.efetuarReserva(oclUndefined(CartaoCredito))
+				self.reservaISCTE:= self.ISCTE.efetuarReserva(null);
+
+				self.classeTuristica := new Classe(); 
+				self.classeTuristica.tipo:= TipoClasse::TURISTICA;
+
+				self.reservaISCTE.emitirBilhete(self.r1, 'Rui', 'Dias', self.classeTuristica, 54);
+				self.reservaISCTE.emitirBilhete(self.r1, 'Rita', 'Peixoto', self.classeTuristica, 55);
+				self.reservaISCTE.emitirBilhete(self.r1, 'Joao', 'Virtudes', self.classeTuristica, 56)
+			end
+			
+		scene4()
+			begin
+				self.b := new Aviao();		
+				self.b.inicializa('Eusebio', 'Airbus A320');
+				self.r2:= self.v1.criarRealizacao(self.amanha, self.b)
+			end
+			
+		scene5()
+			begin
+				self.v1.cancelarRealizacao(self.hoje, self.r2)
+			end
+			
+		scene6()
+			begin		
+				self.v1.cancelarRealizacao2(self.amanha, self.depois, self.a)
+			end
+			
+		scene7()
+			begin
+				self.ISCTE.desistirReserva(self.reservaISCTE, self.hoje)
+			end		
+				
+	end	--Main
 
 --------------------------------------------------------------
--- Initial Domain types
+-- Domain types
 --------------------------------------------------------------
+
 enum EstadoPagamento {PENDENTE, EFETUADO}
 
 enum TipoClasse {EXECUTIVA, NEGOCIO, TURISTICA}
@@ -39,9 +169,7 @@ class Voo
 		milhas: Integer
 
 	operations
-		/************************************************************
-		* 
-		*************************************************************/	
+		-- Inicialização de um voo
 		inicializa(numero: String, hora_partida: Instant, hora_chegada: Instant, milhas: Integer, origem: Aeroporto, destino: Aeroporto)
 			begin
 				self.numero:= numero;
@@ -56,25 +184,17 @@ class Voo
 		pre OrigemDestinoDefinidos:
 			origem.isDefined() and destino.isDefined()
 			
-			
 		-- Ocupação média de um voo entre duas datas (resultado de operação)
 		ocupacaoMedia(inicio: CalendarDate, fim: CalendarDate): Real =
 			let realizacoes_voo:Set(Realizacao) = realizacao->reject(cancelada)->
 				select(ocorre_em = inicio or ocorre_em = fim or ocorre_em.isAfter(inicio) and ocorre_em.isBefore(fim)) in
 			realizacoes_voo.bilhetes->size() / realizacoes_voo.aviao.lotacao()->sum()
-
 			
-		/************************************************************
-		* Criar realização deste voo na data indicada, com o aviao indicado
-		*************************************************************/				
+		-- Criar realização deste voo na data indicada, com o avião indicado
 		criarRealizacao(data: CalendarDate, aviao: Aviao): Realizacao
-			begin
-				declare
-					nova: Realizacao;
-					
-				nova := new Realizacao(self.numero+'_'+data.year.toString()+'_'+data.month.toString()+'_'+data.day.toString()) between (self, data);
-				insert (aviao, nova) into Aviao_Realizacao;
-				result:= nova
+			begin				
+				result:= new Realizacao(self.numero+'_'+data.year.toString()+'_'+data.month.toString()+'_'+data.day.toString()) between (self, data);
+				insert (aviao, result) into Aviao_Realizacao
 			end
 		
 		@ParametrosInicializados(rationale="Tem de ser indicada uma data e um avião válidos!")
@@ -89,10 +209,7 @@ class Voo
 		post RealizacaoJaExiste:
 			self.ocorre_em->includes(data) and self.realizacao->any(r | r.ocorre_em = data).aviao = aviao
 			
-			
-		/************************************************************
-		* Apagar realização deste voo na data indicada
-		*************************************************************/			
+		-- Apagar realização deste voo na data indicada		
 		apagarRealizacao(data: CalendarDate)
 			begin			
 				destroy self.realizacao->any(r | r.ocorre_em = data)
@@ -110,7 +227,7 @@ class Voo
 		post RealizacaoJaNaoExiste:
 			self.ocorre_em->excludes(data)
 			
-			
+		-- Cancelar realização deste voo na data antiga, transferindo os bilhetes para uma realização que é criada na nova data
 		cancelarRealizacao2(dataAntiga: CalendarDate, dataNova: CalendarDate, aviaoNovo: Aviao)
 		begin
 			declare
@@ -120,9 +237,7 @@ class Voo
 			self.cancelarRealizacao(dataAntiga, novaR)
 		end
 		
-		/************************************************************
-		* Cancelar realização deste voo na data indicada, transferindo os bilhetes para uma nova realização
-		*************************************************************/			
+		-- Cancelar realização deste voo na data indicada, transferindo os bilhetes para uma nova realização
 		cancelarRealizacao(data: CalendarDate, novaRealizacao: Realizacao)
 			begin
 				declare
@@ -161,8 +276,7 @@ class Voo
 		@AeroportoChegadaDiferentePartida(rationale="Aeroporto de chegada diferente do de partida")
 		inv AeroportoChegadaDiferentePartida:
 			self.partida <> self.chegada
-
-end --Voo
+end
 
 -------------------------------------------------------------------------------------------------	
 class Aeroporto
@@ -200,7 +314,8 @@ class Aeroporto
 		-- Conjunto de datas em que ocorrem voos de partida ou de chegada no aeroporto
 		datasComVoos(): Set(CalendarDate) =
 			self.voos_partida->union(voos_chegada).ocorre_em->asSet
-		
+
+		-- Conjunto de datas em que ocorrem voos de partida ou de chegada no aeroporto		
 		datasComVoos2(): Set(CalendarDate) =
 			self.voos_partida.ocorre_em->union(voos_chegada.ocorre_em)->asSet			
 			
@@ -219,8 +334,7 @@ class Aeroporto
 		inv VoosRealizadosComChegadaNaoCoincidente: self.voos_chegada.realizacao->
 			forAll (r1, r2: Realizacao | r1 <> r2 and r1.ocorre_em.isEqual(r2.ocorre_em) implies 
 				not r1.realiza_se.hora_chegada.isEqual(r2.realiza_se.hora_chegada))
-
-end --Aeroporto
+end
 
 -------------------------------------------------------------------------------------------------	
 class Cidade
@@ -229,8 +343,10 @@ class Cidade
 		
 	operations
 	
+		-- Voos de partida da cidade corrente
 		voosPartida(): Sequence(Voo) = servem.voos_partida
-	
+
+		-- Voos de chegada da cidade corrente	
 		voosChegada(): Sequence(Voo) = servem.voos_chegada
 	
 		-- O aeroporto mais próximo da cidade
@@ -248,7 +364,7 @@ class Cidade
 		@NaoHaAeroportosMesmaDistancia(rationale="Não há mais do que um aeroporto que fique à mesma distância da cidade")
 		inv NaoHaAeroportosMesmaDistancia:
 			self.proximidade->isUnique(distancia)
-end --Cidade
+end
 
 -------------------------------------------------------------------------------------------------	
 class Pais
@@ -259,6 +375,7 @@ class Pais
 		delta_GMT: Integer
 		
 	operations
+		-- inicialização de um país
 		inicializa(nome: String, lingua: String, moeda_oficial: String, delta_GMT: Integer)
 			begin
 				self.nome:= nome;
@@ -270,9 +387,8 @@ class Pais
 		-- País com maior número de voos de chegada
 		@static()
 		paisMaisVisitado():Pais = 
-			let maisVisitas: Integer = Pais.allInstances->collect(cidades.servem.voos_chegada->size)->max
-in
-			Pais.allInstances->any(cidades.servem.voos_chegada->size = maisVisitas)
+			let maisVisitas: Integer = Pais.allInstances->collect(cidades.servem.voos_chegada->size)->max in
+				Pais.allInstances->any(cidades.servem.voos_chegada->size = maisVisitas)
 			
 	constraints
 	
@@ -283,7 +399,7 @@ in
 		@NumeroContribuinteUnico(rationale="Os nacionais de um país têm números de contribuinte diferentes entre si")
 		inv NumeroContribuinteUnico:
 			self.nacionais->isUnique(n_contribuinte)
-end --Pais
+end
 
 -------------------------------------------------------------------------------------------------	
 abstract class Cliente
@@ -294,7 +410,7 @@ abstract class Cliente
 		morada: String
 		
 	operations
-	
+		-- inicialização de um cliente	
 		inicializa(codigo_cliente: Integer, nome: String, n_contribuinte: Integer, morada: String)
 			begin
 				self.codigo_cliente:= codigo_cliente;
@@ -302,10 +418,8 @@ abstract class Cliente
 				self.n_contribuinte:= n_contribuinte;
 				self.morada:= morada
 			end
-			
-		/************************************************************
-		* 
-		*************************************************************/
+		
+		-- criar uma nova reserva e associar-lhe um cartão de crédito, se o mesmo for indicado
 		efetuarReserva(cartao_credito: CartaoCredito): Reserva
 			begin
 				declare
@@ -328,9 +442,7 @@ abstract class Cliente
 				result:= nova_reserva
 			end		
 			
-		/************************************************************
-		* 
-		*************************************************************/			
+		-- confirmar a reserva porque foi realizado o pagamento da mesma
 		confirmarReserva(reserva: Reserva)
 			begin
 				reserva.pagamento:= EstadoPagamento::EFETUADO
@@ -348,9 +460,7 @@ abstract class Cliente
 		post ReservaEstaPaga:
 			reserva.pagamento = EstadoPagamento::EFETUADO
 		
-		/************************************************************
-		* 
-		*************************************************************/		
+		-- desistir de uma reserva, eliminando os bilhetes que lhe estão associados
 		desistirReserva(reserva: Reserva, data_cancelamento: CalendarDate)
 			begin
 				for b in reserva.bilhetes do
@@ -367,13 +477,13 @@ abstract class Cliente
 		pre NaoPodeEstarPaga:
 			reserva.pagamento = EstadoPagamento::PENDENTE
 		
-		@NaoPodeSerTardia(rationale="Uma reserva não se pode apagar se algum dos bilhetes correspondentes é respeitante à realização de um voo que já foi efetuado à data do cancelamento!")
+		@NaoPodeSerTardia(rationale="Uma reserva não se pode apagar se algum dos bilhetes correspondentes for respeitante à realização de um voo que já foi efetuado à data do cancelamento!")
 		pre NaoPodeSerTardia:
 			not reserva.bilhetes->exists(realizacao.ocorre_em.isBefore(data_cancelamento))
 		-- Implementação alternativa:	
 		--	reserva.bilhetes->forAll(realizacao.ocorre_em.isAfter(data_cancelamento))
 
-end --Cliente
+end
 
 -------------------------------------------------------------------------------------------------	
 class Individual < Cliente 
@@ -385,9 +495,7 @@ class Individual < Cliente
 		
 	operations
 	
-		/************************************************************
-		* 
-		*************************************************************/		
+		-- inicialização de um cliente individual	
 		inicializaIndividual(codigo_cliente: Integer, nome: String, n_contribuinte: Integer, morada: String, 
 		           n_passaporte: Integer, telefone_movel: Integer, email: String, genero: Genero, pais: Pais)
 			begin
@@ -401,7 +509,7 @@ class Individual < Cliente
 				insert (pais, self) into Pais_Individual
 			end
 
-end --Individual
+end
 
 -------------------------------------------------------------------------------------------------	
 class Empresa < Cliente 
@@ -421,7 +529,8 @@ class Reserva
 		@static()
 		totalReservasIndividuaisNaoPagas(): Integer = 
 			Reserva.allInstances->select(cliente.oclIsTypeOf(Individual) and pagamento = #PENDENTE)->size
-			
+
+		-- Número total de reservas pendentes (não pagas) feitas por clientes individuais		
 		@static()
 		totalReservasIndividuaisNaoPagas2(): Integer = 
 			Individual.allInstances.reservas->select(pagamento = #PENDENTE)->size
@@ -431,6 +540,7 @@ class Reserva
 		totalReservasEmpresariaisPagas(): Integer = 
 			Reserva.allInstances->select(cliente.oclIsTypeOf(Empresa) and pagamento = #EFETUADO)->size
 			
+		-- Número total de reservas pagas que foram feitas por clientes empresariais			
 		@static()
 		totalReservasEmpresariaisPagas2(): Integer = 
 			Empresa.allInstances.reservas->select(pagamento = #EFETUADO)->size		
@@ -443,6 +553,7 @@ class Reserva
 				0
 			endif	
 			
+		-- emitir um bilhete para a pessoa, realização (de voo), classe e lugar indicados
 		emitirBilhete(r: Realizacao, primeiro_nome: String, ultimo_nome: String, classe: Classe, lugar: Integer): Bilhete
 			begin
 				declare
@@ -464,7 +575,8 @@ class Reserva
 		pre NaoHaLugaresDuplamenteOcupados:
 			r.bilhetes.lugar->excludes(lugar)
 			
-/*		@ClasseExisteNoAviao(rationale="A classe para a qual o bilhete é emitido existe no avião usado na realização do voo!")
+/*			
+		@ClasseExisteNoAviao(rationale="A classe para a qual o bilhete é emitido existe no avião usado na realização do voo!")
 		pre ClasseExisteNoAviao:
 			r.aviao.classe->includes(classe)
 */		
@@ -480,7 +592,7 @@ class Reserva
 		inv MesmaClasse:
 			self.bilhetes->select(not realizacao.cancelada)->isUnique(classe)
 
-end --Reserva
+end
 
 -------------------------------------------------------------------------------------------------	
 class Bilhete
@@ -490,7 +602,7 @@ class Bilhete
 		lugar: Integer
 
 	operations
-
+		-- inicialização de um bilhete
 		inicializa(realizacao: Realizacao, classe: Classe, primeiro_nome: String, ultimo_nome: String, lugar: Integer)
 		begin
 			insert (realizacao, self) into Realizacao_Bilhete;
@@ -502,6 +614,7 @@ class Bilhete
 
 		-- aeroporto de origem de um bilhete
 		origem(): Aeroporto = realizacao.realiza_se.partida
+		
 		-- aeroporto de destino de um bilhete
 		destino(): Aeroporto = realizacao.realiza_se.chegada
 
@@ -521,7 +634,7 @@ class Bilhete
 			in
 				self.lugar >= capacidadeClasseAviao.primeiro_numero and self.lugar <= capacidadeClasseAviao.ultimo_numero
 
-end --Bilhete
+end
 
 -------------------------------------------------------------------------------------------------	
 associationclass Realizacao
@@ -531,16 +644,21 @@ associationclass Realizacao
 
 	attributes
 		cancelada: Boolean init = false
-		
+		--HG incluidos os atributos para uma data de inicio e outra de fim 
+		inicio: Instant
+		fim: Instant
+
 	operations
+		-- inicialização da realização de um voo
 		inicializa(aviao: Aviao)
 			begin
 				insert (aviao, self) into Aviao_Realizacao;
 			end
-			
+		
+		-- serialização de uma realização de um voo
 		toString(): String = 
-		realiza_se.numero + '_' + ocorre_em.year.toString()+
-		'_'+ocorre_em.month.toString()+'_'+ocorre_em.day.toString()	
+			realiza_se.numero + '_' + ocorre_em.year.toString()+
+			'_'+ocorre_em.month.toString()+'_'+ocorre_em.day.toString()	
 			
 	constraints
 	
@@ -552,7 +670,7 @@ associationclass Realizacao
 		inv CanceladaPorOcupacaoReduzida:
 			self.bilhetes->size() / self.aviao.capacidade.ultimo_numero->max < 0.3 implies cancelada
 				
-end --Realizacao
+end
 
 -------------------------------------------------------------------------------------------------	
 class Aviao
@@ -561,15 +679,15 @@ class Aviao
 		modelo: String
 
 	operations
+		-- Inicialização de um avião
 		inicializa(nome: String, modelo: String)
 			begin
 				self.nome:= nome;
 				self.modelo:= modelo
 			end
 			
+		-- Número de lugares do avião
 		lotacao(): Integer = capacidade.lotacao()->sum
-				
-		lotacao2(): Integer = capacidade.ultimo_numero->max
 
 		-- Conjunto de cidades de onde o avião levantou voo
 		cidadesDePartida(): Set(Cidade) =
@@ -585,30 +703,33 @@ class Aviao
 		inv NaoAndaAsVoltas:
 			self.realizacoes->select(not cancelada).realiza_se->forAll(chegada<>partida)
 			
-end --Aviao
+end
 
 -------------------------------------------------------------------------------------------------	
 class Classe
 	attributes
 		tipo: TipoClasse
-end --Classe
+end
 
 -------------------------------------------------------------------------------------------------	
 associationclass Capacidade
 	between 
 		Aviao [*]
 		Classe [*]
+		
 	attributes
 		primeiro_numero: Integer
 		ultimo_numero: Integer
 		
 	operations
+		-- inicialização da capacidade do avião
 		inicializa(primeiro_numero: Integer, ultimo_numero: Integer)
 			begin
 				self.primeiro_numero:= primeiro_numero;
 				self.ultimo_numero:= ultimo_numero
 			end	
 	
+		-- número de lugares na classe corrente deste avião
 		lotacao(): Integer = ultimo_numero - primeiro_numero + 1
 		
 	constraints
@@ -618,7 +739,7 @@ associationclass Capacidade
 			Capacidade.allInstances->select(classe.tipo=#TURISTICA)->collect(ultimo_numero-primeiro_numero+1)->sum >
 			Capacidade.allInstances->select(classe.tipo=#EXECUTIVA)->collect(ultimo_numero-primeiro_numero+1)->sum
 		
-end --Capacidade
+end
 
 -------------------------------------------------------------------------------------------------	
 class CartaoCredito
@@ -627,7 +748,7 @@ class CartaoCredito
 		data_expira: CalendarDate
 		
 	operations
-	
+		-- inicialização do cartão de crédito
 		inicializa(cliente: Cliente, numero: Integer, data_expira: CalendarDate)
 			begin
 				insert (cliente, self) into Cliente_CartaoCredito;
@@ -640,8 +761,7 @@ class CartaoCredito
 		@NaoHaCreditoFacil(rationale="Um cartão de crédito não pode ter mais do que duas reservas com pagamento não efetuado (pendente)")
 		inv NaoHaCreditoFacil:
 			self.reservas->select(pagamento=#PENDENTE)->size<=2
-
-end --CartaoCredito
+end
 
 -------------------------------------------------------------------------------------------------	
 associationclass Proximidade
@@ -694,14 +814,42 @@ end --Terminal
 -------------------------------------------------------------------------------------------------	
 class Porta
 	attributes 
-		nomePorta: String
+		numeroPorta: Integer
 		estadoPorta: EstadoPorta
+
+	operations
+		criarPorta(numeroPorta: Integer, estadoPorta: EstadoPorta, manga: Manga, autocarro: Autocarro)
+			begin
+				self.numeroPorta:= numeroPorta;
+				self.estadoPorta:= estadoPorta;
+				
+				insert (self, manga) into Porta_Manga;
+				insert (self, autocarro) into Porta_Autocarro;
+			end	
+
+		@PortaComManga(rationale="Se está instalada uma manga na porta de embarque, implica que não haja autocarro para transporte de passageiros.")
+		pre PortaComManga:
+			self.portaComManga->includes(manga)	xor self.portaComAutocarro->includes(autocarro)
+			
+
+	constraints	
+
+		@PortaSeTemMangaNaoTemAutocarro(rationale="Se está instalada uma manga na porta de embarque, implica que não haja autocarro para transporte de passageiros.")
+		inv PortaSeTemMangaNaoTemAutocarro:
+			self.portaComManga.isDefined implies 
+				self.portaComAutocarro->isEmpty()
+				
+		@PortaSeTemAutocarroNaoTemManga(rationale="Se não está instalada uma manga na porta de embarque, implica que terá que existir um autocarro para transporte de passageiros.")
+		inv PortaSeTemAutocarroNaoTemManga:
+			self.portaComAutocarro.isDefined implies 
+				self.portaComManga->isEmpty()
 end --Porta
 
 -------------------------------------------------------------------------------------------------	
 class Manga
 	attributes 
 		existe: Boolean
+		n_manga: Integer
 end --Manga
 
 -------------------------------------------------------------------------------------------------	
@@ -942,6 +1090,13 @@ association Aviao_Realizacao between
 	Realizacao [*] role realizacoes ordered
 end
 
+association Pista_Realizacao
+	between
+		Pista [1] role pistaRealizacao
+		Realizacao [*] role realizacaoPista
+end
+
+
 --------------------------------------------------------------
 -- BEGIN New custom Associations
 --------------------------------------------------------------
@@ -995,6 +1150,16 @@ association Programa_Aviao between
 	ProgramaRevisao [*] role programa
 end
 
+association Porta_Manga between 
+	Porta [1]
+	Manga [0..1] role portaComManga
+end
+
+association Porta_Autocarro between 
+	Porta [1]
+	Autocarro [0..1] role portaComAutocarro
+end
+
 --------------------------------------------------------------
 -- END New custom Associations
 --------------------------------------------------------------
@@ -1012,6 +1177,7 @@ class CalendarDate
 		year: Integer
 
 	operations
+		-- calendar date initialization
 		init(day: Integer, month: Integer, year: Integer)
 			begin
 				self.day:= day;
@@ -1019,35 +1185,30 @@ class CalendarDate
 				self.year:= year
 			end
 			
-		-- date format: yyyy-mm-dd
+		-- calendar date initialization based on a string with the format yyyy-mm-dd
 		initS(date: String)
 			begin
 				self.year:= date.substring(1,4).toInteger();
 				self.month:= date.substring(6,7).toInteger();
 				self.day:= date.substring(9,10).toInteger()
-			end
-
+			end	
+		
+		-- returns a calendar date that matches a string with the format yyyy-mm-dd
 		@static()
 		stringToDate(date: String): CalendarDate
 			begin
-			  declare 
-					date_year : String,
-					date_month : String,
-					date_day : String;
-					
-				date_year:= date.substring(1,4);
-				date_month:= date.substring(6,7);
-				date_day:= date.substring(9,10);
-				result:= CalendarDate.allInstances-> select(cd |
-					cd.year=date_year.toInteger() and
-					cd.month=date_month.toInteger() and 
-					cd.day=date_day.toInteger())->asSequence()->first();
+				declare temp: CalendarDate;
+				
+				temp:= new CalendarDate();
+				temp.initS(date);
+				result:= CalendarDate.allInstances-> any(cd | cd.isEqual(temp));
 				if result.isUndefined() then
-					result:= new CalendarDate('D'+date_year+date_month+date_day);
-				  result.initS(date)
+					result:= new CalendarDate('D'+temp.year.toString()+temp.month.toString()+temp.day.toString());
+					result.initS(date)
 				end
 			end
 			
+		-- returns true if the current date is before the one in the argument
 		isBefore(t: CalendarDate):Boolean = 
 			if self.year = t.year then
 				if self.month = t.month then
@@ -1059,6 +1220,7 @@ class CalendarDate
 				self.year < t.year
 			endif
 
+		-- returns true if the current date is after the one in the argument
 		isAfter(t: CalendarDate):Boolean =
 			if self.year = t.year then
 				if self.month = t.month then
@@ -1070,11 +1232,13 @@ class CalendarDate
 				self.year > t.year
 			endif
 
+		-- returns true if the current object has the same state as the one in the argument
 		isEqual(t: CalendarDate):Boolean =
 			self.year  = t.year and
 			self.month = t.month and
 			self.day   = t.day
 
+		-- returns the number of full elapsed years since the date in the argument
 		yearsSince(t: CalendarDate):Integer =
 			if self.month < t.month or
 			   self.month = t.month and self.day < t.day then
@@ -1083,9 +1247,11 @@ class CalendarDate
 				self.year - t.year
 			endif
 
+		-- auxiliary function for checking if x is divisible by y
 		@static()	
 		isDivisible(x: Integer, y: Integer): Boolean = x div y * y = x
 		
+		-- returns true if the current year is a leap year
 		isLeap(): Boolean =
 			if isDivisible(self.year, 400) or isDivisible(self.year, 4) then
 				true
@@ -1101,6 +1267,7 @@ class CalendarDate
 				endif
 			endif
 			
+		-- returns true if the current object contains a valid date		
 		valid(): Boolean =
 			self.month>=1 and self.month<=12 and self.day>=1 and
 			if self.isLeap() then
@@ -1112,16 +1279,18 @@ class CalendarDate
 		-- format: yyyy-mm-dd
 		toString(): String = year.toString()+'-'+month.toString()+'-'+day.toString()
 		
-end --CalendarDate
+end
 
 -------------------------------------------------------------------------------------------------	
 class Instant
-	attributes
+
+	attributes	
 		hours: Integer
 		minutes: Integer
 		seconds: Integer
 		
 	operations
+		-- calendar date initialization
 		init(hours: Integer, minutes: Integer, seconds: Integer)
 			begin
 				self.hours:= hours;
@@ -1129,6 +1298,7 @@ class Instant
 				self.seconds:= seconds
 			end		
 			
+		-- returns true if the current object has the same state as the one in the argument
 		isEqual(i: Instant):Boolean =
 			self.hours   = i.hours and
 			self.minutes = i.minutes and
@@ -1137,7 +1307,7 @@ class Instant
 		-- format: hh:mm:ss
 		toString(): String = hours.toString()+':'+minutes.toString()+':'+seconds.toString()
 			
-end --Instant
+end
 
 -------------------------------------------------------------------------------------------------
 class Random
@@ -1150,6 +1320,7 @@ class Random
 		x: Integer
 
 	operations
+		-- initializes this pseudo random number generator with the given seed	
 		init(seed: Integer)
 			begin
 				self.a:= 25173;
@@ -1158,6 +1329,7 @@ class Random
 				self.x:= seed
 			end
 
+		-- pseudo random real number in the [0, 1] interval
 		nextReal(): Real
 			begin
 				-- Calculate next value in sequence.
@@ -1167,6 +1339,8 @@ class Random
 				result:= self.x / self.m
 			end
 
+		-- pseudo random integer number in the [initial, last] interval;
+		-- the last value should be greater than the initial one
 		nextInteger(initial: Integer, last: Integer): Integer
 			begin
 				declare 
@@ -1176,4 +1350,6 @@ class Random
 				result:= initial + (next * (last - initial)).round()
 			end
 			
-end --Random
+		pre LastGreaterThanInitial: last > initial
+			
+end

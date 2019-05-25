@@ -1,3 +1,14 @@
+----------------------------------------------------
+-- Script de demonstração da instanciação do modelo Aviação.
+
+-- Este script deve ser executado na consola do USE assim:
+-- use> open -q demo_dados.soil
+
+-- Após arrancar o script, abra as janelas do diagrama de 
+-- classes e do diagrama de objetos e use os ficheiros
+-- de layout correspondentes (Aviacao.clt e demo_dados.olt)
+----------------------------------------------------
+
 reset
 
 !new CalendarDate('data1')
