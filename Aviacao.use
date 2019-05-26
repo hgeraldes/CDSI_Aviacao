@@ -995,12 +995,6 @@ associationclass Proximidade
 	attributes
 		distancia: Real
 	
-		-- inicialização da distancia de uma cidade em relacao a um determinado aeroporto
-		-- inicializa(aviao: Aviao)
-			-- begin
-				-- insert (aviao, self) into Aviao_Realizacao;
-			-- end
-			
 	constraints
 	
 		@DistanciaTemUmLimite(rationale="Um aeroporto só pode dizer-se que serve uma cidade a mais de 100 Km de distância se não houver outro aeroporto a uma distância menor que essa distância que sirva a mesma cidade")
@@ -1312,6 +1306,7 @@ association Aviao_Realizacao between
 	Aviao [1]
 	Realizacao [*] role realizacoes ordered
 end
+
 --------------------------------------------------------------
 -- BEGIN New custom Associations
 --------------------------------------------------------------
