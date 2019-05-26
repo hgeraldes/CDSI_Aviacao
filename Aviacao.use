@@ -38,6 +38,7 @@ class Main
 		cityCopenhagen: Cidade
 		cityLisboa: Cidade
 		
+		prox: Proximidade
 		
 		
 	operations
@@ -164,9 +165,8 @@ class Main
 				self.teleprompter('Cenario do fluxo de voos nas pistas de um aeroporto num dia.');
 				self.scene1_Pistas();				
 				
-				self.teleprompter('O voo TAP007 com uma realizacao no dia de hoje,\n'
-								+ 'usando o aviao "Ze Pedro", um AirBus 321 Neo, vai aterrar na pista 1. Tem como destino \n'
-								+ 'a porta de desembarque numero 37. A hora chegada prevista e as 10:30');
+				self.teleprompter('O voo TP757 com uma realizacao no dia de hoje. Trata-se de um Airbus A321 Neo batizado de "Ze Pedro".\n'
+								+ 'Este vai aterrar na pista 1. Tem como destino a porta de desembarque numero 37. A hora chegada prevista e as 15:10');
 				self.scene2_Pistas();
 
 				self.teleprompter('A pista encontra-se aberta, assim como o terminal e a porta 37 \n'
@@ -199,58 +199,45 @@ class Main
 			begin
 				-- Fluxo de voos nas pistas do aeroporto da Portela em Lisboa. Este cenario ocorre num dia
 				self.hoje := new CalendarDate('D_2019_5_5');
-				self.hoje.init(3,5,2019);
-
-				self.a1 := new Aviao('A321');
-				self.a1.inicializa('Ze Pedro', 'Airbus A321 Neo');
-
-				self.paisDenmark := new Pais('Denmark');
-				self.paisPortugal := new Pais('Portugal');
-				
-				self.cityCopenhagen := new Cidade('Copenhagen');
-				self.cityLisboa := new Cidade('Lisboa');
-				
-				self.cityCopenhagen.criarRelacaoCidadePais(self.paisDenmark);
-
--- !new Cidade('Copenhagen')
--- !insert (Denmark, Copenhagen) into Pais_Cidade
-
--- !new Cidade('Lisbon')
--- !insert (Portugal, Lisbon) into Pais_Cidade
-
--- !new Aeroporto('CPH')
--- !set CPH.nome := 'Kastrup'
--- !create CPH_Copenhagen: Proximidade between (CPH, Copenhagen)
-
--- !new Aeroporto('LIS')
--- !set LIS.nome := 'Lisboa'
--- !create LIS_Lisbon: Proximidade between (LIS, Lisbon)
-
--- !new Voo('Voo_TP757')
-
--- !new Instant('Partida_Voo_TP757')
--- !Partida_Voo_TP757.init(8, 55, 19)
--- !new Instant('Chegada_Voo_TP757')
--- !Chegada_Voo_TP757.init(8, 55, 19)
--- !Voo_TP757.inicializa('Voo_TP757', Instant_Voo_TK894, Chegada_Voo_TP757, oclUndefined(Integer), CPH, LIS)
-
+				self.hoje.init(5,5,2019);
 			end
 
 		scene2_Pistas()
 			begin
-				-- O voo TAP007 com uma realizacao no dia de hoje, usando o aviao "Ze Pedro", um AirBus 321 Neo, 
-				-- vai aterrar na pista 1. Tem como destino
-				-- a porta de desembarque numero 37. A hora chegada prevista e as 10:30
-				self.a1 := new Aviao();
-				self.a1.inicializa('Ze Pedro', 'AirBus 321 Neo');
-				
-				self.v1 := new Voo();
-				self.v1.numero := 'TAP007';
-				self.r1:= self.v1.criarRealizacao(self.hoje, self.a1);
-				
+				-- O voo TP757 com uma realizacao no dia de hoje. Trata-se de um Airbus A321 Neo batizado de "Ze Pedro". 
+				-- Este vai aterrar na pista 1. Tem como destino a porta de desembarque numero 37. A hora chegada prevista e as 15:10
+				-- Aeroporto de origem
+				self.aeroportoOrigem := new Aeroporto('CPH');
+				self.aeroportoOrigem.nome := 'Kastrup';
+				-- Para o aeroporto de destino
+				self.aeroportoDestino := new Aeroporto('LIS');
+				self.aeroportoDestino.nome := 'Lisboa';
+				--O avião e a caracterização do seu voo
+				self.a1 := new Aviao('A321');
+				self.a1.inicializa('Ze Pedro', 'Airbus A321 Neo');
+				self.v1 := new Voo('Voo_TP757');
+				self.v1.numero := 'TP757';
 				self.horaChegada := new Instant();
-				self.horaChegada.init(10,30,0);
+				self.horaChegada.init(15,10,0);
 				self.v1.hora_chegada := self.horaChegada;
+-- !Chegada_Voo_TP757.init(15, 10, 00)
+-- !Voo_TP757.inicializa('Voo_TP757', Instant_Voo_TK894, Chegada_Voo_TP757, oclUndefined(Integer), CPH, LIS)
+				self.r1:= self.v1.criarRealizacao(self.hoje, self.a1);
+				-- A definição dos Paises e das cidades
+				self.paisDenmark := new Pais('Denmark');
+				self.paisPortugal := new Pais('Portugal');
+				-- As cidades de origem e destino
+				self.cityCopenhagen := new Cidade('Copenhagen');
+				self.cityLisboa := new Cidade('Lisboa');
+				-- Relacionar as cidades aos paises
+				self.cityCopenhagen.criarRelacaoCidadePais(self.paisDenmark);
+				self.cityLisboa.criarRelacaoCidadePais(self.paisPortugal);
+-- !create CPH_Copenhagen: Proximidade between (CPH, Copenhagen)
+-- !create LIS_Lisbon: Proximidade between (LIS, Lisbon)
+				self.horaChegada := new Instant();
+				self.horaChegada.init(15,10,0);
+
+
 			end
 
 		scene3_Pistas()
@@ -510,6 +497,13 @@ class Aeroporto
 		nome: String
 
 	operations
+		-- Criar realização deste voo na data indicada, com o avião indicado
+		-- criarProximidade(cidade: Cidade)
+			-- begin				
+				-- self.proximidade->create( between (self, cidade))	
+				-- insert (self, s) into Aeroporto_Cidade
+			-- end
+			
 		-- 	Voos que partem deste aeroporto entre as horas indicadas
 		voosPartidaEntre(horaInicial: Integer, horaFinal: Integer): OrderedSet(Voo) = voos_partida ->
 			select(hora_partida.hours >= horaInicial and hora_partida.hours <= horaFinal)
@@ -1001,6 +995,12 @@ associationclass Proximidade
 	attributes
 		distancia: Real
 	
+		-- inicialização da distancia de uma cidade em relacao a um determinado aeroporto
+		-- inicializa(aviao: Aviao)
+			-- begin
+				-- insert (aviao, self) into Aviao_Realizacao;
+			-- end
+			
 	constraints
 	
 		@DistanciaTemUmLimite(rationale="Um aeroporto só pode dizer-se que serve uma cidade a mais de 100 Km de distância se não houver outro aeroporto a uma distância menor que essa distância que sirva a mesma cidade")

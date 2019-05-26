@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<diagram_Layout version="13">
+    <diagramOptions>
+        <autolayout>false</autolayout>
+        <antialiasing>false</antialiasing>
+        <showassocnames>false</showassocnames>
+        <showattributes>true</showattributes>
+        <showmultiplicities>false</showmultiplicities>
+        <showoperations>false</showoperations>
+        <showrolenames>true</showrolenames>
+        <showgrid>false</showgrid>
+        <ShowStates>false</ShowStates>
+    </diagramOptions>
+    <node id="Voo_TP757" sizeCalculated="true" type="Object">
+        <name>Voo_TP757</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>286.965070246598</x>
+            <y>338.8587460292629</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Instant1" sizeCalculated="true" type="Object">
+        <name>Instant1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>625.6245597425611</x>
+            <y>7.344875477555206</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Instant2" sizeCalculated="true" type="Object">
+        <name>Instant2</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>517.0405573579085</x>
+            <y>8.499985988031666</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Porta1" sizeCalculated="true" type="Object">
+        <name>Porta1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>998.8853182425744</x>
+            <y>106.90331979276277</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Pista1" sizeCalculated="true" type="Object">
+        <name>Pista1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>494.4081391037157</x>
+            <y>217.7092903874751</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Portugal" sizeCalculated="true" type="Object">
+        <name>Portugal</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>882.3826516562686</x>
+            <y>516.5626112843007</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="TP757_2019_5_5" sizeCalculated="true" type="Object">
+        <name>TP757_2019_5_5</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
+            <userOffsetX>198.0</userOffsetX>
+            <userOffsetY>-32.0</userOffsetY>
+            <basisDeltaX>ABSOLUTE</basisDeltaX>
+            <deltaX>0.0</deltaX>
+            <maxDeltaX>1.7976931348623157E308</maxDeltaX>
+            <basisDeltaY>ABSOLUTE</basisDeltaY>
+            <deltaY>-54.0</deltaY>
+            <maxDeltaY>1.7976931348623157E308</maxDeltaY>
+            <corner>NORTH</corner>
+            <relativeNodeId>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::-1</relativeNodeId>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="A321" sizeCalculated="true" type="Object">
+        <name>A321</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>479.205720135188</x>
+            <y>584.5661207441252</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Copenhagen" sizeCalculated="true" type="Object">
+        <name>Copenhagen</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>1125.3771737321106</x>
+            <y>358.96457851201626</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Manga1" sizeCalculated="true" type="Object">
+        <name>Manga1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>1011.4177221902569</x>
+            <y>12.850128775244798</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Lisboa" sizeCalculated="true" type="Object">
+        <name>Lisboa</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>902.7376602068937</x>
+            <y>357.32041692069015</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="D_2019_5_5" sizeCalculated="true" type="Object">
+        <name>D_2019_5_5</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>280.5847709358534</x>
+            <y>551.4088388578367</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="LIS" sizeCalculated="true" type="Object">
+        <name>LIS</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>677.6153628367956</x>
+            <y>356.0664678723364</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Denmark" sizeCalculated="true" type="Object">
+        <name>Denmark</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>1113.6986760055634</x>
+            <y>510.2125669665825</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="Terminal1" sizeCalculated="true" type="Object">
+        <name>Terminal1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>990.6314423776196</x>
+            <y>259.18193852414436</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="CPH" sizeCalculated="true" type="Object">
+        <name>CPH</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>1232.5540879658652</x>
+            <y>262.5107500691033</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="story" sizeCalculated="true" type="Object">
+        <name>story</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>54.50226338009318</x>
+            <y>63.90742167766763</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <edge type="BinaryEdge">
+        <source>Porta1</source>
+        <target>Manga1</target>
+        <name>Porta_Manga</name>
+        <properties>
+            <edgeproperty
+                id="[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::target::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>portaComManga</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>0..1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::source::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>portaManga</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="false" visible="true">
+                <name>Porta_Manga</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::WayPoint::0</related0>
+                        <related1>[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty
+                id="[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::WayPoint::0"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[Porta_Manga : (portaComManga:Manga1, portaManga:Porta1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>Terminal1</source>
+        <target>Porta1</target>
+        <name>Terminal_Porta</name>
+        <properties>
+            <edgeproperty
+                id="[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>1..*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::target::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>portas</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::source::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>portaTerminal</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="false" visible="true">
+                <name>Terminal_Porta</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::WayPoint::0</related0>
+                        <related1>[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty
+                id="[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::WayPoint::0"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[Terminal_Porta : (portaTerminal:Terminal1, portas:Porta1)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>Portugal</source>
+        <target>Lisboa</target>
+        <name>Pais_Cidade</name>
+        <properties>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::target::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>cidades</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::source::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>pais</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="false" visible="true">
+                <name>Pais_Cidade</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::WayPoint::0</related0>
+                        <related1>[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::WayPoint::0"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[Pais_Cidade : (cidades:Lisboa, pais:Portugal)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>Denmark</source>
+        <target>Copenhagen</target>
+        <name>Pais_Cidade</name>
+        <properties>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::target::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>cidades</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::source::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>pais</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="false" visible="true">
+                <name>Pais_Cidade</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::WayPoint::0</related0>
+                        <related1>[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::WayPoint::0"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[Pais_Cidade : (cidades:Copenhagen, pais:Denmark)]</linkValue>
+    </edge>
+    <edge type="BinaryEdge">
+        <source>A321</source>
+        <target>TP757_2019_5_5</target>
+        <name>Aviao_Realizacao</name>
+        <properties>
+            <edgeproperty
+                id="[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::target::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>realizacoes {ordered}</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::source::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>aviao</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="false" visible="true">
+                <name>Aviao_Realizacao</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::WayPoint::0</related0>
+                        <related1>[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty
+                id="[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::WayPoint::0"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <linkValue>[Aviao_Realizacao : (aviao:A321, realizacoes:TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)])]</linkValue>
+    </edge>
+    <edge type="NodeEdge">
+        <source>Voo_TP757</source>
+        <target>D_2019_5_5</target>
+        <name>Realizacao</name>
+        <properties>
+            <edgeproperty
+                id="TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::target::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>ocorre_em</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::target::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>*</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::source::rolename"
+                sizeCalculated="true" type="rolename"
+                userDefined="false" visible="true">
+                <name>realiza_se</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::AssociationName"
+                sizeCalculated="true" type="associationName"
+                userDefined="false" visible="true">
+                <name>Realizacao</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>-10.0</offsetY>
+                    <related length="2">
+                        <related0>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::0</related0>
+                        <related1>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </properties>
+        <waypoints>
+            <edgeproperty
+                id="TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::0"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <connectionNode>
+            <edgeproperty
+                id="TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::-1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="false">
+                <name>-1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <offsetX>0.0</offsetX>
+                    <offsetY>0.0</offsetY>
+                    <related length="2">
+                        <related0>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::0</related0>
+                        <related1>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::1</related1>
+                    </related>
+                </strategy>
+                <id>-1</id>
+                <specialid>7</specialid>
+                <hidden>true</hidden>
+            </edgeproperty>
+        </connectionNode>
+        <associationClass>
+            <node id="TP757_2019_5_5" sizeCalculated="true" type="Object">
+                <name>TP757_2019_5_5</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
+                    <userOffsetX>198.0</userOffsetX>
+                    <userOffsetY>-32.0</userOffsetY>
+                    <basisDeltaX>ABSOLUTE</basisDeltaX>
+                    <deltaX>0.0</deltaX>
+                    <maxDeltaX>1.7976931348623157E308</maxDeltaX>
+                    <basisDeltaY>ABSOLUTE</basisDeltaY>
+                    <deltaY>-54.0</deltaY>
+                    <maxDeltaY>1.7976931348623157E308</maxDeltaY>
+                    <corner>NORTH</corner>
+                    <relativeNodeId>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]::WayPoint::-1</relativeNodeId>
+                </strategy>
+                <hidden>false</hidden>
+            </node>
+        </associationClass>
+        <linkValue>TP757_2019_5_5 [Realizacao : (ocorre_em:D_2019_5_5, realiza_se:Voo_TP757)]</linkValue>
+    </edge>
+</diagram_Layout>
