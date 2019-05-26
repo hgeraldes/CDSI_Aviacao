@@ -12,8 +12,8 @@ class Main
 		amanha: CalendarDate
 		depois: CalendarDate
 		instant: Instant
-		a: Aviao
-		b: Aviao
+		a1: Aviao
+		a2: Aviao
 		v1: Voo
 		r1: Realizacao
 		r2: Realizacao
@@ -107,11 +107,11 @@ class Main
 
 		scene2()
 			begin
-				self.a := new Aviao();
-				self.a.inicializa('Amalia', 'Boeing 787');
+				self.a1 := new Aviao();
+				self.a1.inicializa('Amalia', 'Boeing 787');
 				self.v1 := new Voo();
 				self.v1.numero := 'TAP007';
-				self.r1:= self.v1.criarRealizacao(self.hoje, self.a)
+				self.r1:= self.v1.criarRealizacao(self.hoje, self.a1)
 			end
 			
 		scene3()
@@ -132,9 +132,9 @@ class Main
 			
 		scene4()
 			begin
-				self.b := new Aviao();		
-				self.b.inicializa('Eusebio', 'Airbus A320');
-				self.r2:= self.v1.criarRealizacao(self.amanha, self.b)
+				self.a2 := new Aviao();		
+				self.a2.inicializa('Eusebio', 'Airbus A320');
+				self.r2:= self.v1.criarRealizacao(self.amanha, self.a2)
 			end
 			
 		scene5()
@@ -144,7 +144,7 @@ class Main
 			
 		scene6()
 			begin		
-				self.v1.cancelarRealizacao2(self.amanha, self.depois, self.a)
+				self.v1.cancelarRealizacao2(self.amanha, self.depois, self.a1)
 			end
 			
 		scene7()
@@ -201,8 +201,8 @@ class Main
 				self.hoje := new CalendarDate('D_2019_5_5');
 				self.hoje.init(3,5,2019);
 
-				self.a := new Aviao('A321');
-				self.a.inicializa('Ze Pedro', 'Airbus A321 Neo');
+				self.a1 := new Aviao('A321');
+				self.a1.inicializa('Ze Pedro', 'Airbus A321 Neo');
 
 				self.paisDenmark := new Pais('Denmark');
 				self.paisPortugal := new Pais('Portugal');
@@ -241,12 +241,12 @@ class Main
 				-- O voo TAP007 com uma realizacao no dia de hoje, usando o aviao "Ze Pedro", um AirBus 321 Neo, 
 				-- vai aterrar na pista 1. Tem como destino
 				-- a porta de desembarque numero 37. A hora chegada prevista e as 10:30
-				self.a := new Aviao();
-				self.a.inicializa('Ze Pedro', 'AirBus 321 Neo');
+				self.a1 := new Aviao();
+				self.a1.inicializa('Ze Pedro', 'AirBus 321 Neo');
 				
 				self.v1 := new Voo();
 				self.v1.numero := 'TAP007';
-				self.r1:= self.v1.criarRealizacao(self.hoje, self.a);
+				self.r1:= self.v1.criarRealizacao(self.hoje, self.a1);
 				
 				self.horaChegada := new Instant();
 				self.horaChegada.init(10,30,0);
