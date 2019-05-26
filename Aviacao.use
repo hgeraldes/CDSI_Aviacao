@@ -340,6 +340,11 @@ class Main
 				self.amanha.init(10,6,2019);
 				self.depois := new CalendarDate('depois');
 				self.depois.init(20,6,2019);
+				self.a1 := new Aviao();
+				self.a1.inicializa('Ze Pedro', 'AirBus 321 Neo');
+				self.a2 := new Aviao();
+				self.a2.inicializa('Engenio de Andrade', 'AirBus 321 251');
+
 			end
 	
 --------------------------------------------------------------
