@@ -11,43 +11,51 @@
         <showgrid>false</showgrid>
         <ShowStates>false</ShowStates>
     </diagramOptions>
-    <node id="C" sizeCalculated="true" type="Object">
-        <name>C</name>
+    <node id="ea1" sizeCalculated="true" type="Object">
+        <name>ea1</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>285.866722767522</x>
-            <y>223.69708496514403</y>
+            <x>226.91483160712852</x>
+            <y>48.3248658127099</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="T" sizeCalculated="true" type="Object">
-        <name>T</name>
+    <node id="l1" sizeCalculated="true" type="Object">
+        <name>l1</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>285.86909283393345</x>
-            <y>167.98727259510497</y>
+            <x>228.29980840770338</x>
+            <y>235.59597454276013</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="L" sizeCalculated="true" type="Object">
-        <name>L</name>
+    <node id="v1" sizeCalculated="true" type="Object">
+        <name>v1</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>285.96175106775104</x>
-            <y>279.5830405340197</y>
+            <x>473.8224691158546</x>
+            <y>45.73972846473117</y>
         </strategy>
         <hidden>false</hidden>
     </node>
-    <node id="EA" sizeCalculated="true" type="Object">
-        <name>EA</name>
+    <node id="t1" sizeCalculated="true" type="Object">
+        <name>t1</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>283.7026974782756</x>
-            <y>67.35841495509928</y>
+            <x>228.20093630568817</x>
+            <y>128.87401735194277</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="c1" sizeCalculated="true" type="Object">
+        <name>c1</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>226.7327971288314</x>
+            <y>182.24072053502735</y>
         </strategy>
         <hidden>false</hidden>
     </node>
     <node id="story" sizeCalculated="true" type="Object">
         <name>story</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>17.08165184811662</x>
-            <y>17.732484333197874</y>
+            <x>11.868139096807568</x>
+            <y>11.769645451340693</y>
         </strategy>
         <hidden>false</hidden>
     </node>

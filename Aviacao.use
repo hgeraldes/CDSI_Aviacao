@@ -39,10 +39,10 @@ class Main
 		cityCopenhagen: Cidade
 		cityLisboa: Cidade
 		
-		tripulacao: Tripulacao
-		catering: Catering
-		limpeza: Limpeza
-		equipaOperacional: EquipaOperacional
+		t1: Tripulacao
+		c1: Catering
+		l1: Limpeza
+		ea1: EquipaOperacional
 		
 	operations
 	
@@ -357,17 +357,33 @@ class Main
 								+ '-- TEMA GESTAO OPERACIONAL\n'
 								+ '-----------------------------------------------');
 				
-				self.teleprompter('Instanciacao objeto Tripulacao (T) , objeto Catering (C) , objeto Limpeza (L) e objeto EquipaOperacional (EA)');
-				self.scene1_Opera();				
-			
+				self.teleprompter('Instanciacao objeto Tripulacao (t1) , objeto Catering (c1) , objeto Limpeza (l1) e objeto EquipaOperacional (ea1)');
+				self.scene1_Opera();
+				
+				self.teleprompter('Instanciacao objeto Voo (v1)');
+				self.scene2_Opera();
+				
+				self.teleprompter('Inicializacao Objeto Voo (v1)')
+				self.scene3_Opera();
+
 			end
 			
 		scene1_Opera()
 			begin
-				self.tripulacao := new Tripulacao('T');
-				self.catering := new Catering('C');
-				self.limpeza := new Limpeza('L');
-				self.equipaOperacional := new EquipaOperacional('EA');
+				self.t1 := new Tripulacao('t1');
+				self.c1 := new Catering('c1');
+				self.l1 := new Limpeza('l1');
+				self.ea1 := new EquipaOperacional('ea1');
+			end
+			
+		scene2_Opera()
+			begin
+				self.v1 := new Voo('v1');
+			end
+			
+		scene3_Opera()
+			begin
+				
 			end
 
 	end	--Main
@@ -1234,7 +1250,7 @@ end --Limpeza
 -------------------------------------------------------------------------------------------------
 class EquipaOperacional
 	attributes
-		id: Integer init = 1;
+		id: Integer init = 0;
 		
 	operations
 		init(id: Integer, origem: Voo)
