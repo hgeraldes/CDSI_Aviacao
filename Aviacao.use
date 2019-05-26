@@ -1209,6 +1209,12 @@ class Terminal
 				insert (self, porta) into Terminal_Porta;
 				insert(aeroporto, self) into Aeroporto_Terminal;
 			end
+		-- Criar realização deste terminal, com uma porta
+		criarRelacaoTerminalPorta(porta: Porta)
+			begin				
+				insert (self, porta) into Terminal_Porta
+			end
+
 end --Terminal
 
 -------------------------------------------------------------------------------------------------	
