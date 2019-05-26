@@ -370,7 +370,7 @@ class Main
 --OPERACIONAL
 --------------------------------------------------------------
 
-		gestaoOperacional()
+		/*gestaoOperacional()
 			begin
 				
 				self.teleprompter('-----------------------------------------------\n'
@@ -383,7 +383,7 @@ class Main
 				self.teleprompter('Instanciacao objeto Voo (v1)');
 				self.scene2_Opera();
 				
-				self.teleprompter('Inicializacao Objeto Voo (v1)')
+				self.teleprompter('Inicializacao objeto Voo (v1)');
 				self.scene3_Opera();
 
 			end
@@ -403,8 +403,12 @@ class Main
 			
 		scene3_Opera()
 			begin
-				
-			end
+				self.horaPartida := new Instant();
+				self.horaPartida.init(9,0,0);
+				self.horaChegada := new Instant();
+				self.horaChegada.init(18,0,0);
+				self.v1.inicializa('99',horaPartida,horaChegada,400);
+			end*/
 
 	end	--Main
 
