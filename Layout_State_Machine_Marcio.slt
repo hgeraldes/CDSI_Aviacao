@@ -10,27 +10,36 @@
         <showrolenames>true</showrolenames>
         <showgrid>false</showgrid>
     </diagramOptions>
-    <node id="SEM_TRIPULACAO" sizeCalculated="true" type="StateNode">
-        <name>SEM_TRIPULACAO</name>
+    <node id="NAOEXISTE" sizeCalculated="true" type="StateNode">
+        <name>NAOEXISTE</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>807.8791518992648</x>
-            <y>16.1640625</y>
+            <x>53.01707525096708</x>
+            <y>170.0055380901063</y>
         </strategy>
         <showInvariant>true</showInvariant>
         <hidden>false</hidden>
     </node>
-    <node height="14.0" id="CONSTRUCAO" sizeCalculated="false"
-        type="PseudoStateNode" width="14.0">
-        <name>CONSTRUCAO</name>
+    <node id="EXISTE" sizeCalculated="true" type="StateNode">
+        <name>EXISTE</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>67.16049452560921</x>
-            <y>41.87137044509848</y>
+            <x>314.77332550833273</x>
+            <y>171.0</y>
         </strategy>
-        <node id="CONSTRUCAO::StateName" sizeCalculated="true" type="StateName">
-            <name>CONSTRUCAO</name>
+        <showInvariant>true</showInvariant>
+        <hidden>false</hidden>
+    </node>
+    <node height="14.0" id="STARTUP" sizeCalculated="false"
+        type="PseudoStateNode" width="14.0">
+        <name>STARTUP</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>95.46517953987775</x>
+            <y>82.75630099300243</y>
+        </strategy>
+        <node id="STARTUP::StateName" sizeCalculated="true" type="StateName">
+            <name>STARTUP</name>
             <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
                 <userOffsetX>0.0</userOffsetX>
-                <userOffsetY>7.0</userOffsetY>
+                <userOffsetY>0.0</userOffsetY>
                 <basisDeltaX>ABSOLUTE</basisDeltaX>
                 <deltaX>0.0</deltaX>
                 <maxDeltaX>1.7976931348623157E308</maxDeltaX>
@@ -38,277 +47,19 @@
                 <deltaY>10.0</deltaY>
                 <maxDeltaY>1.7976931348623157E308</maxDeltaY>
                 <corner>NORTH</corner>
-                <relativeNodeId>CONSTRUCAO</relativeNodeId>
+                <relativeNodeId>STARTUP</relativeNodeId>
             </strategy>
             <hidden>false</hidden>
         </node>
         <hidden>false</hidden>
     </node>
-    <node id="SEM_TRIPULACAO_LIMPEZA" sizeCalculated="true" type="StateNode">
-        <name>SEM_TRIPULACAO_LIMPEZA</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>354.0</x>
-            <y>110.1509668287116</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="SEM_TRIPULACAO_CATERING" sizeCalculated="true" type="StateNode">
-        <name>SEM_TRIPULACAO_CATERING</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>240.6161428132591</x>
-            <y>18.744846116757913</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="SEM_CATERING_LIMPEZA" sizeCalculated="true" type="StateNode">
-        <name>SEM_CATERING_LIMPEZA</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>312.287872993557</x>
-            <y>187.07861323426664</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="VAZIA" sizeCalculated="true" type="StateNode">
-        <name>VAZIA</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>10.686443534634236</x>
-            <y>91.90021634465904</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="EM_ATUACAO" sizeCalculated="true" type="StateNode">
-        <name>EM_ATUACAO</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>820.4516553336057</x>
-            <y>359.0</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="SEM_LIMPEZA" sizeCalculated="true" type="StateNode">
-        <name>SEM_LIMPEZA</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>838.3785348926149</x>
-            <y>122.03356593222838</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
-    <node id="SEM_CATERING" sizeCalculated="true" type="StateNode">
-        <name>SEM_CATERING</name>
-        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
-            <x>824.1129235533975</x>
-            <y>234.0</y>
-        </strategy>
-        <showInvariant>true</showInvariant>
-        <hidden>false</hidden>
-    </node>
     <edge type="Transition">
-        <source>VAZIA</source>
-        <target>SEM_TRIPULACAO_LIMPEZA</target>
-        <name>setEmpresaCatering(novaEmpresa : String)/</name>
-        <waypoints>
-            <edgeproperty
-                id="transition::VAZIA::SEM_TRIPULACAO_LIMPEZA::::WayPoint::0"
-                sizeCalculated="true" type="WayPoint" userDefined="true" visible="true">
-                <name>0</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
-                    <userOffsetX>143.0</userOffsetX>
-                    <userOffsetY>47.74432857739757</userOffsetY>
-                    <basisDeltaX>ABSOLUTE</basisDeltaX>
-                    <deltaX>0.0</deltaX>
-                    <maxDeltaX>1.7976931348623157E308</maxDeltaX>
-                    <basisDeltaY>ABSOLUTE</basisDeltaY>
-                    <deltaY>0.0</deltaY>
-                    <maxDeltaY>1.7976931348623157E308</maxDeltaY>
-                    <corner>NORTH_WEST</corner>
-                    <relativeNodeId>VAZIA</relativeNodeId>
-                </strategy>
-                <id>0</id>
-                <specialid>1</specialid>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="transition::VAZIA::SEM_TRIPULACAO_LIMPEZA::::WayPoint::1"
-                sizeCalculated="true" type="WayPoint"
-                userDefined="false" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                </strategy>
-                <id>1</id>
-                <specialid>2</specialid>
-                <hidden>false</hidden>
-            </edgeproperty>
-        </waypoints>
-        <hidden>false</hidden>
-        <Transitions>
-            <Transition>
-                <trigger>setEmpresaCatering(novaEmpresa : String)</trigger>
-                <guard/>
-                <post/>
-                <edgeproperty
-                    id="setEmpresaCatering(novaEmpresa : String)/"
-                    sizeCalculated="true" type="TransitionLabel"
-                    userDefined="true" visible="true">
-                    <name>setEmpresaCatering(novaEmpresa : String)/</name>
-                    <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
-                        <userOffsetX>1.0</userOffsetX>
-                        <userOffsetY>0.0</userOffsetY>
-                        <offsetX>0.0</offsetX>
-                        <offsetY>10.0</offsetY>
-                        <related length="2">
-                            <related0>transition::VAZIA::SEM_TRIPULACAO_LIMPEZA::::WayPoint::0</related0>
-                            <related1>transition::VAZIA::SEM_TRIPULACAO_LIMPEZA::::WayPoint::1</related1>
-                        </related>
-                    </strategy>
-                    <hidden>false</hidden>
-                </edgeproperty>
-            </Transition>
-        </Transitions>
-    </edge>
-    <edge type="Transition">
-        <source>VAZIA</source>
-        <target>SEM_TRIPULACAO_CATERING</target>
-        <name>setEmpresaLimpeza(novaEmpresa : String)/</name>
-        <waypoints>
-            <edgeproperty
-                id="transition::VAZIA::SEM_TRIPULACAO_CATERING::::WayPoint::0"
-                sizeCalculated="true" type="WayPoint" userDefined="true" visible="true">
-                <name>0</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
-                    <userOffsetX>132.0</userOffsetX>
-                    <userOffsetY>3.135742103288564</userOffsetY>
-                    <basisDeltaX>ABSOLUTE</basisDeltaX>
-                    <deltaX>0.0</deltaX>
-                    <maxDeltaX>1.7976931348623157E308</maxDeltaX>
-                    <basisDeltaY>ABSOLUTE</basisDeltaY>
-                    <deltaY>0.0</deltaY>
-                    <maxDeltaY>1.7976931348623157E308</maxDeltaY>
-                    <corner>NORTH_WEST</corner>
-                    <relativeNodeId>VAZIA</relativeNodeId>
-                </strategy>
-                <id>0</id>
-                <specialid>1</specialid>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="transition::VAZIA::SEM_TRIPULACAO_CATERING::::WayPoint::1"
-                sizeCalculated="true" type="WayPoint"
-                userDefined="false" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                </strategy>
-                <id>1</id>
-                <specialid>2</specialid>
-                <hidden>false</hidden>
-            </edgeproperty>
-        </waypoints>
-        <hidden>false</hidden>
-        <Transitions>
-            <Transition>
-                <trigger>setEmpresaLimpeza(novaEmpresa : String)</trigger>
-                <guard/>
-                <post/>
-                <edgeproperty
-                    id="setEmpresaLimpeza(novaEmpresa : String)/"
-                    sizeCalculated="true" type="TransitionLabel"
-                    userDefined="true" visible="true">
-                    <name>setEmpresaLimpeza(novaEmpresa : String)/</name>
-                    <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
-                        <userOffsetX>61.0</userOffsetX>
-                        <userOffsetY>5.0</userOffsetY>
-                        <offsetX>0.0</offsetX>
-                        <offsetY>10.0</offsetY>
-                        <related length="2">
-                            <related0>transition::VAZIA::SEM_TRIPULACAO_CATERING::::WayPoint::0</related0>
-                            <related1>transition::VAZIA::SEM_TRIPULACAO_CATERING::::WayPoint::1</related1>
-                        </related>
-                    </strategy>
-                    <hidden>false</hidden>
-                </edgeproperty>
-            </Transition>
-        </Transitions>
-    </edge>
-    <edge type="Transition">
-        <source>VAZIA</source>
-        <target>SEM_CATERING_LIMPEZA</target>
-        <name>setNumeroAssistentesBordo(novoNumero : Integer)/</name>
-        <waypoints>
-            <edgeproperty
-                id="transition::VAZIA::SEM_CATERING_LIMPEZA::::WayPoint::0"
-                sizeCalculated="true" type="WayPoint" userDefined="true" visible="true">
-                <name>0</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToCorner">
-                    <userOffsetX>145.0</userOffsetX>
-                    <userOffsetY>116.53763445840917</userOffsetY>
-                    <basisDeltaX>ABSOLUTE</basisDeltaX>
-                    <deltaX>0.0</deltaX>
-                    <maxDeltaX>1.7976931348623157E308</maxDeltaX>
-                    <basisDeltaY>ABSOLUTE</basisDeltaY>
-                    <deltaY>0.0</deltaY>
-                    <maxDeltaY>1.7976931348623157E308</maxDeltaY>
-                    <corner>NORTH_WEST</corner>
-                    <relativeNodeId>VAZIA</relativeNodeId>
-                </strategy>
-                <id>0</id>
-                <specialid>1</specialid>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="transition::VAZIA::SEM_CATERING_LIMPEZA::::WayPoint::1"
-                sizeCalculated="true" type="WayPoint"
-                userDefined="false" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                </strategy>
-                <id>1</id>
-                <specialid>2</specialid>
-                <hidden>false</hidden>
-            </edgeproperty>
-        </waypoints>
-        <hidden>false</hidden>
-        <Transitions>
-            <Transition>
-                <trigger>setNumeroAssistentesBordo(novoNumero : Integer)</trigger>
-                <guard/>
-                <post/>
-                <edgeproperty
-                    id="setNumeroAssistentesBordo(novoNumero : Integer)/"
-                    sizeCalculated="true" type="TransitionLabel"
-                    userDefined="true" visible="true">
-                    <name>setNumeroAssistentesBordo(novoNumero : Integer)/</name>
-                    <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
-                        <userOffsetX>-52.0</userOffsetX>
-                        <userOffsetY>6.0</userOffsetY>
-                        <offsetX>0.0</offsetX>
-                        <offsetY>10.0</offsetY>
-                        <related length="2">
-                            <related0>transition::VAZIA::SEM_CATERING_LIMPEZA::::WayPoint::0</related0>
-                            <related1>transition::VAZIA::SEM_CATERING_LIMPEZA::::WayPoint::1</related1>
-                        </related>
-                    </strategy>
-                    <hidden>false</hidden>
-                </edgeproperty>
-            </Transition>
-        </Transitions>
-    </edge>
-    <edge type="Transition">
-        <source>CONSTRUCAO</source>
-        <target>VAZIA</target>
+        <source>STARTUP</source>
+        <target>NAOEXISTE</target>
         <name>create/</name>
         <waypoints>
             <edgeproperty
-                id="transition::CONSTRUCAO::VAZIA::::WayPoint::0"
+                id="transition::STARTUP::NAOEXISTE::::WayPoint::0"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>0</name>
@@ -321,7 +72,7 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="transition::CONSTRUCAO::VAZIA::::WayPoint::1"
+                id="transition::STARTUP::NAOEXISTE::::WayPoint::1"
                 sizeCalculated="true" type="WayPoint"
                 userDefined="false" visible="true">
                 <name>1</name>
@@ -344,13 +95,70 @@
                     type="TransitionLabel" userDefined="true" visible="true">
                     <name>create/</name>
                     <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
-                        <userOffsetX>27.0</userOffsetX>
-                        <userOffsetY>-14.0</userOffsetY>
+                        <userOffsetX>-23.0</userOffsetX>
+                        <userOffsetY>-12.0</userOffsetY>
                         <offsetX>0.0</offsetX>
                         <offsetY>10.0</offsetY>
                         <related length="2">
-                            <related0>transition::CONSTRUCAO::VAZIA::::WayPoint::0</related0>
-                            <related1>transition::CONSTRUCAO::VAZIA::::WayPoint::1</related1>
+                            <related0>transition::STARTUP::NAOEXISTE::::WayPoint::0</related0>
+                            <related1>transition::STARTUP::NAOEXISTE::::WayPoint::1</related1>
+                        </related>
+                    </strategy>
+                    <hidden>false</hidden>
+                </edgeproperty>
+            </Transition>
+        </Transitions>
+    </edge>
+    <edge type="Transition">
+        <source>NAOEXISTE</source>
+        <target>EXISTE</target>
+        <name>setID(id : Integer)/</name>
+        <waypoints>
+            <edgeproperty
+                id="transition::NAOEXISTE::EXISTE::::WayPoint::0"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>0</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>0</id>
+                <specialid>1</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="transition::NAOEXISTE::EXISTE::::WayPoint::1"
+                sizeCalculated="true" type="WayPoint"
+                userDefined="false" visible="true">
+                <name>1</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyAttachedIntersection">
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                </strategy>
+                <id>1</id>
+                <specialid>2</specialid>
+                <hidden>false</hidden>
+            </edgeproperty>
+        </waypoints>
+        <hidden>false</hidden>
+        <Transitions>
+            <Transition>
+                <trigger>setID(id : Integer)</trigger>
+                <guard/>
+                <post/>
+                <edgeproperty id="setID(id : Integer)/"
+                    sizeCalculated="true" type="TransitionLabel"
+                    userDefined="false" visible="true">
+                    <name>setID(id : Integer)/</name>
+                    <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyInBetween">
+                        <userOffsetX>0.0</userOffsetX>
+                        <userOffsetY>0.0</userOffsetY>
+                        <offsetX>0.0</offsetX>
+                        <offsetY>10.0</offsetY>
+                        <related length="2">
+                            <related0>transition::NAOEXISTE::EXISTE::::WayPoint::0</related0>
+                            <related1>transition::NAOEXISTE::EXISTE::::WayPoint::1</related1>
                         </related>
                     </strategy>
                     <hidden>false</hidden>

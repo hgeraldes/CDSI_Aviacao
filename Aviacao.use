@@ -1344,39 +1344,24 @@ class EquipaOperacional
 				insert (self, origem) into Voo_EquipaOperacional;
 			end
 			
-	/*statemachines
-	
-	 psm Usage
+	statemachines	 
 	 
-	   states
-	   
-			CONSTRUCAO:initial
-			
-			VAZIA	[tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
-			
-			SEM_TRIPULACAO	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa <> 'Nenhuma']
+	psm UsageGO
+	 
+       states
+        -- The start node
+			STARTUP:initial
+        -- The initial state after creation.	 
+			NAOEXISTE	[id = 0]
+			EXISTE		[id = 1]
 
-			SEM_CATERING	[tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa <> 'Nenhuma']
+		transitions
+         -- First state after creation.
+			STARTUP  	->  NAOEXISTE	{ create }			
+			NAOEXISTE	->	EXISTE	 { init() }	
 			
-			SEM_LIMPEZA	  [tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
-			
-			SEM_TRIPULACAO_CATERING	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa <> 'Nenhuma']
-			
-			SEM_TRIPULACAO_LIMPEZA	  [tripulacao.numeroAssistentesBordo = 0 and catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
-			
-			SEM_CATERING_LIMPEZA	[tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa = 'Nenhuma' and limpeza.nomeEmpresa = 'Nenhuma']
-			
-			EM_ATUACAO	  [tripulacao.numeroAssistentesBordo > 0 and catering.nomeEmpresa <> 'Nenhuma' and limpeza.nomeEmpresa <> 'Nenhuma'] 
-			
-	   transitions
-	   
-			CONSTRUCAO -> VAZIA  { create }
-			VAZIA -> SEM_TRIPULACAO_CATERING { setEmpresaLimpeza() }
-			VAZIA -> SEM_TRIPULACAO_LIMPEZA { setEmpresaCatering() }
-			VAZIA -> SEM_CATERING_LIMPEZA { setNumeroAssistentesBordo() }
-			
-	 end -- of psm Usage*/
-	 
+   end -- of psm UsagePR
+
 end -- of class EquipaOperacional		
 
 -------------------------------------------------------------------------------------------------
