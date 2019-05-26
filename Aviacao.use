@@ -341,8 +341,15 @@ class Main
 				self.depois := new CalendarDate('depois');
 				self.depois.init(20,6,2019);
 			end
+	
+--------------------------------------------------------------
+--OPERACIONAL
+--------------------------------------------------------------
 
-
+		
+	
+	
+	
 	end	--Main
 
 --------------------------------------------------------------
@@ -1195,19 +1202,16 @@ end --Limpeza
 -------------------------------------------------------------------------------------------------
 class EquipaOperacional
 	attributes
-		numero: Integer
+		id: Integer
 		
 	operations
-		/************************************************************
-		* 
-		*************************************************************/
-		init(numero: Integer, origem: Voo)
+		init(id: Integer, origem: Voo)
 			begin
-				self.numero := numero;
+				self.id := id;
 				insert (self, origem) into Voo_EquipaOperacional;
 			end
 			
-	statemachines
+	/*statemachines
 	
 	 psm Usage
 	 
@@ -1238,7 +1242,7 @@ class EquipaOperacional
 			VAZIA -> SEM_TRIPULACAO_LIMPEZA { setEmpresaCatering() }
 			VAZIA -> SEM_CATERING_LIMPEZA { setNumeroAssistentesBordo() }
 			
-	 end -- of psm Usage
+	 end -- of psm Usage*/
 	 
 end -- of class EquipaOperacional		
 
@@ -1335,7 +1339,22 @@ end
 association Voo_EquipaOperacional between
 	EquipaOperacional [1] role ocorre_com
 	Voo [*] role realiza_se
-end	
+end
+
+/*association Voo_EquipaOperacional between
+	EquipaOperacional [1] role ocorre_com
+	Voo [*] role realiza_se
+end
+
+association Voo_EquipaOperacional between
+	EquipaOperacional [1] role ocorre_com
+	Voo [*] role realiza_se
+end
+
+association Voo_EquipaOperacional between
+	EquipaOperacional [1] role ocorre_com
+	Voo [*] role realiza_se
+end*/	
 
 association Pista_PainelInfoPista between 
 	Pista [1]
