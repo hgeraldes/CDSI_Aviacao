@@ -1352,12 +1352,12 @@ association EquipaOperacional_Tripulacao between
 end
 
 association EquipaOperacional_Catering between
-	Catering [1] role atraves_de
+	Catering [1] role tem_servico
 	EquipaOperacional [*] role constroi_se
 end
 
 association EquipaOperacional_Limpeza between
-	Limpeza [1] role atraves_de
+	Limpeza [1] role tem_horario
 	EquipaOperacional [*] role constroi_se
 end
 
