@@ -35,7 +35,12 @@ class Main
 		pr1: ProgramaRevisao
 		pr2: ProgramaRevisao
 		pr3: ProgramaRevisao
-		
+
+		lpr1: LinhaPR
+		lpr2: LinhaPR
+		lpr3: LinhaPR
+		lpr4: LinhaPR
+
 		paisDenmark: Pais
 		paisPortugal: Pais
 		
@@ -303,67 +308,39 @@ class Main
 				self.teleprompter('Instanciacao objetos Aviao (a1 e a2)');
 				self.scene1_Manut();				
 				
-				self.teleprompter('Instanciacao objetos ProgramaRevisao (pr1, pr2 e pr3) em estado inicial\n'
-								+ '- Abrir diagrama de objecto - objetos_LG');
-
-
+				self.teleprompter('Instanciacao objetos ProgramaRevisao (pr1, pr2 e pr3) em estado inicial\n');
 				self.scene2_Manut();
+
+				self.teleprompter('Instanciacao objetos LinhaPR (lpr1, lpr2, lpr3 e lpr4) em estado inicial\n'
+								+ '- Abrir diagrama de objecto - objetos_LG');
+				self.scene3_Manut();
+
 	
 				self.teleprompter('Introducao da data de programacao nas 3 revisoes - 2019/06/01\n'
 								+ '- No final, abrir diagramas de estado das 3 revisoes - ');
-				self.scene3_Manut();
+				self.scene4_Manut();
 				
 				self.teleprompter('Introducao da data de inicio da execucao da revisao de PR1 - 2019/06/08\n'
 								+ '- Abrir diagrama de estado para cada ProgramaRevisao - Aviacao_ProgramaRevisao_UsagePR');
 
-				self.scene4a_Manut();
+				self.scene5a_Manut();
 
 				self.teleprompter('Introducao da data de conclusao da revisao de PR1 - 2019/06/15');
-				self.scene4b_Manut();
+				self.scene5b_Manut();
 				
 				self.teleprompter('Introducao da data de cancelamento da revisao de PR2 - 2019/06/08');
-				self.scene5_Manut();
+				self.scene6_Manut();
 				
 				self.teleprompter('Introducao da data de inicio da execucao da revisao de PR3 - 2019/06/08');
-				self.scene6a_Manut();
+				self.scene7a_Manut();
 
 				self.teleprompter('Introducao da data de cancelamento da revisao de PR3 - 2019/06/15');
-				self.scene6b_Manut();
+				self.scene7b_Manut();
 				
-
-				
-				-- self.teleprompter('O voo TAP007 tera uma nova realizacao no dia de amanha,\n'
-								-- + 'usando o aviao "Eusebio", um Airbus A320.');
-				-- self.scene4();
-				
-				-- self.teleprompter('A realizacao de hoje do voo TAP007 teve de ser cancelada porque o "Amalia" teve uma avaria.\n'
-								-- + 'Os bilhetes desta realizacao sao transferidos para a nova realizacao do voo TAP007 a decorrer amanha.');
-				-- self.scene5();
-				
-				-- self.teleprompter('Telejornal abre com uma noticia surpresa:\n'
-								-- + 'os controladores de trafego aereo convocam uma greve para amanha,\n'
-								-- + 'pelo que a realizacao desse dia foi cancelada tambem.\n'
-								-- + 'Entretanto a avaria do "Amalia" foi consertada e os bilhetes sao transferidos\n'
-								-- + 'para uma nova realizacao do TAP007 a decorrer depois de amanha.');
-				-- self.scene6();
-				
-				-- self.teleprompter('Outra noticia inesperada:\n'
-								-- + 'acaba de ocorrer um terrivel atentado bombista na cidade de destino do voo TAP007.\n'
-								-- + 'Como a reserva ainda estava pendente de pagamento, o ISCTE mandou cancelar a reserva\n'
-								-- + 'para nao por em risco a vida dos seus investigadores.');
-				-- self.scene7();
 			end
 
 		scene1_Manut()
 			begin
---				self.diaInit:= new CalendarDate('init');
---				self.diaInit.init (0,0,0);
---				self.hoje := new CalendarDate('hoje');
---				self.hoje.init(1,6,2019);
---				self.amanha := new CalendarDate('amanha');
---				self.amanha.init(10,6,2019);
---				self.depois := new CalendarDate('depois');
---				self.depois.init(20,6,2019);
 				self.a1 := new Aviao('a1');
 				self.a1.inicializa('Ze Pedro', 'AirBus 321 Neo');
 				self.a2 := new Aviao('a2');
@@ -382,41 +359,48 @@ class Main
 			
 		scene3_Manut()
 			begin
+				self.lpr1 := new LinhaPR('lpr1');
+				self.lpr1.init(1,4,self.pr1);
+				self.lpr2 := new LinhaPR('lpr2');
+				self.lpr2.init(2,3,self.pr1);
+				self.lpr3 := new LinhaPR('lpr3');
+				self.lpr3.init(3,2,self.pr1);
+				self.lpr4 := new LinhaPR('lpr4');
+				self.lpr4.init(4,1,self.pr1);
+
+			end	
+			
+		scene4_Manut()
+			begin
 				self.pr1.setDataProgramacao(20190601);
 				self.pr2.setDataProgramacao(20190601);
 				self.pr3.setDataProgramacao(20190601);
 			end	
 			
-		scene4a_Manut()
+		scene5a_Manut()
 			begin
 				self.pr1.setDataExecucao(20190608);
 			end	
 			
-		scene4b_Manut()
+		scene5b_Manut()
 			begin
 				self.pr1.setDataConclusao(20190615);
 			end	
 			
-		scene5_Manut()
+		scene6_Manut()
 			begin
 				self.pr2.setDataCancel(20190608);
 			end
 			
-		scene6a_Manut()
+		scene7a_Manut()
 			begin
 				self.pr3.setDataExecucao(20190608);
 			end	
 			
-		scene6b_Manut()
+		scene7b_Manut()
 			begin
 				self.pr3.setDataCancel(20190615);
-			end	
-			
-			
-
-	
-			
-			
+			end
 			
 --------------------------------------------------------------
 --OPERACIONAL
@@ -1397,7 +1381,17 @@ end --ProgramaRevisao
 class LinhaPR
 	attributes
 		numero: Integer
-		quantidade: Real
+		quantidade: Integer
+		
+	operations
+		init(numero: Integer, quantidade: Integer, programa : ProgramaRevisao)
+			begin
+				self.numero:= numero;
+				self.quantidade:= quantidade;
+				insert (programa, self) into PR_LinhaPR;
+
+			end
+		
 end --LinhaPR
 
 -------------------------------------------------------------------------------------------------	
