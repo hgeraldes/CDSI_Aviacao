@@ -7,7 +7,6 @@ class Main
 -- ! new Main('p')
 -- ! p.gestaoPistas()
 	attributes
-		diaInit: CalendarDate
 		hoje: CalendarDate
 		amanha: CalendarDate
 		depois: CalendarDate
@@ -32,6 +31,10 @@ class Main
 		manga1: Manga
 		horaPartida: Instant
 		horaChegada: Instant
+		
+		pr1: ProgramaRevisao
+		pr2: ProgramaRevisao
+		pr3: ProgramaRevisao
 		
 		paisDenmark: Pais
 		paisPortugal: Pais
@@ -294,17 +297,14 @@ class Main
 								+ '-- TEMA MANUTENCAO DE AVIOES\n'
 								+ '-----------------------------------------------');
 				
-				self.teleprompter('Instanciacao objetos Aviao (A1 e A2) e objetos ProgramaRevisao (P1, P2 e P3)');
+				self.teleprompter('Instanciacao objetos Aviao (a1 e a2) e de objetos CalendarDate (init, hoje, amanha, depois)');
 				self.scene1_Manut();				
 				
-				self.teleprompter('O voo TAP007 com uma realizacao no dia de hoje,\n'
-								+ 'usando o aviao "Ze Pedro", um AirBus 321 Neo, vai aterrar na pista 1. Tem como destino \n'
-								+ 'a porta de desembarque numero 37. A hora chegada prevista e as 10:30');
---				self.scene2_Manut();
-
---				self.teleprompter('A pista encontra-se aberta, assim como o terminal e a porta 37 \n'
---								+ 'encontra-se disponivel. Esta porta tem uma manga para recolher os passageiros');
---				self.scene3_Manut();
+				self.teleprompter('Instanciacao objetos ProgramaRevisao (pr1 e pr2) em estado inicial');
+				self.scene2_Manut();
+	
+				self.teleprompter('Introducao da data de programacao da revisao - 01062019');
+				self.scene3_Manut();
 				
 				-- self.teleprompter('O voo TAP007 tera uma nova realizacao no dia de amanha,\n'
 								-- + 'usando o aviao "Eusebio", um Airbus A320.');
@@ -330,22 +330,42 @@ class Main
 
 		scene1_Manut()
 			begin
-				-- Cenario do fluxo de voos nas pistas de um aeroporto num dia
-				self.diaInit:= new CalendarDate('init');
-				self.diaInit.init (0,0,0);
-				self.hoje := new CalendarDate('hoje');
-				self.hoje.init(1,6,2019);
-				self.amanha := new CalendarDate('amanha');
-				self.amanha.init(10,6,2019);
-				self.depois := new CalendarDate('depois');
-				self.depois.init(20,6,2019);
-				self.a1 := new Aviao();
+--				self.diaInit:= new CalendarDate('init');
+--				self.diaInit.init (0,0,0);
+--				self.hoje := new CalendarDate('hoje');
+--				self.hoje.init(1,6,2019);
+--				self.amanha := new CalendarDate('amanha');
+--				self.amanha.init(10,6,2019);
+--				self.depois := new CalendarDate('depois');
+--				self.depois.init(20,6,2019);
+				self.a1 := new Aviao('a1');
 				self.a1.inicializa('Ze Pedro', 'AirBus 321 Neo');
-				self.a2 := new Aviao();
+				self.a2 := new Aviao('a2');
 				self.a2.inicializa('Engenio de Andrade', 'AirBus 321 251');
-
 			end
+			
+		scene2_Manut()
+			begin
+				self.pr1 := new ProgramaRevisao('pr1');
+				self.pr1.init(1,0,0,0,0);
+				self.pr2 := new ProgramaRevisao('pr2');
+				self.pr2.init(2,0,0,0,0);
+				self.pr3 := new ProgramaRevisao('pr3');
+				self.pr3.init(3,0,0,0,0);
+			end	
+			
+		scene3_Manut()
+			begin
+				self.pr1.setDataProgramacao(20190601);
+				self.pr2.setDataProgramacao(20190601);
+				self.pr3.setDataProgramacao(20190601);
+			end	
+			
+
 	
+			
+			
+			
 --------------------------------------------------------------
 --OPERACIONAL
 --------------------------------------------------------------
@@ -1179,16 +1199,59 @@ end --PainelInfoPorta
 class ProgramaRevisao
 	attributes 
 		numero: Integer
-		dataProgramacao: CalendarDate
---		horaProgramacao: Instant
-		dataExecucao: CalendarDate
---		horaExecucao: Instant
-		dataConclusao: CalendarDate
---		horaConclusao: Instant
-		dataCancel: CalendarDate		
---		horaCancel: Instant
+		dataProgramacao: Integer init = 0
+		dataExecucao: Integer init = 0
+		dataConclusao: Integer init = 0
+		dataCancel: Integer init = 0		
 --		execucao: EstadoRevisao init = EstadoRevisao::PROGRAMADO
-		
+
+	operations
+--		cliente: Cliente, numero: Integer, data_expira: CalendarDate
+		init(numero: Integer, dataProgramacao: Integer, dataExecucao: Integer, dataConclusao: Integer, dataCancel: Integer)
+			begin
+				self.numero:= numero;
+				self.dataProgramacao:= dataProgramacao;
+				self.dataExecucao:= dataExecucao;
+				self.dataConclusao:= dataConclusao;
+				self.dataCancel:= dataCancel;
+			end
+
+		setDataProgramacao(data: Integer)
+			begin
+				self.dataProgramacao := data
+			end
+			
+statemachines
+     /* This protocol state machine (PSM) describes the "lifecycle" of the plane.
+	 You can see the full syntax of PSMs in http://useocl.sourceforge.net/w/index.php/Protocol_State_Machines */	 
+	 
+	psm UsagePR
+	 
+       states
+        -- The start node
+			STARTUP:initial
+        -- The initial state after creation.	 
+			NAOPROGRAMADO	[dataProgramacao = 0]
+--			PROGRAMADO		[status = 1 or status = 6 or status = 8]
+--			EXECUCAO		[status = 3]
+--			CONCLUIDO			[status = 4]
+--			CANCELADO			[status = 4]
+
+
+		transitions
+         -- First state after creation.
+			STARTUP  	->  NAOPROGRAMADO	{ create }
+			
+--			NAOPROGRAMADO	->	PROGRAMADO {inicializa()}
+
+--			PROGRAMADO	->	EXECUCAO {inicializa()}
+--			PROGRAMADO	->	CANCELADO {inicializa()}
+
+--			EXECUCAO	->  CONCLUIDO
+--			EXECUCAO	->  CANCELADO
+			
+   end -- of psm UsagePR
+			
 end --ProgramaRevisao
 
 -------------------------------------------------------------------------------------------------	
