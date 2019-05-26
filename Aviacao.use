@@ -179,9 +179,8 @@ class Main
 								+ 'encontra-se disponivel. Esta porta tem uma manga para recolher os passageiros');
 				self.scene3_Pistas();
 				
-				-- self.teleprompter('O voo TAP007 tera uma nova realizacao no dia de amanha,\n'
-								-- + 'usando o aviao "Eusebio", um Airbus A320.');
-				-- self.scene4();
+				self.teleprompter('O voo TP757 vai aterrar na pista norte.');
+				self.scene4_Pistas();
 				
 				-- self.teleprompter('A realizacao de hoje do voo TAP007 teve de ser cancelada porque o "Amalia" teve uma avaria.\n'
 								-- + 'Os bilhetes desta realizacao sao transferidos para a nova realizacao do voo TAP007 a decorrer amanha.');
@@ -232,8 +231,6 @@ class Main
 				self.horaChegada.init(15,10,0);
 				
 				self.v1.hora_chegada := self.horaChegada;
--- !Chegada_Voo_TP757.init(15, 10, 00)
--- !Voo_TP757.inicializa('Voo_TP757', Instant_Voo_TK894, Chegada_Voo_TP757, oclUndefined(Integer), CPH, LIS)
 				self.v1.inicializa(self.v1.numero, self.horaPartida, self.horaChegada, oclUndefined(Integer), self.aeroportoOrigem, self.aeroportoDestino);
 				self.r1:= self.v1.criarRealizacao(self.hoje, self.a1);
 				-- A definição dos Paises e das cidades
@@ -251,6 +248,8 @@ class Main
 				self.horaChegada.init(15,10,0);
 				
 				
+				
+				
 
 
 			end
@@ -259,18 +258,17 @@ class Main
 			begin
 				-- A pista encontra-se aberta, o terminal também e a porta 37
 				-- encontra-se disponivel. Esta porta tem uma manga para recolher os passageiros
-				self.pista1 := new Pista();
-				self.pista1.inicializa('Pista 1', EstadoPista::ABERTA);
+				self.pista1 := new Pista('PistaNorte');
+				self.pista1.inicializa('Pista Norte', EstadoPista::ABERTA, self.aeroportoDestino);
 				
-				self.manga1 := new Manga();
+				self.manga1 := new Manga('Manga1');
 				self.manga1.inicializa(1);
 				
-				self.porta37 := new Porta();
+				self.porta37 := new Porta('Porta37');
 				self.porta37.inicializaComManga(37, self.terminalA, EstadoPorta::ABERTA, self.manga1);
 				
-				self.terminalA := new Terminal();
-				self.terminalA.inicializa('Terminal A', EstadoTerminal::ABERTO, self.porta37);
-				
+				self.terminalA := new Terminal('TerminalA');
+				self.terminalA.inicializa('Terminal A', EstadoTerminal::ABERTO, self.porta37, self.aeroportoDestino);
 				
 				
 				-- self.ISCTE := new Empresa();
@@ -285,6 +283,12 @@ class Main
 				-- self.reservaISCTE.emitirBilhete(self.r1, 'Rui', 'Dias', self.classeTuristica, 54);
 				-- self.reservaISCTE.emitirBilhete(self.r1, 'Rita', 'Peixoto', self.classeTuristica, 55);
 				-- self.reservaISCTE.emitirBilhete(self.r1, 'Joao', 'Virtudes', self.classeTuristica, 56)
+			end
+
+		scene4_Pistas()
+			begin
+				--self.pista1.verificaVoo(self.v1, self.horaChegada);
+				self.pista1.setEstadoPistaIndisponivel(1);
 			end
 
 --------------------------------------------------------------
@@ -488,7 +492,7 @@ enum Genero {MASCULINO, FEMININO}
 --------------------------------------------------------------
 -- BEGIN Custom Domain types
 --------------------------------------------------------------
-enum EstadoPista {ABERTA, FECHADA, ATERRAGEM, DESCOLAGEM}
+enum EstadoPista {ABERTA, FECHADA}
 
 enum EstadoTerminal {ABERTO, ENCERRADO}
 
@@ -1146,14 +1150,65 @@ end --Proximidade
 class Pista
 	attributes 
 		nomePista: String
-		estado: EstadoPista
+		estado: EstadoPista init = EstadoPista::ABERTA
+		estadoPistaIndisponivel: Integer init = 0
 		
 	operations
-		inicializa(nomePista: String, estado: EstadoPista)
+		inicializa(nomePista: String, estado: EstadoPista, aeroporto: Aeroporto)
 			begin
 				self.nomePista:= nomePista;
 				self.estado:= estado;
+				insert(aeroporto, self) into Aeroporto_Pista;
 			end
+		
+		-- Criar ocupacao da pista para este voo na hora da realizacao
+		-- criarOcupacaoPista(r: Realizacao)
+			-- begin
+				-- insert(self, r) into Pista_Realizacao;
+			-- end
+		criarOcupacaoPista(estado: EstadoPista)
+			begin
+				self.estado:= estado;
+			end
+
+		verificaVoo(voo: Voo, hora: Instant)
+			begin
+				self.estado := EstadoPista::FECHADA;
+			end
+			
+		verifica()
+			begin
+			end
+		
+		setEstadoPistaIndisponivel(estadoPistaIndisponivel: Integer)
+			begin
+				self.estadoPistaIndisponivel := estadoPistaIndisponivel
+			end
+
+		estadoPistaDisponivel(): Boolean = self.estado = EstadoPista::ABERTA;
+	
+	statemachines
+		 -- You can see the full syntax of PSMs in http://useocl.sourceforge.net/w/index.php/Protocol_State_Machines
+		 
+		psm UsagePista
+		 
+			states
+			-- The start node
+				STARTUP:initial
+				
+			-- Estado inicial apos a criacao.	 
+				DISPONIVEL		[self.estado = EstadoPista::ABERTA]
+				
+			-- Estado de ocupacao de pista caso exista uma realizacao de um voo
+				INDISPONIVEL	[estadoPistaIndisponivel <> 0]
+				
+			transitions
+				STARTUP  	-> DISPONIVEL     { create }
+				
+				DISPONIVEL	-> DISPONIVEL	{[estadoPistaDisponivel()]	verifica()}
+
+				DISPONIVEL	-> INDISPONIVEL	{setEstadoPistaIndisponivel()}
+	end
 end --Pista
 
 -------------------------------------------------------------------------------------------------	
@@ -1163,11 +1218,12 @@ class Terminal
 		estado: EstadoTerminal
 		
 	operations
-		inicializa(nomeTerminal: String, estado: EstadoTerminal, porta: Porta)
+		inicializa(nomeTerminal: String, estado: EstadoTerminal, porta: Porta, aeroporto: Aeroporto)
 			begin
 				self.nomeTerminal:= nomeTerminal;
 				self.estado:= estado;
 				insert (self, porta) into Terminal_Porta;
+				insert(aeroporto, self) into Aeroporto_Terminal;
 			end
 end --Terminal
 
