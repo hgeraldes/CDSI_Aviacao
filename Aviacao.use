@@ -293,18 +293,40 @@ class Main
 		gestaoManutencao()
 			begin
 				
-				self.teleprompter('-----------------------------------------------\n'
-								+ '-- TEMA MANUTENCAO DE AVIOES\n'
-								+ '-----------------------------------------------');
+				self.teleprompter('TEMA MANUTENCAO DE AVIOES - Diagrama de Classes\n'
+								+ '- Abrir diagrama de classe - Aviacao_LG');
 				
-				self.teleprompter('Instanciacao objetos Aviao (a1 e a2) e de objetos CalendarDate (init, hoje, amanha, depois)');
+				self.teleprompter('Instanciacao objetos Aviao (a1 e a2)');
 				self.scene1_Manut();				
 				
-				self.teleprompter('Instanciacao objetos ProgramaRevisao (pr1 e pr2) em estado inicial');
+				self.teleprompter('Instanciacao objetos ProgramaRevisao (pr1, pr2 e pr3) em estado inicial\n'
+								+ '- Abrir diagrama de objecto - objetos_LG');
+
+
 				self.scene2_Manut();
 	
-				self.teleprompter('Introducao da data de programacao da revisao - 01062019');
+				self.teleprompter('Introducao da data de programacao nas 3 revisoes - 2019/06/01\n'
+								+ '- No final, abrir diagramas de estado das 3 revisoes - ');
 				self.scene3_Manut();
+				
+				self.teleprompter('Introducao da data de inicio da execucao da revisao de PR1 - 2019/06/08\n'
+								+ '- Abrir diagrama de estado para cada ProgramaRevisao - Aviacao_ProgramaRevisao_UsagePR');
+
+				self.scene4a_Manut();
+
+				self.teleprompter('Introducao da data de conclusao da revisao de PR1 - 2019/06/15');
+				self.scene4b_Manut();
+				
+				self.teleprompter('Introducao da data de cancelamento da revisao de PR2 - 2019/06/08');
+				self.scene5_Manut();
+				
+				self.teleprompter('Introducao da data de inicio da execucao da revisao de PR3 - 2019/06/08');
+				self.scene6a_Manut();
+
+				self.teleprompter('Introducao da data de cancelamento da revisao de PR3 - 2019/06/15');
+				self.scene6b_Manut();
+				
+
 				
 				-- self.teleprompter('O voo TAP007 tera uma nova realizacao no dia de amanha,\n'
 								-- + 'usando o aviao "Eusebio", um Airbus A320.');
@@ -360,6 +382,32 @@ class Main
 				self.pr2.setDataProgramacao(20190601);
 				self.pr3.setDataProgramacao(20190601);
 			end	
+			
+		scene4a_Manut()
+			begin
+				self.pr1.setDataExecucao(20190608);
+			end	
+			
+		scene4b_Manut()
+			begin
+				self.pr1.setDataConclusao(20190615);
+			end	
+			
+		scene5_Manut()
+			begin
+				self.pr2.setDataCancel(20190608);
+			end
+			
+		scene6a_Manut()
+			begin
+				self.pr3.setDataExecucao(20190608);
+			end	
+			
+		scene6b_Manut()
+			begin
+				self.pr3.setDataCancel(20190615);
+			end	
+			
 			
 
 	
@@ -1240,6 +1288,22 @@ class ProgramaRevisao
 				self.dataProgramacao := data
 			end
 			
+		setDataExecucao(data: Integer)
+			begin
+				self.dataExecucao := data
+			end
+			
+		setDataConclusao(data: Integer)
+			begin
+				self.dataConclusao := data
+			end
+			
+		setDataCancel(data: Integer)
+			begin
+				self.dataCancel := data
+			end
+						
+			
 statemachines
      /* This protocol state machine (PSM) describes the "lifecycle" of the plane.
 	 You can see the full syntax of PSMs in http://useocl.sourceforge.net/w/index.php/Protocol_State_Machines */	 
@@ -1252,9 +1316,9 @@ statemachines
         -- The initial state after creation.	 
 			NAOPROGRAMADO	[dataProgramacao = 0]
 			PROGRAMADO		[dataProgramacao <> 0 and dataExecucao = 0 and dataConclusao = 0 and dataCancel = 0]
---			EXECUCAO		[status = 3]
---			CONCLUIDO			[status = 4]
---			CANCELADO			[status = 4]
+			EXECUCAO		[dataProgramacao <> 0 and dataExecucao <> 0 and dataConclusao = 0 and dataCancel = 0]
+			CONCLUIDO		[dataProgramacao <> 0 and dataExecucao <> 0 and dataConclusao <> 0 and dataCancel = 0]
+			CANCELADO		[dataProgramacao <> 0 and dataConclusao = 0 and dataCancel <> 0]
 
 
 		transitions
@@ -1263,11 +1327,11 @@ statemachines
 			
 			NAOPROGRAMADO	->	PROGRAMADO {setDataProgramacao()}
 
---			PROGRAMADO	->	EXECUCAO {inicializa()}
---			PROGRAMADO	->	CANCELADO {inicializa()}
+			PROGRAMADO	->	EXECUCAO 	{setDataExecucao()}
+			PROGRAMADO	->	CANCELADO 	{setDataCancel()}
 
---			EXECUCAO	->  CONCLUIDO
---			EXECUCAO	->  CANCELADO
+			EXECUCAO	->  CONCLUIDO	{setDataConclusao()}
+			EXECUCAO	->  CANCELADO	{setDataCancel()}
 			
    end -- of psm UsagePR
 			
