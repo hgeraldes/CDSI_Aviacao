@@ -334,7 +334,9 @@ class Main
 				self.teleprompter('Introducao da data de inicio da execucao da revisao de PR3 - 2019/06/08');
 				self.scene7a_Manut();
 
-				self.teleprompter('Introducao da data de cancelamento da revisao de PR3 - 2019/06/15');
+				self.teleprompter('Introducao da data de cancelamento da revisao de PR3 - 2019/06/15\n'
+								+ '- No final, abrir diagramas de sequencia - ');
+				
 				self.scene7b_Manut();
 				
 			end
