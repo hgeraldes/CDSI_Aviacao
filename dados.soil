@@ -56,8 +56,11 @@ reset
 !new Instant('chegada')
 !chegada.init(13, 45, 0)
 
+!new Terminal('terminal')
+!terminal.inicializa('99',EstadoTerminal::ABERTO)
+
 !new Voo('TP127')
-!TP127.inicializa('TAP 127', partida, chegada, 5000, LIS, JFK)
+!TP127.inicializa('TAP 127', partida, chegada, 5000, LIS, JFK, terminal)
 
 
 !r1 := new Realizacao between (TP127,data1)

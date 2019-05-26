@@ -1195,38 +1195,19 @@ end --Limpeza
 -------------------------------------------------------------------------------------------------
 class EquipaOperacional
 	attributes
-		tripulacao: Tripulacao
-		catering: Catering
-		limpeza: Limpeza
+		numero: Integer
 		
 	operations
 		/************************************************************
 		* 
 		*************************************************************/
-		init(tripulacao: Tripulacao, catering: Catering, limpeza: Limpeza, origem: Voo)
+		init(numero: Integer, origem: Voo)
 			begin
-				self.tripulacao:= tripulacao;
-				self.catering:= catering;
-				self.limpeza:= limpeza;
+				self.numero := numero;
 				insert (self, origem) into Voo_EquipaOperacional;
 			end
 			
-		setNumeroAssistentesBordo(novoNumero: Integer)
-			begin
-				self.tripulacao.numeroAssistentesBordo:= novoNumero;
-			end
-			
-		setEmpresaCatering(novaEmpresa: String)
-			begin
-				self.catering.nomeEmpresa:= novaEmpresa;
-			end
-		
-		setEmpresaLimpeza(novaEmpresa: String)
-			begin
-				self.limpeza.nomeEmpresa:= novaEmpresa;
-			end
-			
-	/*statemachines
+	statemachines
 	
 	 psm Usage
 	 
@@ -1257,7 +1238,7 @@ class EquipaOperacional
 			VAZIA -> SEM_TRIPULACAO_LIMPEZA { setEmpresaCatering() }
 			VAZIA -> SEM_CATERING_LIMPEZA { setNumeroAssistentesBordo() }
 			
-	 end -- of psm Usage*/
+	 end -- of psm Usage
 	 
 end -- of class EquipaOperacional		
 
