@@ -1,0 +1,145 @@
+reset
+!new CalendarDate('D_2019_5_5')
+
+!new Aviao('A321')
+!A321.inicializa('Ze Pedro', 'Airbus A321 Neo');
+
+
+!new Pais('Denmark')
+!new Pais('Portugal')
+
+!new Cidade('Copenhagen')
+!insert (Denmark, Copenhagen) into Pais_Cidade
+
+!new Cidade('Lisbon')
+!insert (Portugal, Lisbon) into Pais_Cidade
+
+!new Aeroporto('CPH')
+!set CPH.nome := 'Kastrup'
+!create CPH_Copenhagen: Proximidade between (CPH, Copenhagen)
+
+!new Aeroporto('LIS')
+!set LIS.nome := 'Lisboa'
+!create LIS_Lisbon: Proximidade between (LIS, Lisbon)
+
+!new Voo('Voo_TP757')
+
+!new Instant('Partida_Voo_TP757')
+!Partida_Voo_TP757.init(8, 55, 19)
+!new Instant('Chegada_Voo_TP757')
+!Chegada_Voo_TP757.init(8, 55, 19)
+!Voo_TP757.inicializa('Voo_TP757', Instant_Voo_TK894, Chegada_Voo_TP757, oclUndefined(Integer), CPH, LIS)
+
+
+
+!new Pais('Angola')
+!new Pais('Spain')
+
+!Angola.inicializa('Angola', 'Portuguese (official), Bantu and other African languages', 'AOA', oclUndefined(Integer))
+!Denmark.inicializa('Denmark', 'Danish, Faroese, Greenlandic (Inuit dialect), German; English is the predominant second language', 'DKK', oclUndefined(Integer))
+!Portugal.inicializa('Portugal', 'Portuguese (official), Mirandese (official, but locally used)', 'EUR', oclUndefined(Integer))
+!Spain.inicializa('Spain', 'Castilian Spanish 74% (official nationwide); Catalan 17%, Galician 7%, Basque 2% (each official regionally)', 'EUR', oclUndefined(Integer))
+
+!new Cidade('Benguela')
+!new Cidade('Cabinda')
+!new Cidade('Cazombo')
+!new Cidade('Negage')
+!new Cidade('Luanda')
+!new Cidade('Luena')
+!new Cidade('Malanje')
+!new Cidade('Ngiva')
+!new Cidade('Huambo')
+!new Cidade('Porto_Amboim')
+!new Cidade('Chitato')
+!new Cidade('Menongue')
+!new Cidade('Mbanza_Congo')
+!new Cidade('Kuito')
+!new Cidade('Soyo')
+!new Cidade('Uige')
+!new Cidade('Saurimo')
+!new Cidade('Xangongo')
+
+!new Cidade('Aalborg')
+!new Cidade('Aarhus')
+!new Cidade('Billund')
+!new Cidade('Copenhagen')
+!new Cidade('Esbjerg')
+!new Cidade('Karup')
+!new Cidade('Odense')
+!new Cidade('Ronne')
+!new Cidade('Soenderborg')
+!new Cidade('Skrydstrup')
+!new Cidade('Stauning')
+!new Cidade('Thisted')
+
+!new Cidade('Porto_Santo')
+!new Cidade('Braganca')
+!new Cidade('Flores_Island')
+!new Cidade('Graciosa_Island')
+!new Cidade('Horta')
+!new Cidade('Lisbon')
+!new Cidade('Porto')
+!new Cidade('Ponta_Delgada')
+!new Cidade('Pico')
+!new Cidade('Sao_Jorge_Island')
+!new Cidade('Santa_Maria_Island')
+!new Cidade('Terceira_Island')
+!new Cidade('Vila_Real')
+
+!new Cidade('Lanzerote')
+!new Cidade('Fuerteventura')
+!new Cidade('Gran_Canaria')
+!new Cidade('Tenerife')
+!new Cidade('Hierro')
+
+!insert (Angola, Benguela) into Pais_Cidade
+!insert (Angola, Cabinda) into Pais_Cidade
+!insert (Angola, Cazombo) into Pais_Cidade
+!insert (Angola, Negage) into Pais_Cidade
+!insert (Angola, Luanda) into Pais_Cidade
+!insert (Angola, Luena) into Pais_Cidade
+!insert (Angola, Malanje) into Pais_Cidade
+!insert (Angola, Ngiva) into Pais_Cidade
+!insert (Angola, Huambo) into Pais_Cidade
+!insert (Angola, Porto_Amboim) into Pais_Cidade
+!insert (Angola, Chitato) into Pais_Cidade
+!insert (Angola, Menongue) into Pais_Cidade
+!insert (Angola, Mbanza_Congo) into Pais_Cidade
+!insert (Angola, Kuito) into Pais_Cidade
+!insert (Angola, Soyo) into Pais_Cidade
+!insert (Angola, Uige) into Pais_Cidade
+!insert (Angola, Saurimo) into Pais_Cidade
+!insert (Angola, Xangongo) into Pais_Cidade
+
+!insert (Denmark, Aalborg) into Pais_Cidade
+!insert (Denmark, Aarhus) into Pais_Cidade
+!insert (Denmark, Billund) into Pais_Cidade
+!insert (Denmark, Copenhagen) into Pais_Cidade
+!insert (Denmark, Esbjerg) into Pais_Cidade
+!insert (Denmark, Karup) into Pais_Cidade
+!insert (Denmark, Odense) into Pais_Cidade
+!insert (Denmark, Ronne) into Pais_Cidade
+!insert (Denmark, Soenderborg) into Pais_Cidade
+!insert (Denmark, Skrydstrup) into Pais_Cidade
+!insert (Denmark, Stauning) into Pais_Cidade
+!insert (Denmark, Thisted) into Pais_Cidade
+
+!insert (Portugal, Porto_Santo) into Pais_Cidade
+!insert (Portugal, Braganca) into Pais_Cidade
+!insert (Portugal, Flores_Island) into Pais_Cidade
+!insert (Portugal, Graciosa_Island) into Pais_Cidade
+!insert (Portugal, Horta) into Pais_Cidade
+!insert (Portugal, Lisbon) into Pais_Cidade
+!insert (Portugal, Porto) into Pais_Cidade
+!insert (Portugal, Ponta_Delgada) into Pais_Cidade
+!insert (Portugal, Pico) into Pais_Cidade
+!insert (Portugal, Sao_Jorge_Island) into Pais_Cidade
+!insert (Portugal, Santa_Maria_Island) into Pais_Cidade
+!insert (Portugal, Terceira_Island) into Pais_Cidade
+!insert (Portugal, Vila_Real) into Pais_Cidade
+
+!insert (Spain, Lanzerote) into Pais_Cidade
+!insert (Spain, Fuerteventura) into Pais_Cidade
+!insert (Spain, Gran_Canaria) into Pais_Cidade
+!insert (Spain, Tenerife) into Pais_Cidade
+!insert (Spain, Hierro) into Pais_Cidade

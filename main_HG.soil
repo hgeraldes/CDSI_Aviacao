@@ -1,6 +1,6 @@
 ----------------------------------------------------
 -- Programa do modelo Aviação, baseado 
--- em "story telling" de um cenário de gestão de pistas.
+-- em "story telling" do tema de gestão de pistas.
 
 -- O teleponto na consola do USE pode ser visualizado num segundo ecran,
 -- para facilitar a gravação de um filme no écran principal.

@@ -19,6 +19,10 @@ class Main
 		ISCTE: Empresa
 		classeTuristica: Classe
 		reservaISCTE: Reserva
+		
+		aeroportoOrigem: Aeroporto
+		aeroportoDestino: Aeroporto
+		
 		pista1: Pista
 		pista2: Pista
 		terminalA: Terminal
@@ -26,7 +30,15 @@ class Main
 		porta37: Porta
 		manga1: Manga
 		horaChegada: Instant
-
+		
+		paisDenmark: Pais
+		paisPortugal: Pais
+		
+		cityCopenhagen: Cidade
+		cityLisboa: Cidade
+		
+		
+		
 	operations
 	
 		gestaoComercialDemo()
@@ -143,9 +155,7 @@ class Main
 --PISTAS
 --------------------------------------------------------------			
 		gestaoPistas()
-			begin
-				self.instant:= new Instant();
-				
+			begin				
 				self.teleprompter('-----------------------------------------------\n'
 								+ '-- CENARIO DE GESTAO DE PISTAS\n'
 								+ '-----------------------------------------------');
@@ -186,9 +196,43 @@ class Main
 
 		scene1_Pistas()
 			begin
-				-- Cenario do fluxo de voos nas pistas de um aeroporto num dia
-				self.hoje := new CalendarDate();
-				self.hoje.init(5,5,2019);
+				-- Fluxo de voos nas pistas do aeroporto da Portela em Lisboa. Este cenario ocorre num dia
+				self.hoje := new CalendarDate('D_2019_5_5');
+				self.hoje.init(3,5,2019);
+
+				self.a := new Aviao('A321');
+				self.a.inicializa('Ze Pedro', 'Airbus A321 Neo');
+
+				self.paisDenmark := new Pais('Denmark');
+				self.paisPortugal := new Pais('Portugal');
+				
+				self.cityCopenhagen := new Cidade('Copenhagen');
+				self.cityLisboa := new Cidade('Lisboa');
+				
+				self.cityCopenhagen.criarRelacaoCidadePais(self.paisDenmark);
+
+-- !new Cidade('Copenhagen')
+-- !insert (Denmark, Copenhagen) into Pais_Cidade
+
+-- !new Cidade('Lisbon')
+-- !insert (Portugal, Lisbon) into Pais_Cidade
+
+-- !new Aeroporto('CPH')
+-- !set CPH.nome := 'Kastrup'
+-- !create CPH_Copenhagen: Proximidade between (CPH, Copenhagen)
+
+-- !new Aeroporto('LIS')
+-- !set LIS.nome := 'Lisboa'
+-- !create LIS_Lisbon: Proximidade between (LIS, Lisbon)
+
+-- !new Voo('Voo_TP757')
+
+-- !new Instant('Partida_Voo_TP757')
+-- !Partida_Voo_TP757.init(8, 55, 19)
+-- !new Instant('Chegada_Voo_TP757')
+-- !Chegada_Voo_TP757.init(8, 55, 19)
+-- !Voo_TP757.inicializa('Voo_TP757', Instant_Voo_TK894, Chegada_Voo_TP757, oclUndefined(Integer), CPH, LIS)
+
 			end
 
 		scene2_Pistas()
@@ -453,7 +497,13 @@ class Cidade
 		nome: String
 		
 	operations
-	
+
+		-- Criar realização desta Cidade, com p Pais indicado 
+		criarRelacaoCidadePais(pais: Pais)
+			begin				
+				insert (pais, self) into Pais_Cidade
+			end
+
 		-- Voos de partida da cidade corrente
 		voosPartida(): Sequence(Voo) = servem.voos_partida
 
@@ -494,7 +544,7 @@ class Pais
 				self.moeda_oficial:= moeda_oficial;
 				self.delta_GMT:= delta_GMT
 			end
-			
+						
 		-- País com maior número de voos de chegada
 		@static()
 		paisMaisVisitado():Pais = 
