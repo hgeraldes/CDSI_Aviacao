@@ -1346,20 +1346,20 @@ association Voo_EquipaOperacional between
 	Voo [*] role realiza_se
 end
 
-/*association Voo_EquipaOperacional between
-	EquipaOperacional [1] role ocorre_com
-	Voo [*] role realiza_se
+association EquipaOperacional_Tripulacao between
+	Tripulacao [1] role atraves_de
+	EquipaOperacional [*] role constroi_se
 end
 
-association Voo_EquipaOperacional between
-	EquipaOperacional [1] role ocorre_com
-	Voo [*] role realiza_se
+association EquipaOperacional_Catering between
+	Catering [1] role atraves_de
+	EquipaOperacional [*] role constroi_se
 end
 
-association Voo_EquipaOperacional between
-	EquipaOperacional [1] role ocorre_com
-	Voo [*] role realiza_se
-end*/	
+association EquipaOperacional_Limpeza between
+	Limpeza [1] role atraves_de
+	EquipaOperacional [*] role constroi_se
+end
 
 association Pista_PainelInfoPista between 
 	Pista [1]
