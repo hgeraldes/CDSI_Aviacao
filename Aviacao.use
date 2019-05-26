@@ -1236,7 +1236,7 @@ statemachines
 			STARTUP:initial
         -- The initial state after creation.	 
 			NAOPROGRAMADO	[dataProgramacao = 0]
---			PROGRAMADO		[status = 1 or status = 6 or status = 8]
+			PROGRAMADO		[dataProgramacao <> 0 and dataExecucao = 0 and dataConclusao = 0 and dataCancel = 0]
 --			EXECUCAO		[status = 3]
 --			CONCLUIDO			[status = 4]
 --			CANCELADO			[status = 4]
@@ -1246,7 +1246,7 @@ statemachines
          -- First state after creation.
 			STARTUP  	->  NAOPROGRAMADO	{ create }
 			
---			NAOPROGRAMADO	->	PROGRAMADO {inicializa()}
+			NAOPROGRAMADO	->	PROGRAMADO {setDataProgramacao()}
 
 --			PROGRAMADO	->	EXECUCAO {inicializa()}
 --			PROGRAMADO	->	CANCELADO {inicializa()}
