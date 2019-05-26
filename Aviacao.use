@@ -38,8 +38,10 @@ class Main
 		cityCopenhagen: Cidade
 		cityLisboa: Cidade
 		
-		prox: Proximidade
-		
+		tripulacao: Tripulacao
+		catering: Catering
+		limpeza: Limpeza
+		equipaOperacional: EquipaOperacional
 		
 	operations
 	
@@ -338,10 +340,26 @@ class Main
 --OPERACIONAL
 --------------------------------------------------------------
 
-		
-	
-	
-	
+		gestaoOperacional()
+			begin
+				
+				self.teleprompter('-----------------------------------------------\n'
+								+ '-- TEMA GESTAO OPERACIONAL\n'
+								+ '-----------------------------------------------');
+				
+				self.teleprompter('Instanciacao objeto Tripulacao (T) , objeto Catering (C) , objeto Limpeza (L) e objeto EquipaOperacional (EA)');
+				self.scene1_Opera();				
+			
+			end
+			
+		scene1_Opera()
+			begin
+				self.tripulacao := new Tripulacao('T');
+				self.catering := new Catering('C');
+				self.limpeza := new Limpeza('L');
+				self.equipaOperacional := new EquipaOperacional('EA');
+			end
+
 	end	--Main
 
 --------------------------------------------------------------
@@ -1201,7 +1219,7 @@ end --Limpeza
 -------------------------------------------------------------------------------------------------
 class EquipaOperacional
 	attributes
-		id: Integer
+		id: Integer init = 1;
 		
 	operations
 		init(id: Integer, origem: Voo)

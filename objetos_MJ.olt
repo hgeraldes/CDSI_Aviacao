@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<diagram_Layout version="13">
+    <diagramOptions>
+        <autolayout>false</autolayout>
+        <antialiasing>false</antialiasing>
+        <showassocnames>false</showassocnames>
+        <showattributes>true</showattributes>
+        <showmultiplicities>false</showmultiplicities>
+        <showoperations>false</showoperations>
+        <showrolenames>true</showrolenames>
+        <showgrid>false</showgrid>
+        <ShowStates>false</ShowStates>
+    </diagramOptions>
+    <node id="C" sizeCalculated="true" type="Object">
+        <name>C</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>285.866722767522</x>
+            <y>223.69708496514403</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="T" sizeCalculated="true" type="Object">
+        <name>T</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>285.86909283393345</x>
+            <y>167.98727259510497</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="L" sizeCalculated="true" type="Object">
+        <name>L</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>285.96175106775104</x>
+            <y>279.5830405340197</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="EA" sizeCalculated="true" type="Object">
+        <name>EA</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>283.7026974782756</x>
+            <y>67.35841495509928</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+    <node id="story" sizeCalculated="true" type="Object">
+        <name>story</name>
+        <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
+            <x>17.08165184811662</x>
+            <y>17.732484333197874</y>
+        </strategy>
+        <hidden>false</hidden>
+    </node>
+</diagram_Layout>
