@@ -3,6 +3,9 @@ model Aviacao
 --------------------------------------------------------------
 
 class Main
+--Para correr os cenários, escrever na consola (exemplo para o cenário de Gestão de Pistas):
+-- ! new Main('p')
+-- ! p.gestaoPistas()
 	attributes
 		hoje: CalendarDate
 		amanha: CalendarDate
@@ -16,10 +19,17 @@ class Main
 		ISCTE: Empresa
 		classeTuristica: Classe
 		reservaISCTE: Reserva
+		pista1: Pista
+		pista2: Pista
+		terminalA: Terminal
+		terminalB: Terminal
+		porta37: Porta
+		manga1: Manga
+		horaChegada: Instant
 
 	operations
 	
-		main()
+		gestaoComercialDemo()
 			begin
 				self.instant:= new Instant();
 				
@@ -59,7 +69,7 @@ class Main
 								+ 'para nao por em risco a vida dos seus investigadores.');
 				self.scene7();
 			end
-			
+
 		teleprompter(message: String)
 			begin
 				for i in OrderedSet{1..30} do
@@ -128,7 +138,108 @@ class Main
 			begin
 				self.ISCTE.desistirReserva(self.reservaISCTE, self.hoje)
 			end		
+			
+--------------------------------------------------------------
+--PISTAS
+--------------------------------------------------------------			
+		gestaoPistas()
+			begin
+				self.instant:= new Instant();
 				
+				self.teleprompter('-----------------------------------------------\n'
+								+ '-- CENARIO DE GESTAO DE PISTAS\n'
+								+ '-----------------------------------------------');
+				
+				self.teleprompter('Cenario do fluxo de voos nas pistas de um aeroporto num dia.');
+				self.scene1_Pistas();				
+				
+				self.teleprompter('O voo TAP007 com uma realizacao no dia de hoje,\n'
+								+ 'usando o aviao "Ze Pedro", um AirBus 321 Neo, vai aterrar na pista 1. Tem como destino \n'
+								+ 'a porta de desembarque numero 37. A hora chegada prevista e as 10:30');
+				self.scene2_Pistas();
+
+				self.teleprompter('A pista encontra-se aberta, assim como o terminal e a porta 37 \n'
+								+ 'encontra-se disponivel. Esta porta tem uma manga para recolher os passageiros');
+				self.scene3_Pistas();
+				
+				-- self.teleprompter('O voo TAP007 tera uma nova realizacao no dia de amanha,\n'
+								-- + 'usando o aviao "Eusebio", um Airbus A320.');
+				-- self.scene4();
+				
+				-- self.teleprompter('A realizacao de hoje do voo TAP007 teve de ser cancelada porque o "Amalia" teve uma avaria.\n'
+								-- + 'Os bilhetes desta realizacao sao transferidos para a nova realizacao do voo TAP007 a decorrer amanha.');
+				-- self.scene5();
+				
+				-- self.teleprompter('Telejornal abre com uma noticia surpresa:\n'
+								-- + 'os controladores de trafego aereo convocam uma greve para amanha,\n'
+								-- + 'pelo que a realizacao desse dia foi cancelada tambem.\n'
+								-- + 'Entretanto a avaria do "Amalia" foi consertada e os bilhetes sao transferidos\n'
+								-- + 'para uma nova realizacao do TAP007 a decorrer depois de amanha.');
+				-- self.scene6();
+				
+				-- self.teleprompter('Outra noticia inesperada:\n'
+								-- + 'acaba de ocorrer um terrivel atentado bombista na cidade de destino do voo TAP007.\n'
+								-- + 'Como a reserva ainda estava pendente de pagamento, o ISCTE mandou cancelar a reserva\n'
+								-- + 'para nao por em risco a vida dos seus investigadores.');
+				-- self.scene7();
+			end
+
+		scene1_Pistas()
+			begin
+				-- Cenario do fluxo de voos nas pistas de um aeroporto num dia
+				self.hoje := new CalendarDate();
+				self.hoje.init(5,5,2019);
+			end
+
+		scene2_Pistas()
+			begin
+				-- O voo TAP007 com uma realizacao no dia de hoje, usando o aviao "Ze Pedro", um AirBus 321 Neo, 
+				-- vai aterrar na pista 1. Tem como destino
+				-- a porta de desembarque numero 37. A hora chegada prevista e as 10:30
+				self.a := new Aviao();
+				self.a.inicializa('Ze Pedro', 'AirBus 321 Neo');
+				
+				self.v1 := new Voo();
+				self.v1.numero := 'TAP007';
+				self.r1:= self.v1.criarRealizacao(self.hoje, self.a);
+				
+				self.horaChegada := new Instant();
+				self.horaChegada.init(10,30,0);
+				self.v1.hora_chegada := self.horaChegada;
+			end
+
+		scene3_Pistas()
+			begin
+				-- A pista encontra-se aberta, o terminal também e a porta 37
+				-- encontra-se disponivel. Esta porta tem uma manga para recolher os passageiros
+				self.pista1 := new Pista();
+				self.pista1.inicializa('Pista 1', EstadoPista::ABERTA);
+				
+				self.manga1 := new Manga();
+				self.manga1.inicializa(1);
+				
+				self.porta37 := new Porta();
+				self.porta37.inicializaComManga(37, self.terminalA, EstadoPorta::ABERTA, self.manga1);
+				
+				self.terminalA := new Terminal();
+				self.terminalA.inicializa('Terminal A', EstadoTerminal::ABERTO, self.porta37);
+				
+				
+				
+				-- self.ISCTE := new Empresa();
+				-- self.ISCTE.inicializa(1234, 'ISCTE-IUL', 501510184, 'Av. das Forcas Armadas, Lx');
+
+				-- --!reservaISCTE:= ISCTE.efetuarReserva(oclUndefined(CartaoCredito))
+				-- self.reservaISCTE:= self.ISCTE.efetuarReserva(null);
+
+				-- self.classeTuristica := new Classe(); 
+				-- self.classeTuristica.tipo:= TipoClasse::TURISTICA;
+
+				-- self.reservaISCTE.emitirBilhete(self.r1, 'Rui', 'Dias', self.classeTuristica, 54);
+				-- self.reservaISCTE.emitirBilhete(self.r1, 'Rita', 'Peixoto', self.classeTuristica, 55);
+				-- self.reservaISCTE.emitirBilhete(self.r1, 'Joao', 'Virtudes', self.classeTuristica, 56)
+			end
+
 	end	--Main
 
 --------------------------------------------------------------
@@ -167,18 +278,15 @@ class Voo
 		hora_partida: Instant
 		hora_chegada: Instant
 		milhas: Integer
-		--HG - Este voo tem um determinado terminal determinado
-		terminal: Terminal
 		
 	operations
 		-- Inicialização de um voo
-		inicializa(numero: String, hora_partida: Instant, hora_chegada: Instant, milhas: Integer, origem: Aeroporto, destino: Aeroporto, terminal: Terminal)
+		inicializa(numero: String, hora_partida: Instant, hora_chegada: Instant, milhas: Integer, origem: Aeroporto, destino: Aeroporto)
 			begin
 				self.numero:= numero;
 				self.hora_partida:= hora_partida;
 				self.hora_chegada:= hora_chegada;
 				self.milhas:= milhas;
-				self.terminal:= terminal;
 				insert (origem, self) into Aeroporto_VoosPartida;
 				insert (destino, self) into Aeroporto_VoosChegada
 			end
@@ -647,9 +755,6 @@ associationclass Realizacao
 
 	attributes
 		cancelada: Boolean init = false
-		--HG incluidos os atributos para uma data de inicio e outra de fim 
-		inicio: Instant
-		fim: Instant
 
 	operations
 		-- inicialização da realização de um voo
@@ -807,10 +912,11 @@ class Terminal
 		estado: EstadoTerminal
 		
 	operations
-		inicializa(nomeTerminal: String, estado: EstadoTerminal)
+		inicializa(nomeTerminal: String, estado: EstadoTerminal, porta: Porta)
 			begin
 				self.nomeTerminal:= nomeTerminal;
 				self.estado:= estado;
+				insert (self, porta) into Terminal_Porta;
 			end
 end --Terminal
 
@@ -821,7 +927,15 @@ class Porta
 		estadoPorta: EstadoPorta
 
 	operations
-		criarPorta(numeroPorta: Integer, estadoPorta: EstadoPorta, manga: Manga, autocarro: Autocarro)
+		inicializaComManga(numeroPorta: Integer, terminal: Terminal, estadoPorta: EstadoPorta, manga: Manga)
+			begin
+				self.numeroPorta:= numeroPorta;
+				self.estadoPorta:= estadoPorta;
+				
+				insert (self, manga) into Porta_Manga;
+			end	
+			
+		inicializa(numeroPorta: Integer, terminal: Terminal, estadoPorta: EstadoPorta, manga: Manga, autocarro: Autocarro)
 			begin
 				self.numeroPorta:= numeroPorta;
 				self.estadoPorta:= estadoPorta;
@@ -851,14 +965,20 @@ end --Porta
 -------------------------------------------------------------------------------------------------	
 class Manga
 	attributes 
-		existe: Boolean
-		n_manga: Integer
+		numeroManga: Integer
+	
+	operations
+		inicializa(numeroManga: Integer)
+			begin
+				self.numeroManga:= numeroManga;
+			end
+		
 end --Manga
 
 -------------------------------------------------------------------------------------------------	
 class Autocarro
 	attributes 
-		n_autocarro: Integer
+		numeroAutocarro: Integer
 end --Autocarro
 
 -------------------------------------------------------------------------------------------------	
@@ -1087,20 +1207,18 @@ association Aviao_Realizacao between
 	Aviao [1]
 	Realizacao [*] role realizacoes ordered
 end
-
+--------------------------------------------------------------
+-- BEGIN New custom Associations
+--------------------------------------------------------------
 association Pista_Realizacao
 	between
 		Pista [1] role pistaRealizacao
 		Realizacao [*] role realizacaoPista
 end
 
-
---------------------------------------------------------------
--- BEGIN New custom Associations
---------------------------------------------------------------
-association Voo_Terminal between 
-	Terminal [1]
-	Voo [*] role voosTerminal
+association Voo_Porta between 
+	Porta [1] role portaVoo
+	Voo [*] role voooPorta
 end
 
 composition Aeroporto_Pista between 
@@ -1114,7 +1232,7 @@ composition Aeroporto_Terminal between
 end
 
 composition Terminal_Porta between 
-	Terminal [1] role porta
+	Terminal [1] role portaTerminal
 	Porta [1..*] role portas
 end
 
@@ -1154,12 +1272,12 @@ association PR_Aviao between
 end
 
 association Porta_Manga between 
-	Porta [1]
+	Porta [1] role portaManga
 	Manga [0..1] role portaComManga
 end
 
 association Porta_Autocarro between 
-	Porta [1]
+	Porta [1] role PortaAutocarro
 	Autocarro [0..1] role portaComAutocarro
 end
 
