@@ -7,6 +7,7 @@ class Main
 -- ! new Main('p')
 -- ! p.gestaoPistas()
 	attributes
+		diaInit: CalendarDate
 		hoje: CalendarDate
 		amanha: CalendarDate
 		depois: CalendarDate
@@ -283,6 +284,64 @@ class Main
 				-- self.reservaISCTE.emitirBilhete(self.r1, 'Rita', 'Peixoto', self.classeTuristica, 55);
 				-- self.reservaISCTE.emitirBilhete(self.r1, 'Joao', 'Virtudes', self.classeTuristica, 56)
 			end
+
+--------------------------------------------------------------
+--MANUTENCAO AVIOES
+--------------------------------------------------------------			
+		gestaoManutencao()
+			begin
+				
+				self.teleprompter('-----------------------------------------------\n'
+								+ '-- TEMA MANUTENCAO DE AVIOES\n'
+								+ '-----------------------------------------------');
+				
+				self.teleprompter('Instanciacao objetos Aviao (A1 e A2) e objetos ProgramaRevisao (P1, P2 e P3)');
+				self.scene1_Manut();				
+				
+				self.teleprompter('O voo TAP007 com uma realizacao no dia de hoje,\n'
+								+ 'usando o aviao "Ze Pedro", um AirBus 321 Neo, vai aterrar na pista 1. Tem como destino \n'
+								+ 'a porta de desembarque numero 37. A hora chegada prevista e as 10:30');
+--				self.scene2_Manut();
+
+--				self.teleprompter('A pista encontra-se aberta, assim como o terminal e a porta 37 \n'
+--								+ 'encontra-se disponivel. Esta porta tem uma manga para recolher os passageiros');
+--				self.scene3_Manut();
+				
+				-- self.teleprompter('O voo TAP007 tera uma nova realizacao no dia de amanha,\n'
+								-- + 'usando o aviao "Eusebio", um Airbus A320.');
+				-- self.scene4();
+				
+				-- self.teleprompter('A realizacao de hoje do voo TAP007 teve de ser cancelada porque o "Amalia" teve uma avaria.\n'
+								-- + 'Os bilhetes desta realizacao sao transferidos para a nova realizacao do voo TAP007 a decorrer amanha.');
+				-- self.scene5();
+				
+				-- self.teleprompter('Telejornal abre com uma noticia surpresa:\n'
+								-- + 'os controladores de trafego aereo convocam uma greve para amanha,\n'
+								-- + 'pelo que a realizacao desse dia foi cancelada tambem.\n'
+								-- + 'Entretanto a avaria do "Amalia" foi consertada e os bilhetes sao transferidos\n'
+								-- + 'para uma nova realizacao do TAP007 a decorrer depois de amanha.');
+				-- self.scene6();
+				
+				-- self.teleprompter('Outra noticia inesperada:\n'
+								-- + 'acaba de ocorrer um terrivel atentado bombista na cidade de destino do voo TAP007.\n'
+								-- + 'Como a reserva ainda estava pendente de pagamento, o ISCTE mandou cancelar a reserva\n'
+								-- + 'para nao por em risco a vida dos seus investigadores.');
+				-- self.scene7();
+			end
+
+		scene1_Manut()
+			begin
+				-- Cenario do fluxo de voos nas pistas de um aeroporto num dia
+				self.diaInit:= new CalendarDate('init');
+				self.diaInit.init (0,0,0);
+				self.hoje := new CalendarDate('hoje');
+				self.hoje.init(1,6,2019);
+				self.amanha := new CalendarDate('amanha');
+				self.amanha.init(10,6,2019);
+				self.depois := new CalendarDate('depois');
+				self.depois.init(20,6,2019);
+			end
+
 
 	end	--Main
 
@@ -1065,9 +1124,15 @@ end --PainelInfoPorta
 class ProgramaRevisao
 	attributes 
 		numero: Integer
-		data: CalendarDate
-		hora: Instant
-		execucao: EstadoRevisao init = EstadoRevisao::PROGRAMADO
+		dataProgramacao: CalendarDate
+--		horaProgramacao: Instant
+		dataExecucao: CalendarDate
+--		horaExecucao: Instant
+		dataConclusao: CalendarDate
+--		horaConclusao: Instant
+		dataCancel: CalendarDate		
+--		horaCancel: Instant
+--		execucao: EstadoRevisao init = EstadoRevisao::PROGRAMADO
 		
 end --ProgramaRevisao
 

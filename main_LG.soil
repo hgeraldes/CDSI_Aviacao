@@ -1,0 +1,23 @@
+----------------------------------------------------
+-- Programa do modelo Aviação, baseado 
+-- em "story telling" do tema Manutenção de Aviões.
+
+-- O teleponto na consola do USE pode ser visualizado num segundo ecran,
+-- para facilitar a gravação de um filme no écran principal.
+
+-- Este programa deve ser executado na consola do USE assim:
+-- use> open -q main_LG.soil
+
+-- No final da primeira cena, abra imediatamente a janela do 
+-- diagrama de sequência no USE e selecione a visualização
+-- dos comandos que achar adequados, na opção "Commands to show".
+-- Se não quiser muito detalhe, escolha as opções "Create" e "Destroy",
+-- para mostrar apenas a criação e destruição dos objetos.
+----------------------------------------------------
+
+reset
+
+! new Main('story')
+
+! story.gestaoManutencao()
+
