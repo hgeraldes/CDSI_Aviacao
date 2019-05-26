@@ -30,6 +30,7 @@ class Main
 		terminalB: Terminal
 		porta37: Porta
 		manga1: Manga
+		horaPartida: Instant
 		horaChegada: Instant
 		
 		paisDenmark: Pais
@@ -219,11 +220,18 @@ class Main
 				self.a1.inicializa('Ze Pedro', 'Airbus A321 Neo');
 				self.v1 := new Voo('Voo_TP757');
 				self.v1.numero := 'TP757';
+				
+				-- Hora de partida
+				self.horaPartida := new Instant();
+				self.horaPartida.init(12,20,0);
+				-- Hora de chegada
 				self.horaChegada := new Instant();
 				self.horaChegada.init(15,10,0);
+				
 				self.v1.hora_chegada := self.horaChegada;
 -- !Chegada_Voo_TP757.init(15, 10, 00)
 -- !Voo_TP757.inicializa('Voo_TP757', Instant_Voo_TK894, Chegada_Voo_TP757, oclUndefined(Integer), CPH, LIS)
+				self.v1.inicializa(self.v1.numero, self.horaPartida, self.horaChegada, oclUndefined(Integer), self.aeroportoOrigem, self.aeroportoDestino);
 				self.r1:= self.v1.criarRealizacao(self.hoje, self.a1);
 				-- A definição dos Paises e das cidades
 				self.paisDenmark := new Pais('Denmark');
@@ -238,6 +246,8 @@ class Main
 -- !create LIS_Lisbon: Proximidade between (LIS, Lisbon)
 				self.horaChegada := new Instant();
 				self.horaChegada.init(15,10,0);
+				
+				
 
 
 			end
@@ -896,6 +906,11 @@ associationclass Realizacao
 				insert (aviao, self) into Aviao_Realizacao;
 			end
 		
+		inicializaPista(pista: Pista)
+			begin
+				insert (pista, self) into Pista_Realizacao;
+			end
+		
 		-- serialização de uma realização de um voo
 		toString(): String = 
 			realiza_se.numero + '_' + ocorre_em.year.toString()+
@@ -1328,10 +1343,9 @@ end
 --------------------------------------------------------------
 -- BEGIN New custom Associations
 --------------------------------------------------------------
-association Pista_Realizacao
-	between
-		Pista [1] role pistaRealizacao
-		Realizacao [*] role realizacaoPista
+association Pista_Realizacao between
+	Pista [1] role pistaRealizacao
+	Realizacao [*] role realizacaoPista
 end
 
 association Voo_Porta between 
