@@ -231,7 +231,7 @@
         <name>Voo</name>
         <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyFixed">
             <x>602.0</x>
-            <y>595.0</y>
+            <y>596.0</y>
         </strategy>
         <hidden>false</hidden>
     </node>
@@ -392,19 +392,6 @@
         <target>Voo</target>
         <name>Aeroporto_VoosPartida</name>
         <properties>
-            <edgeproperty id="Aeroporto_VoosPartida::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>voos_partida {ordered}</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>120.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                    <attached>Aeroporto_VoosPartida::WayPoint::2</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty
                 id="Aeroporto_VoosPartida::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
@@ -417,6 +404,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Aeroporto_VoosPartida::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>voos_partida {ordered}</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>120.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>Aeroporto_VoosPartida::WayPoint::2</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -523,6 +523,19 @@
         <target>Terminal</target>
         <name>Aeroporto_Terminal</name>
         <properties>
+            <edgeproperty id="Aeroporto_Terminal::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>terminais</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-99.0</userOffsetX>
+                    <userOffsetY>-30.0</userOffsetY>
+                    <attached>Aeroporto_Terminal::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty id="Aeroporto_Terminal::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -537,16 +550,17 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="Aeroporto_Terminal::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>terminais</name>
+            <edgeproperty id="Aeroporto_Terminal::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="true" visible="true">
+                <name>1</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-99.0</userOffsetX>
-                    <userOffsetY>-30.0</userOffsetY>
-                    <attached>Aeroporto_Terminal::WayPoint::1</attached>
+                    <userOffsetX>3.0</userOffsetX>
+                    <userOffsetY>-3.0</userOffsetY>
+                    <attached>Aeroporto_Terminal::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
-                    <placement>TOP</placement>
+                    <placement>BOTTOM</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -560,20 +574,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="Aeroporto_Terminal::source::multiplicity"
-                sizeCalculated="true" type="multiplicity"
-                userDefined="true" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>3.0</userOffsetX>
-                    <userOffsetY>-3.0</userOffsetY>
-                    <attached>Aeroporto_Terminal::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>BOTTOM</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -641,19 +641,6 @@
         <target>Realizacao</target>
         <name>Aviao_Realizacao</name>
         <properties>
-            <edgeproperty id="Aviao_Realizacao::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>realizacoes {ordered}</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-29.0</userOffsetX>
-                    <userOffsetY>-28.0</userOffsetY>
-                    <attached>Aviao_Realizacao::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty id="Aviao_Realizacao::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -665,6 +652,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Aviao_Realizacao::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>realizacoes {ordered}</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-29.0</userOffsetX>
+                    <userOffsetY>-28.0</userOffsetY>
+                    <attached>Aviao_Realizacao::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -851,19 +851,6 @@
         <target>Pista</target>
         <name>Aeroporto_Pista</name>
         <properties>
-            <edgeproperty id="Aeroporto_Pista::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>pistas</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>36.0</userOffsetX>
-                    <userOffsetY>11.0</userOffsetY>
-                    <attached>Aeroporto_Pista::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty id="Aeroporto_Pista::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -875,6 +862,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Aeroporto_Pista::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>pistas</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>36.0</userOffsetX>
+                    <userOffsetY>11.0</userOffsetY>
+                    <attached>Aeroporto_Pista::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -1178,6 +1178,20 @@
         <name>EquipaOperacional_Tripulacao</name>
         <properties>
             <edgeproperty
+                id="EquipaOperacional_Tripulacao::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>existe</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-1.0</userOffsetX>
+                    <userOffsetY>-14.0</userOffsetY>
+                    <attached>EquipaOperacional_Tripulacao::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
                 id="EquipaOperacional_Tripulacao::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -1193,13 +1207,13 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="EquipaOperacional_Tripulacao::target::rolename"
+                id="EquipaOperacional_Tripulacao::source::rolename"
                 sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>existe</name>
+                <name>atraves_de</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-1.0</userOffsetX>
-                    <userOffsetY>-14.0</userOffsetY>
-                    <attached>EquipaOperacional_Tripulacao::WayPoint::1</attached>
+                    <userOffsetX>-14.0</userOffsetX>
+                    <userOffsetY>30.0</userOffsetY>
+                    <attached>EquipaOperacional_Tripulacao::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
@@ -1218,20 +1232,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="EquipaOperacional_Tripulacao::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>atraves_de</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-14.0</userOffsetX>
-                    <userOffsetY>30.0</userOffsetY>
-                    <attached>EquipaOperacional_Tripulacao::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -1314,19 +1314,6 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="Pista_Realizacao::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>pistaRealizacao</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>88.0</userOffsetX>
-                    <userOffsetY>10.0</userOffsetY>
-                    <attached>Pista_Realizacao::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty id="Pista_Realizacao::source::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="false" visible="true">
@@ -1338,6 +1325,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Pista_Realizacao::source::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>pistaRealizacao</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>88.0</userOffsetX>
+                    <userOffsetY>10.0</userOffsetY>
+                    <attached>Pista_Realizacao::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -1398,6 +1398,19 @@
         <target>LinhaPR</target>
         <name>PR_LinhaPR</name>
         <properties>
+            <edgeproperty id="PR_LinhaPR::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>linhas_revisao</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>91.0</userOffsetX>
+                    <userOffsetY>4.0</userOffsetY>
+                    <attached>PR_LinhaPR::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty id="PR_LinhaPR::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="false" visible="true">
@@ -1412,13 +1425,13 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="PR_LinhaPR::target::rolename"
+            <edgeproperty id="PR_LinhaPR::source::rolename"
                 sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>linhas_revisao</name>
+                <name>programa</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>91.0</userOffsetX>
+                    <userOffsetX>71.0</userOffsetX>
                     <userOffsetY>4.0</userOffsetY>
-                    <attached>PR_LinhaPR::WayPoint::1</attached>
+                    <attached>PR_LinhaPR::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
@@ -1436,19 +1449,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="PR_LinhaPR::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>programa</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>71.0</userOffsetX>
-                    <userOffsetY>4.0</userOffsetY>
-                    <attached>PR_LinhaPR::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -1613,6 +1613,19 @@
         <target>Manga</target>
         <name>Porta_Manga</name>
         <properties>
+            <edgeproperty id="Porta_Manga::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>portaComManga</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-10.0</userOffsetX>
+                    <userOffsetY>10.0</userOffsetY>
+                    <attached>Porta_Manga::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty id="Porta_Manga::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -1627,13 +1640,13 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="Porta_Manga::target::rolename"
+            <edgeproperty id="Porta_Manga::source::rolename"
                 sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>portaComManga</name>
+                <name>portaManga</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-10.0</userOffsetX>
-                    <userOffsetY>10.0</userOffsetY>
-                    <attached>Porta_Manga::WayPoint::1</attached>
+                    <userOffsetX>37.0</userOffsetX>
+                    <userOffsetY>-20.0</userOffsetY>
+                    <attached>Porta_Manga::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
@@ -1651,19 +1664,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="Porta_Manga::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>portaManga</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>37.0</userOffsetX>
-                    <userOffsetY>-20.0</userOffsetY>
-                    <attached>Porta_Manga::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -1717,19 +1717,6 @@
         <target>ProgramaRevisao</target>
         <name>PR_Aviao</name>
         <properties>
-            <edgeproperty id="PR_Aviao::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>programas</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>10.0</userOffsetX>
-                    <userOffsetY>12.0</userOffsetY>
-                    <attached>PR_Aviao::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty id="PR_Aviao::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -1741,6 +1728,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="PR_Aviao::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>programas</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>10.0</userOffsetX>
+                    <userOffsetY>12.0</userOffsetY>
+                    <attached>PR_Aviao::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -1952,6 +1952,19 @@
         <target>CartaoCredito</target>
         <name>Cliente_CartaoCredito</name>
         <properties>
+            <edgeproperty id="Cliente_CartaoCredito::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>cartoes</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>36.0</userOffsetX>
+                    <userOffsetY>13.0</userOffsetY>
+                    <attached>Cliente_CartaoCredito::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty
                 id="Cliente_CartaoCredito::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
@@ -1967,16 +1980,18 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="Cliente_CartaoCredito::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>cartoes</name>
+            <edgeproperty
+                id="Cliente_CartaoCredito::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="false" visible="true">
+                <name>1</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>36.0</userOffsetX>
-                    <userOffsetY>13.0</userOffsetY>
-                    <attached>Cliente_CartaoCredito::WayPoint::1</attached>
+                    <userOffsetX>0.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>Cliente_CartaoCredito::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
-                    <placement>TOP</placement>
+                    <placement>BOTTOM</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -1990,21 +2005,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
-                id="Cliente_CartaoCredito::source::multiplicity"
-                sizeCalculated="true" type="multiplicity"
-                userDefined="false" visible="true">
-                <name>1</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>0.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                    <attached>Cliente_CartaoCredito::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>BOTTOM</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -2058,6 +2058,19 @@
         <target>Voo</target>
         <name>Voo_EquipaOperacional</name>
         <properties>
+            <edgeproperty id="Voo_EquipaOperacional::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>realiza_se</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>5.0</userOffsetX>
+                    <userOffsetY>10.0</userOffsetY>
+                    <attached>Voo_EquipaOperacional::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty
                 id="Voo_EquipaOperacional::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
@@ -2070,19 +2083,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="Voo_EquipaOperacional::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>realiza_se</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>5.0</userOffsetX>
-                    <userOffsetY>10.0</userOffsetY>
-                    <attached>Voo_EquipaOperacional::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -2381,6 +2381,19 @@
         <target>Individual</target>
         <name>Pais_Individual</name>
         <properties>
+            <edgeproperty id="Pais_Individual::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>nacionais</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>64.0</userOffsetX>
+                    <userOffsetY>-5.0</userOffsetY>
+                    <attached>Pais_Individual::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty id="Pais_Individual::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -2395,16 +2408,17 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="Pais_Individual::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>nacionais</name>
+            <edgeproperty id="Pais_Individual::source::multiplicity"
+                sizeCalculated="true" type="multiplicity"
+                userDefined="true" visible="true">
+                <name>*</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>64.0</userOffsetX>
-                    <userOffsetY>-5.0</userOffsetY>
-                    <attached>Pais_Individual::WayPoint::1</attached>
+                    <userOffsetX>31.0</userOffsetX>
+                    <userOffsetY>9.0</userOffsetY>
+                    <attached>Pais_Individual::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
-                    <placement>TOP</placement>
+                    <placement>BOTTOM</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -2418,20 +2432,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="Pais_Individual::source::multiplicity"
-                sizeCalculated="true" type="multiplicity"
-                userDefined="true" visible="true">
-                <name>*</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>31.0</userOffsetX>
-                    <userOffsetY>9.0</userOffsetY>
-                    <attached>Pais_Individual::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>BOTTOM</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -2492,19 +2492,6 @@
         <target>PainelInfoTerminal</target>
         <name>Terminal_InfoTerminal</name>
         <properties>
-            <edgeproperty id="Terminal_InfoTerminal::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>infoTerminal</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>74.0</userOffsetX>
-                    <userOffsetY>5.0</userOffsetY>
-                    <attached>Terminal_InfoTerminal::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty
                 id="Terminal_InfoTerminal::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
@@ -2517,6 +2504,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Terminal_InfoTerminal::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>infoTerminal</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>74.0</userOffsetX>
+                    <userOffsetY>5.0</userOffsetY>
+                    <attached>Terminal_InfoTerminal::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -2707,6 +2707,19 @@
         <target>PainelInfoPista</target>
         <name>Pista_PainelInfoPista</name>
         <properties>
+            <edgeproperty id="Pista_PainelInfoPista::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>infoPista</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>60.0</userOffsetX>
+                    <userOffsetY>5.0</userOffsetY>
+                    <attached>Pista_PainelInfoPista::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty
                 id="Pista_PainelInfoPista::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
@@ -2722,13 +2735,13 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="Pista_PainelInfoPista::target::rolename"
+            <edgeproperty id="Pista_PainelInfoPista::source::rolename"
                 sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>infoPista</name>
+                <name>pista</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>60.0</userOffsetX>
-                    <userOffsetY>5.0</userOffsetY>
-                    <attached>Pista_PainelInfoPista::WayPoint::1</attached>
+                    <userOffsetX>41.0</userOffsetX>
+                    <userOffsetY>0.0</userOffsetY>
+                    <attached>Pista_PainelInfoPista::WayPoint::0</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
@@ -2747,19 +2760,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="Pista_PainelInfoPista::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>pista</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>41.0</userOffsetX>
-                    <userOffsetY>0.0</userOffsetY>
-                    <attached>Pista_PainelInfoPista::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -3051,20 +3051,6 @@
                 <hidden>false</hidden>
             </edgeproperty>
             <edgeproperty
-                id="EquipaOperacional_Limpeza::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>tem_horario</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>9.0</userOffsetX>
-                    <userOffsetY>18.0</userOffsetY>
-                    <attached>EquipaOperacional_Limpeza::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty
                 id="EquipaOperacional_Limpeza::source::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -3076,6 +3062,20 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty
+                id="EquipaOperacional_Limpeza::source::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>tem_horario</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>9.0</userOffsetX>
+                    <userOffsetY>18.0</userOffsetY>
+                    <attached>EquipaOperacional_Limpeza::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -3234,19 +3234,6 @@
         <target>Reserva</target>
         <name>Cliente_Reserva</name>
         <properties>
-            <edgeproperty id="Cliente_Reserva::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>reservas</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>3.0</userOffsetX>
-                    <userOffsetY>-15.0</userOffsetY>
-                    <attached>Cliente_Reserva::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty id="Cliente_Reserva::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -3261,13 +3248,13 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
-            <edgeproperty id="Cliente_Reserva::source::rolename"
+            <edgeproperty id="Cliente_Reserva::target::rolename"
                 sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>cliente</name>
+                <name>reservas</name>
                 <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>1.0</userOffsetX>
-                    <userOffsetY>-16.0</userOffsetY>
-                    <attached>Cliente_Reserva::WayPoint::0</attached>
+                    <userOffsetX>3.0</userOffsetX>
+                    <userOffsetY>-15.0</userOffsetY>
+                    <attached>Cliente_Reserva::WayPoint::1</attached>
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>TOP</placement>
@@ -3285,6 +3272,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Cliente_Reserva::source::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>cliente</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>1.0</userOffsetX>
+                    <userOffsetY>-16.0</userOffsetY>
+                    <attached>Cliente_Reserva::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -3338,19 +3338,6 @@
         <target>Voo</target>
         <name>Voo_Porta</name>
         <properties>
-            <edgeproperty id="Voo_Porta::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>voooPorta</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-13.0</userOffsetX>
-                    <userOffsetY>-6.0</userOffsetY>
-                    <attached>Voo_Porta::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty id="Voo_Porta::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="false" visible="true">
@@ -3362,6 +3349,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Voo_Porta::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>voooPorta</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-13.0</userOffsetX>
+                    <userOffsetY>-6.0</userOffsetY>
+                    <attached>Voo_Porta::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -3476,6 +3476,19 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
+            <edgeproperty id="Proximidade::source::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>servem {ordered}</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>126.0</userOffsetX>
+                    <userOffsetY>4.0</userOffsetY>
+                    <attached>Proximidade::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty id="Proximidade::source::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -3487,19 +3500,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="Proximidade::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>servem {ordered}</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>126.0</userOffsetX>
-                    <userOffsetY>4.0</userOffsetY>
-                    <attached>Proximidade::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -3647,6 +3647,19 @@
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
+            <edgeproperty id="Realizacao::source::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>realiza_se</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>-1.0</userOffsetX>
+                    <userOffsetY>3.0</userOffsetY>
+                    <attached>Realizacao::WayPoint::0</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
             <edgeproperty id="Realizacao::source::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="true" visible="true">
@@ -3658,19 +3671,6 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
-            <edgeproperty id="Realizacao::source::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>realiza_se</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>-1.0</userOffsetX>
-                    <userOffsetY>3.0</userOffsetY>
-                    <attached>Realizacao::WayPoint::0</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
@@ -3762,19 +3762,6 @@
         <target>Classe</target>
         <name>Capacidade</name>
         <properties>
-            <edgeproperty id="Capacidade::target::rolename"
-                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
-                <name>classe</name>
-                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
-                    <userOffsetX>53.0</userOffsetX>
-                    <userOffsetY>2.0</userOffsetY>
-                    <attached>Capacidade::WayPoint::1</attached>
-                    <offset_x>8</offset_x>
-                    <offset_y>8</offset_y>
-                    <placement>TOP</placement>
-                </strategy>
-                <hidden>false</hidden>
-            </edgeproperty>
             <edgeproperty id="Capacidade::target::multiplicity"
                 sizeCalculated="true" type="multiplicity"
                 userDefined="false" visible="true">
@@ -3786,6 +3773,19 @@
                     <offset_x>8</offset_x>
                     <offset_y>8</offset_y>
                     <placement>BOTTOM</placement>
+                </strategy>
+                <hidden>false</hidden>
+            </edgeproperty>
+            <edgeproperty id="Capacidade::target::rolename"
+                sizeCalculated="true" type="rolename" userDefined="true" visible="true">
+                <name>classe</name>
+                <strategy type="org.tzi.use.gui.views.diagrams.elements.positioning.StrategyRelativeToAttached">
+                    <userOffsetX>53.0</userOffsetX>
+                    <userOffsetY>2.0</userOffsetY>
+                    <attached>Capacidade::WayPoint::1</attached>
+                    <offset_x>8</offset_x>
+                    <offset_y>8</offset_y>
+                    <placement>TOP</placement>
                 </strategy>
                 <hidden>false</hidden>
             </edgeproperty>
