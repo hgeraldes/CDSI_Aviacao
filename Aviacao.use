@@ -370,7 +370,7 @@ class Main
 --OPERACIONAL
 --------------------------------------------------------------
 
-		/*gestaoOperacional()
+		gestaoOperacional()
 			begin
 				
 				self.teleprompter('-----------------------------------------------\n'
@@ -385,6 +385,9 @@ class Main
 				
 				self.teleprompter('Inicializacao objeto Voo (v1)');
 				self.scene3_Opera();
+				
+				self.teleprompter('Inicializacao objeto Tripulacao (t1) , objeto Catering (c1) , objeto Limpeza (l1) e objeto EquipaOperacional (ea1)');
+				self.scene4_Opera();
 
 			end
 			
@@ -403,13 +406,25 @@ class Main
 			
 		scene3_Opera()
 			begin
-				self.horaPartida := new Instant();
+				self.horaPartida := new Instant('HoraPartida');
 				self.horaPartida.init(9,0,0);
-				self.horaChegada := new Instant();
+				self.horaChegada := new Instant('HoraChegada');
 				self.horaChegada.init(18,0,0);
-				self.v1.inicializa('99',horaPartida,horaChegada,400);
-			end*/
-
+				self.aeroportoOrigem := new Aeroporto('AeroportoOrigem');
+				self.aeroportoOrigem.nome := 'Lisboa';
+				self.aeroportoDestino := new Aeroporto('AeroportoDestino');
+				self.aeroportoDestino.nome := 'Madrid';
+				self.v1.inicializa('99',self.horaPartida,self.horaChegada,400,self.aeroportoOrigem,self.aeroportoDestino);
+			end
+			
+		scene4_Opera()
+			begin
+				self.t1.init(3, self.ea1);
+				self.c1.init('Gertal', self.ea1);
+				self.l1.init('Eulen', self.ea1);
+				self.ea1.init(1,self.v1);
+			end
+		
 	end	--Main
 
 --------------------------------------------------------------
@@ -1281,9 +1296,10 @@ class Tripulacao
 		numeroAssistentesBordo: Integer init = 0
 		
 	operations
-		init(numeroAssistentesBordo: Integer)
+		init(numeroAssistentesBordo: Integer, equipaOperacional: EquipaOperacional)
 			begin
 				self.numeroAssistentesBordo:= numeroAssistentesBordo;
+				insert (self, equipaOperacional) into EquipaOperacional_Tripulacao;
 			end
 		
 end --Tripulacao
@@ -1294,9 +1310,10 @@ class Catering
 		nomeEmpresa: String init = 'Nenhuma'
 		
 	operations
-		init(nomeEmpresa: String)
+		init(nomeEmpresa: String, equipaOperacional: EquipaOperacional)
 			begin
 				self.nomeEmpresa:= nomeEmpresa;
+				insert (self, equipaOperacional) into EquipaOperacional_Catering;
 			end
 		
 end --Catering
@@ -1307,9 +1324,10 @@ class Limpeza
 		nomeEmpresa: String init = 'Nenhuma'
 		
 	operations
-		init(nomeEmpresa: String)
+		init(nomeEmpresa: String, equipaOperacional: EquipaOperacional)
 			begin
 				self.nomeEmpresa:= nomeEmpresa;
+				insert (self, equipaOperacional) into EquipaOperacional_Limpeza;
 			end
 		
 end --Limpeza		
@@ -1458,17 +1476,17 @@ end
 
 association EquipaOperacional_Tripulacao between
 	Tripulacao [1] role atraves_de
-	EquipaOperacional [*] role constroi_se
+	EquipaOperacional [*] role existe
 end
 
 association EquipaOperacional_Catering between
 	Catering [1] role tem_servico
-	EquipaOperacional [*] role constroi_se
+	EquipaOperacional [*] role existe
 end
 
 association EquipaOperacional_Limpeza between
 	Limpeza [1] role tem_horario
-	EquipaOperacional [*] role constroi_se
+	EquipaOperacional [*] role existe
 end
 
 association Pista_PainelInfoPista between 
