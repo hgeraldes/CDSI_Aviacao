@@ -353,10 +353,13 @@ class Main
 			begin
 				self.pr1 := new ProgramaRevisao('pr1');
 				self.pr1.init(1,0,0,0,0);
+				self.pr1.criaRelacaoAviao(self.a1);
 				self.pr2 := new ProgramaRevisao('pr2');
 				self.pr2.init(2,0,0,0,0);
+				self.pr2.criaRelacaoAviao(self.a2);
 				self.pr3 := new ProgramaRevisao('pr3');
 				self.pr3.init(3,0,0,0,0);
+				self.pr3.criaRelacaoAviao(self.a1);
 			end	
 			
 		scene3_Manut()
@@ -1330,25 +1333,29 @@ class ProgramaRevisao
 				self.dataConclusao:= dataConclusao;
 				self.dataCancel:= dataCancel;
 			end
+		criaRelacaoAviao (aviao: Aviao)
+			begin
+				insert(aviao, self) into PR_Aviao;
+			end
 
 		setDataProgramacao(data: Integer)
 			begin
-				self.dataProgramacao := data
+				self.dataProgramacao := data;
 			end
 			
 		setDataExecucao(data: Integer)
 			begin
-				self.dataExecucao := data
+				self.dataExecucao := data;
 			end
 			
 		setDataConclusao(data: Integer)
 			begin
-				self.dataConclusao := data
+				self.dataConclusao := data;
 			end
 			
 		setDataCancel(data: Integer)
 			begin
-				self.dataCancel := data
+				self.dataCancel := data;
 			end
 						
 			
